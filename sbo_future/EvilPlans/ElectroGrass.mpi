@@ -1,0 +1,13 @@
+ElectroGrass: sbo_electrograss
+------------------------------
+Depends: sbz_resources, sbz_bio, sbo_progression
+Quest:ElectroGrass
+* Requires: Carbon Dioxide
+* Questline: Organics
+Block: ElectroGrass
+* Sbz Plant
+* 4 Stages
+* Drops: 2-4 Charged Particles
+* Demands 3 CO2
+* Craft: Shapeless:
+  * Charged Particle, Pyrograss

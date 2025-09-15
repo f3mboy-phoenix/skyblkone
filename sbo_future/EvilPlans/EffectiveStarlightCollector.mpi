@@ -1,0 +1,13 @@
+Effective Starlight Collector: sbo_eff_star_col
+-----------------------------------------------
+Depends:sbo_cd, sbz_progression, sbz_power
+Block: Effective Starlight Collector:
+* Sbz Generator
+* Generates 3 consistant power
+* Craft: Shaped:
+  * N/A, Cadmium Ingot, N/A
+  * Cadmium Ingot, Starlight Collector, Cadmium Ingot
+  * N/A, Cadmium Ingot, N/A
+Quest: Effective Starlight Collector
+* Requires: Starlight Collectors
+* Questline: Power

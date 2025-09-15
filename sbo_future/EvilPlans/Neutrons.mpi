@@ -1,0 +1,10 @@
+Neutrons: sbo_neutrons
+----------------------
+Depends: sbz_resources, sbo_extrosim, sbz_meteorites
+Item: Neutron
+* Craft: Raw Extrosim, AntiMatter
+* Use: 9 Neutrons = 1 Neutronium
+* Use: 5 Neutrons + 4 AmtiMatter = 1 AntiNeutronium
+Quest:Neutron
+* Requires: Obtain Extrosim, AntiMatter
+* Questline:Extrosim

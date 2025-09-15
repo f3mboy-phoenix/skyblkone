@@ -1,0 +1,13 @@
+Core Wart: sbo_core_wart
+------------------------
+Depends: sbz_resources, sbz_progression, sbz_bio
+Block: Core Wart
+* Sbz Plant
+* 4 Stages
+* Drops: 2-4 Core Dust
+* Demands: 3 CO2
+* Craft: Shapeless:
+  * Core Dust, Fertlizer, Warp Shroom
+Quest: Core Wart
+* Requires: Fertlizer, Not Chorus Fruit
+* Questline: Organics

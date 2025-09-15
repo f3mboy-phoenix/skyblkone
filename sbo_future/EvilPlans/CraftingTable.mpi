@@ -1,0 +1,17 @@
+Crafting Table:sbo_craft_tbl
+----------------------------
+Depends: sbz_progression, sbo_wood, sbz_pipeworks, sbo_modded_elem
+Block: Crafting Table
+* Craft:shaped
+  * Wooden Plank, Wooden Plank
+  * Wooden Plank, Wooden Plank
+Quest:BenchMarking
+* Requires: Wooden Plank
+* Questline: Wood
+Craft: Shaped: Autocrafter:
+* Platinum Ingot, Pipe, Platinum Ingot
+* Pipe, Crafting Table, Pipe
+* Platinum Ingot, Pipe, Platinum Ingot
+Quest: Autocrafter?
+* Requires: Autocrafter, BenchMarking, Tubes
+* Questline: Wood

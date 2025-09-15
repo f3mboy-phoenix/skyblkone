@@ -1,0 +1,15 @@
+Neutronium Generator: sbo_neu_gen
+---------------------------------
+Depends: sbz_resources, sbz_power, sbz_meteorites, sbz_progression, sbo_control_board, sbo_extrosim_glass, sbo_modded_elem:260
+Block: Neutronium Generator:
+* Sbz Generator
+* Generates: 1000 Power
+* Craft: Shaped:
+  * CuZn, Reactor Shell, CuZn
+  *Reactor Shell, Compressed Core Dust, Reactor Shell
+  *Extrosim Glass, Control Board, Extrosim Glass
+* Literally an antimatter generator that uses Neutronium&Antineutronium
+* Use With Batterys
+Quest:Neutronium Generator
+* Requires: Control Board, Reactor Shell, Extrosim Glass
+* Questline: Power

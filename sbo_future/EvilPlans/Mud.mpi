@@ -1,0 +1,24 @@
+Mud: sbo_mud
+------------
+Depends: sbz_bio, sbz_progression
+Block:Mud
+*Craft: Shapeless:
+  *Dirt, Liquid Water
+Block: Compressed Mud
+*Craft: Shaped:
+  *Mud, PyroGrass
+  *PyroGrass, Mud
+Block: Compressed Mud Bricks: CMB
+*Craft: Shapeless: 4
+  * 4 Compressed Mud
+* CNC Enabled
+Questline: Mud
+Quest: Mud
+* Requires:Liquid Water, Dirt
+* Questline: Mud
+Quest: Compressed Mud
+* Requires: Mud, Carbon Dioxide
+* Questline: Mud
+Quest: Compressed Mud Bricks
+* Requires: Compressed Mud
+* Questline: Mud

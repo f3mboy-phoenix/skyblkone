@@ -1,0 +1,11 @@
+Doors:sbo_doors
+---------------
+Depends:sbo_progression, sbo_wood
+Block: Wooden Door
+* Craft: Shaped: 3
+  *Wooden Plank, Wooden Plank
+  *Wooden Plank, Wooden Plank
+  *Wooden Plank, Wooden Plank
+Quest: Wooden Door
+* Requires: Wooden Plank
+* Questline: Wood
