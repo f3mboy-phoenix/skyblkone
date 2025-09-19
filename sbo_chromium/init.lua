@@ -1,4 +1,4 @@
-sbz_api.register_modded_element("chromium", "#e3e3e3", "Chromium %s (Cr)", {part_of_enhanced_drops = true }, "sbo_chromium:")
+sbz_api.register_element("chromium", "#e3e3e3", "Chromium %s (Cr)", {part_of_enhanced_drops = true }, "sbo_chromium:")
 --sbo_chromium:chromium
 unified_inventory.register_craft {
     output = "sbo_chromium:chromium_powder",

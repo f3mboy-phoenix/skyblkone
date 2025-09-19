@@ -11,7 +11,7 @@ Have you ever wanted to automatically move items around without input?
   
 Now you can!  
   
-Tubes are, well, tubes that can transport items around! Currently, you can't interact with them: but just have some lying around, the next and future quests utilize them.  
+Tubes are, well, tubes that can transport items around! Currently, you can't interact with them: but just have some lying around, the next and future quests use them.  
   
 TIP: Items in tubes will go into directions with higher tube priority. The default tube priority is 100.
 
@@ -89,7 +89,7 @@ Requires: Automatic Filter-Injectors, Bear Arms, Emittrium Circuits
 
 ### Text
 
-Autocrafters automatically craft. You can make them craft as fast as possible, but they consume more power depending on the current crafts/s.
+Autocrafters automatically craft. You can make them craft as fast as possible, but they consume more power depending on the current crafts.
 
 ### Meta
 
@@ -242,13 +242,13 @@ Requires: Automatic Filter-Injectors
 
 # Questline: Fluid Transport
 
-This questline is all about transporting fluids.
+This questline about transporting fluids.
 
 ## Fluid Pipes
 
 ### Text
 
-A fluid pipe is like a tube, but with fluids. They move fluids around, just like how tubes move items around.
+A fluid pipe is like a (insta)tube, but with fluids. They move fluids around, just like how tubes move items around.
 
 ### Meta
 
@@ -268,7 +268,11 @@ Requires: Automatic Filter-Injectors
 
 ### Text
 
-Fluid Storage Tanks are storinators for fluids. They can store 100 nodes of fluid. That's a lot!
+Fluid Storage Tanks are storinators for fluids. They can store 100 nodes of fluid. That's a lot! (But not really if you compare the amount of nodes that the basic storinator can store)
+
+Tip: Once any fluid storage has received one type of liquid, they will always continue to receive that type of liquid  
+This means that if you have a fluid storage that was previously filled with liquid aluminium, but now you want to fill it with water, you will need to replace that fluid storage block.  
+This applies to pretty much all of fluid transport.  
 
 ### Meta
 
@@ -278,7 +282,7 @@ Requires: Tubes, Storinators
 
 ### Text
 
-Fluid Capturers capture liquid SOURCES from their top and store them. You can take out the captured fluid with a fluid pump.
+Fluid Capturers capture liquid **sources** from their top and store them. You can take out the captured fluid with a fluid pump.
 
 ### Meta
 

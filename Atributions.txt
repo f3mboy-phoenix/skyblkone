@@ -1,7 +1,4 @@
 This a modified version of sbz_progressions from Skyblock: Zero by zanderdev
 I modified the api to expose the quest list and advancement table, and to add functionality to add quests to a specific questline
-<<<<<<< HEAD
 
 The Laptop mod was ported and included in this modpack ass well. recipes were changed.
-=======
->>>>>>> ae809a5b4cd7d203837fbef85ab3d30ed1332e56

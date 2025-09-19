@@ -4,7 +4,7 @@ core.register_craftitem("sbo_control_board:control_board", {
 })
 minetest.register_craft({
     type = "shapeless",
-    output = "sbo_control_board 4",
+    output = "sbo_control_board:control_board 4",
     recipe = {
 		"sbo_shock_circuit:shock_circuit",
 		"sbo_colorium_circuit:colorium_circuit",

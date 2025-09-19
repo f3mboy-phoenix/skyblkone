@@ -4,48 +4,6 @@ local rc = laptop.recipe_compat -- Recipe items from other mods
 ---------PROCESSORS---------
 ----------------------------
 
-minetest.register_craftitem("laptop:cpu_c6", {
-	description = 'Ziram c6 Processor',
-	inventory_image = "laptop_cpu_c6.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:cpu_c6',
-	recipe = {
-		{'', '', ''},
-		{rc.silicon, rc.gates_diode, rc.tin},
-		{rc.gates_and, rc.gates_or, rc.gates_nand},
-	}
-})
-
-minetest.register_craftitem("laptop:cpu_d75a", {
-	description = 'Interlink D75A Processor',
-	inventory_image = "laptop_cpu_d75a.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:cpu_d75a',
-	recipe = {
-		{rc.silicon, rc.silicon, rc.silicon},
-		{rc.gates_xor, rc.copper, rc.gates_nand},
-		{rc.fpga, rc.programmer, rc.fpga},
-	}
-})
-
-minetest.register_craftitem("laptop:cpu_jetcore", {
-	description = 'Interlink jetCore Processor',
-	inventory_image = "laptop_cpu_jetcore.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:cpu_jetcore',
-	recipe = {
-		{rc.silicon, rc.silicon, rc.silicon},
-		{rc.fiber, rc.gold, rc.delayer},
-		{rc.fpga, rc.controller, rc.programmer},
-	}
-})
-
 minetest.register_craftitem("laptop:cpu_65536", {
 	description = 'Transpose 65536 Processor',
 	inventory_image = "laptop_cpu_65536.png",
@@ -99,48 +57,6 @@ minetest.register_craft({
 		{rc.glass, rc.glass, rc.glass},
 		{rc.light_red , rc.light_green, rc.light_blue},
 		{rc.steel, rc.controller, rc.steel},
-	}
-})
-
-minetest.register_craftitem("laptop:crt_amber", {
-	description = 'Amber CRT Screen',
-	inventory_image = "laptop_crt_amber.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:crt_amber',
-	recipe = {
-		{rc.glass, 'unifieddyes:colorium', rc.glass},
-		{rc.light_red , rc.light_green, rc.light_blue},
-		{rc.steel, rc.controller, rc.steel},
-	}
-})
-
-minetest.register_craftitem("laptop:crt_green", {
-	description = 'Green CRT Screen',
-	inventory_image = "laptop_crt_green.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:crt_green',
-	recipe = {
-		{rc.glass, rc.light_green, rc.glass},
-		{rc.light_red , 'unifieddyes:colorium', rc.light_blue},
-		{rc.steel, rc.controller, rc.steel},
-	}
-})
-
-minetest.register_craftitem("laptop:lcd", {
-	description = 'LCD Screen',
-	inventory_image = "laptop_lcd.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:lcd',
-	recipe = {
-		{rc.light_red , rc.light_green, rc.light_blue},
-		{'unifieddyes:colorium', rc.controller, 'unifieddyes:colorium'},
-		{rc.steel, rc.diamond, rc.steel},
 	}
 })
 
@@ -262,5 +178,12 @@ minetest.register_craftitem("laptop:printed_paper", {
 	minetest.show_formspec(user:get_player_name(), "laptop:printed_paper", formspec)
 	return itemstack
 	end
-
+})
+minetest.register_craft({
+	output = 'laptop:usbstick',
+	recipe = {
+		{'', "sbo_bio:fiberweed", ''},
+		{'', "sbo_bio:fiberweed", ''},
+		{'', "sbo_bio:fiberweed", ''},
+	}
 })

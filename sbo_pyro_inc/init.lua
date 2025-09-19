@@ -6,6 +6,9 @@ sbz_api.register_machine("sbo_pyro_inc:pyro_incubator", {
     groups = { matter = 1, sbz_machine = 1, pipe_connects = 1 },
     sunlight_propagates = true,
     walkable = true,
+    use_texture_alpha = "clip",
+    drawtype = "glasslike_framed_optional",
+    paramtype = "light",
     on_rightclick = function(pos, node, player, pointed_thing)
         local player_name = player:get_player_name()
         minetest.show_formspec(player_name, "sbz_power:plant_incubator_formspec",
