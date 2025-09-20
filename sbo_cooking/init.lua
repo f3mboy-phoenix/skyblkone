@@ -78,7 +78,7 @@ minetest.register_craft({
 minetest.register_craftitem("sbo_cooking:resium", {
     description = "Resium Candy",
     on_use=hbhunger.item_eat(5),
-    inventory_image = "resium.png", -- replace or draw your own
+    inventory_image = "fresium.png", -- replace or draw your own
 })
 hbhunger.register_food("sbo_cooking:resium", 5)
 minetest.register_craft({
