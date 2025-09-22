@@ -1,6 +1,6 @@
 sbz_api.register_element("chromium", "#e3e3e3", "Chromium %s (Cr)", {part_of_enhanced_drops = true }, "sbo_chromium:")
 --sbo_chromium:chromium
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",
     type = "centrifugeing",
     chance = 100,
@@ -9,7 +9,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",
     type = "centrifugeing",
     chance =50,
@@ -17,7 +17,7 @@ unified_inventory.register_craft {
         "sbz_resources:white_sand"
     }
 }
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",
     type = "centrifugeing",
     chance = 25,

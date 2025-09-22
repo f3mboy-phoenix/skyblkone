@@ -1,4 +1,4 @@
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:silicon_powder 2",
     type = "centrifugeing",
     chance = 75,
@@ -6,7 +6,7 @@ unified_inventory.register_craft {
         "sbz_resources:sand"
     }
 }
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:gold_powder",
     type = "centrifugeing",
     chance = 30,
@@ -14,7 +14,7 @@ unified_inventory.register_craft {
         "sbz_resources:sand"
     }
 }
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_resources:white_sand",
     type = "centrifugeing",
     items = {
@@ -22,7 +22,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_resources:dark_sand",
     type = "centrifugeing",
     items = {
@@ -30,7 +30,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:silver_powder",
     chance = 20,
     type = "centrifugeing",
@@ -39,7 +39,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_resources:black_sand",
     type = "centrifugeing",
     items = {
@@ -47,7 +47,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:silver_powder",
     chance = 10,
     type = "centrifugeing",
@@ -56,7 +56,7 @@ unified_inventory.register_craft {
     }
 }
 
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:cobalt_powder",
     chance = 30,
     type = "centrifugeing",
@@ -64,7 +64,7 @@ unified_inventory.register_craft {
         "sbz_resources:gravel"
     }
 }
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:lithium_powder",
     chance = 30,
     type = "centrifugeing",
@@ -72,7 +72,7 @@ unified_inventory.register_craft {
         "sbz_resources:gravel"
     }
 }
-unified_inventory.register_craft {
+sbz_api.recipe.register_craft {
     output = "sbz_chem:titanium_powder",
     chance = 30,
     type = "centrifugeing",

@@ -16,3 +16,9 @@ minetest.register_craft({
 		"sbz_resources:prediction_circuit",
 		"sbz_resources:simple_logic_circuit" }
 })
+sbz_api.achievment_table["sbo_control_board:control_board"] = "Control Board"
+sbz_api.register_quest_to("Questline: Resources",{
+        type = "quest",
+        title = "Control Board",
+        text = [[You made a control board, it is required for crafting]],
+})

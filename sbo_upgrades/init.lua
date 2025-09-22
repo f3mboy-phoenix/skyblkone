@@ -1,6 +1,10 @@
 sbo_upgrades = {}
 sbo_upgrades.health_items = {}
+sbo_upgrades.hunger_items = {}
 sbo_upgrades.breath_items = {}
+sbo_upgrades.speed_items = {}
+sbo_upgrades.jump_items = {}
+sbo_upgrades.gravity_items = {}
 sbo_upgrades.translator = minetest.get_translator("sbo_upgrades")
 
 local modpath = minetest.get_modpath("sbo_upgrades")
@@ -22,6 +26,10 @@ minetest.after(0, function()
 	local items = minetest.registered_items
 	local health_items = {}
 	local breath_items = {}
+	local hunger_items = {}
+	local speed_items = {}
+	local jump_items = {}
+	local gravity_items = {}
 
 	for name, def in pairs(items) do
 		local groups = def.groups or {}
@@ -33,15 +41,41 @@ minetest.after(0, function()
 				and groups.upgrade_breath ~= 0 then
 			breath_items[name] = groups.upgrade_breath
 		end
+		if groups.upgrade_hunger
+				and groups.upgrade_hunger ~= 0 then
+			hunger_items[name] = groups.upgrade_hunger
+		end
+		if groups.upgrade_jump
+				and groups.upgrade_jump ~= 0 then
+			jump_items[name] = groups.upgrade_jump
+		end
+		if groups.upgrade_speed
+				and groups.upgrade_speed ~= 0 then
+			speed_items[name] = groups.upgrade_speed
+		end
+		if groups.upgrade_gravity
+				and groups.upgrade_gravity ~= 0 then
+			gravity_items[name] = groups.upgrade_gravity
+		end
+
 	end
 	sbo_upgrades.health_items = health_items
 	sbo_upgrades.breath_items = breath_items
+	sbo_upgrades.hunger_items = hunger_items
+	sbo_upgrades.speed_items = speed_items
+	sbo_upgrades.jump_items = jump_items
+	sbo_upgrades.gravity_items = gravity_items
+
 end)
 
 -- Hacky: Set the hp_max and breath_max value first
 table.insert(minetest.registered_on_joinplayers, 1, function(player)
+	sbz_api.displayDialogLine(player:get_player_name(), "Welcome "..player:get_player_name())
 	sbo_upgrades.meta_to_inv(player)
 	sbo_upgrades.update_player(player)
+	--hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
+	hbhunger.update_hud(player)
+	hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
 end)
 
 minetest.register_on_leaveplayer(sbo_upgrades.inv_to_meta)
@@ -79,6 +113,18 @@ minetest.register_allow_player_inventory_action(function(player, action, inv, da
 	if sbo_upgrades.breath_items[stack:get_name()] then
 		return 1
 	end
+	if sbo_upgrades.hunger_items[stack:get_name()] then
+		return 1
+	end
+	if sbo_upgrades.speed_items[stack:get_name()] then
+		return 1
+	end
+	if sbo_upgrades.jump_items[stack:get_name()] then
+		return 1
+	end
+	if sbo_upgrades.gravity_items[stack:get_name()] then
+		return 1
+	end
 
 	return 0
 end)
@@ -86,6 +132,8 @@ end)
 minetest.register_on_player_inventory_action(function(player, action, inv, data)
 	if data.to_list == "ugpacks" or data.from_list == "ugpacks" then
 		sbo_upgrades.update_player(player)
-		sbo_upgrades.update_player(player)
+		--sbo_upgrades.update_player(player)
+
+		hbhunger.update_hud(player)
 	end
 end)

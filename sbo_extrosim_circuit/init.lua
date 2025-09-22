@@ -14,6 +14,6 @@ sbz_api.achievment_table["sbo_extrosim_circuit:extrosim_circuit"] = "Extrosim Ci
 sbz_api.register_quest_to("Questline: Extrosim",{
         type = "quest",
         title = "Extrosim Circuit",
-        text = "Better than Emittrium Glass, this is explotion proof",
+        text = "A circuit made from Extrosim",
         requires = { "Obtain Extrosim" }
 })

@@ -22,7 +22,7 @@ sbz_api.achievment_table["sbo_dark_glass:dark_glass"] = "Dark Glass"
 sbz_api.register_quest_to("Questline: Decorator",{
         type = "quest",
         title = "Dark Glass",
-        text = "Dark Glass looks cool for Tinted Windows",
+        text = "Dark Glass looks cool for Glass",
         requires = { "Centrifuge" }
 })
 

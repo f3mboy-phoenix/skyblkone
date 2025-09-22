@@ -18,6 +18,6 @@ sbz_api.register_quest_to("Questline: Emittrium",{
         title = "Emittrium Plate",
         text = [[Emittrium Plates are often used for machinery. They are simple to craft, yet very important.
 
-You can get one Emittrium Plates by placing two Raw Emittrium blob into the Ele Fab.]],
+You can get one Emittrium Plates by placing two Raw Emittrium into the Ele Fab.]],
         requires = {"Obtain Emittrium","Ele Fabs"}
 })

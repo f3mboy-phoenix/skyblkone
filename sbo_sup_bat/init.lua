@@ -5,18 +5,10 @@ function sbz_power.round_power(n)
     return math.round(n * 100) / 100
 end
 
---- Converts cj into cjh (kinda like kwh irl)
---- NOT PRECISE, you can make precise functions if you need them
----@param cj number
----@return number
 function sbz_power.cj2cjh(cj)
     return sbz_power.round_power(cj / tph)
 end
 
---- Converts cjh into cj (kinda like kwh irl)
---- NOT PRECISE, you can make precise functions if you need them
----@param cjh number
----@return number
 function sbz_power.cjh2cj(cjh)
     return sbz_power.round_power(cjh * tph)
 end

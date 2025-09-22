@@ -64,8 +64,8 @@ sbz_api.register_machine("sbo_grim_grower:grim_grower", {
             })
         end
     end,
-    power_needed = 20,
-    action_interval = 2,
+    power_needed = 40,
+    action_interval = 4,
     output_inv = "main",
 })
 
@@ -84,7 +84,7 @@ sbz_api.register_quest_to("Questline: Organics",{
         title = "Grime Growin'",
         text =
         [[  You can create Grime Grower.
-    2 photons, 2 peices of algae, 4 matter blobs, 1 simple circuit
+    2 photons, 2 peices of algae, 4 matter blobs, 1 extrosim circuit
         ]],
         requires = { "Generators", "Extrosim Circuit"}
 })

@@ -18,20 +18,6 @@ minetest.register_craft({
 	}
 })
 
-minetest.register_craftitem("laptop:bat", {
-	description = 'Battery',
-	inventory_image = "laptop_bat.png",
-})
-
-minetest.register_craft({
-	output = 'laptop:bat',
-	recipe = {
-		{rc.steel, rc.battery, rc.steel},
-		{rc.battery, rc.gates_diode, rc.battery},
-		{rc.steel, rc.battery, rc.steel},
-	}
-})
-
 minetest.register_craftitem("laptop:case", {
 	description = 'Case',
 	inventory_image = "laptop_case.png",

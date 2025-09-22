@@ -2,13 +2,14 @@ local pipes=pipeworks.tubenodes
 for i = 1, #pipes do
 	local priority=minetest.registered_nodes[pipes[i]].tube.priority
 	minetest.override_item(pipes[i],{on_construct=function(pos)
-		local meta=minetest.get_meta(pos)
-		meta:set_string("infotext","Priority: ".. priority)
-	end,
-	on_step=function(pos)
-		local meta=minetest.get_meta(pos)
-		meta:set_string("infotext","Priority: ".. priority)
-	end})
+			local meta=minetest.get_meta(pos)
+			meta:set_string("infotext","Priority: ".. priority)
+		end,
+		on_step=function(pos)
+			local meta=minetest.get_meta(pos)
+			meta:set_string("infotext","Priority: ".. priority)
+		end
+	})
 end
 minetest.register_chatcommand("scan_tubes", {
     params = "",

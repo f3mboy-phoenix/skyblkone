@@ -37,7 +37,7 @@ minetest.register_tool("sbo_laser:laser_weapon", {
                             end
                         end)
                     end
-                    
+
                     if ref:is_player() then
                         minetest.after(0.1, function()
                             if ref and ref:is_player() and player and player:is_player() then

@@ -1,23 +1,23 @@
 minetest.register_tool("sbo_resium_tools:drill", {
     description = "Resium Drill",
     inventory_image = "resium_tool.png",
-    groups = { core_drop_multi = 2 },
+    groups = { core_drop_multi = 10 },
     -- Tool properties
     tool_capabilities = {
         full_punch_interval = 0.1,
         damage_groups = { matter = 1, antimatter = 1 },
         max_drop_level = 1,
         groupcaps = {
-            matter = { 
+            matter = {
                 times = { [1] = 1.50 / 2, [2] = 0.30 / 2, [3] = 0.10 / 2 },
                 uses = 60,
-                leveldiff = 2, 
+                leveldiff = 2,
                 maxlevel = 2
             },
-            antimatter = { 
+            antimatter = {
                 times = { [1] = 1.50 / 2, [2] = 0.30 / 2, [3] = 0.10 / 2 },
                 uses = 60,
-                leveldiff = 2, 
+                leveldiff = 2,
                 maxlevel = 2
             },
         },
@@ -35,8 +35,15 @@ minetest.register_tool("sbo_resium_tools:drill", {
 minetest.register_craft {
     recipe = {
         { "sbz_chem:titanium_ingot",         "sbz_resources:robotic_arm",       "sbz_chem:titanium_ingot" },
-        { "sbz_chem:titanium_ingot",         "sbz_power:battery",               "sbz_chem:titanium_ingot" },
+        { "sbo_modded_elem:magnesium_ingot",         "sbz_power:battery",               "sbo_modded_elem:magnesium_ingot" },
         { "sbz_resources:reinforced_matter", "sbo_resium:circuit", "sbz_resources:reinforced_matter" }
     },
     output = "sbo_resium_tools:drill"
 }
+sbz_api.achievment_table["sbo_resium_tools:drill"] = "Resium Drill"
+sbz_api.register_quest_to("Questline: Resium",{
+        type = "quest",
+        title = "Resium Drill",
+        text = "A Drill made out of Resium can repair itself",
+        requires = { "Obtain Resium", "Resium Circuit" }
+})

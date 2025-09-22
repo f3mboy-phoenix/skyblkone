@@ -14,5 +14,5 @@ sbz_api.register_quest_to("Questline: Chemistry",{
         type = "quest",
         title = "Photons",
         text = [[Let there be Light!]],
-        requires = { "Antimatter" }
+        requires = { "Antimatter", "Introduction" }
 })

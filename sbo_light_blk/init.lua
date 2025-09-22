@@ -1,5 +1,5 @@
 minetest.register_node("sbo_light_blk:light_block", {
-    description = "Light Block\n\nLight Source Only. Strength: 20.",
+    description = "Light Block\n\nLight Source Only. Strength: 14.",
     drawtype = "glasslike",
     tiles = { "light_block.png" },
     groups = { matter = 1, explody = 3 },

@@ -1,7 +1,7 @@
 -- Define a new pickaxe
 minetest.register_tool("sbo_comp_ani:matter_annihilator", {
     description = "Super Matter Annihilator",
-    inventory_image = "compmatter_annihilator.png", -- Replace with your own image file
+    inventory_image = "compmatter_annihilator.png",
 
     groups = { core_drop_multi = 9 },
     -- Tool properties
@@ -28,4 +28,10 @@ minetest.register_craft({
         { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" },
         { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" }
     }
+})
+sbz_api.achievment_table["sbo_comp_ani:matter_annihilator"] = "Super Annihilator"
+sbz_api.register_quest_to("Questline: Secrets",{
+        type = "secret",
+        title = "Super Annihilator",
+        text = [[You made a super annihilator, it gives 9x core drops]],
 })

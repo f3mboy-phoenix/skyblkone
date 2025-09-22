@@ -1,13 +1,14 @@
 local storage = minetest.get_mod_storage()
-sbz_api.fish_storage=storage
+sbz_api.fish={}
+sbz_api.fish.storage=storage
 local __fish= tonumber(storage:get_string("fishes")) or 0
 print(fishes)
 minetest.register_craftitem("sbo_fish:fish", {
     description = "Voidfish",
-    on_use=hbhunger.item_eat(2),
+    on_use=hbhunger.item_eat(1.5),
     inventory_image = "fish.png", -- replace or draw your own
 })
-hbhunger.register_food("sbo_fish:fish", 2)
+hbhunger.register_food("sbo_fish:fish", 1.5)
 minetest.register_craft({
     type = "shapeless",
     output = "sbo_life:essence",
@@ -25,7 +26,7 @@ minetest.register_entity("sbo_fish:mob", {
         paramtype = "light",
         visual_size = {x = 2, y = 2, z = 2},
         textures = {"mob.png"},
-        hp_max = 1,
+        hp_max = 3,
     },
 
     -- State
@@ -87,14 +88,14 @@ on_step = function(self, dtime)
     if math.random() < 0.01 then
         minetest.sound_play("sbo_fish_voidfish", {
             object = self.object,
-            max_hear_distance = 50,
+            max_hear_distance = 200,
             gain = 1.0,
         })
     end
 end,
 
     on_punch = function(self, hitter)
-        local hp = self.object:get_hp() - 2
+        local hp = self.object:get_hp() - 1
         if hp <= 0 then
             minetest.add_item(self.object:get_pos(), "sbo_fish:fish")
             self.object:remove()
@@ -108,8 +109,8 @@ end,
 minetest.register_abm({
     label = "Spawn Flying Fish",
     nodenames = {"air"},
-    interval = 1000, -- every 100 seconds
-    chance = 40==30000,   -- 1 in 30000 chance
+    interval = 1000, -- every 1000 seconds
+    chance = 30000,   -- 1 in 30000 chance
     action = function(pos)
         -- only spawn above y=0 to avoid void
         if pos.y > 0 and __fish < 100 then

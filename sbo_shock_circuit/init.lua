@@ -43,3 +43,16 @@ minetest.register_craftitem("sbo_shock_circuit:shock_circuit", {
     inventory_image = "shock_circuit.png",
     stack_max = 256,
 })
+
+sbz_api.achievment_table["sbo_shock_circuit:shock_circuit"] = "Shock Circuit"
+sbz_api.register_quest_to("Questline: Resources",{
+        type = "quest",
+        title = "Shock Circuit",
+        text = [[You made a Shock Circuit, it is required for crafting]],
+})
+sbz_api.achievment_table["sbo_shock_circuit:shock_processor"] = "Shock Processor"
+sbz_api.register_quest_to("Questline: Resources",{
+        type = "quest",
+        title = "Shock Processor",
+        text = [[You made a Shock Processor, it is required for crafting]],
+})

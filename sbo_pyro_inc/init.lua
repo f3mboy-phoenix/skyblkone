@@ -76,6 +76,6 @@ minetest.register_craft({
     recipe = {
         { "sbz_bio:dirt_with_grass",   "sbz_bio:dirt_with_grass",        "sbz_bio:dirt_with_grass" },
         { "sbz_bio:dirt_with_grass",   "sbo_plant_inc:plant_incubator",  "sbz_bio:dirt_with_grass" },
-        { "sbz_bio:dirt_with_grass",   "sbz_bio:dirt_with_grass",        "sbz_bio:dirt_with_grass" }
+        { "sbz_bio:dirt_with_grass",   "sbo_control_board:control_board",        "sbz_bio:dirt_with_grass" }
     }
 })

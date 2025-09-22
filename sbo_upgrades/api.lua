@@ -3,7 +3,7 @@ function sbo_upgrades.meta_to_inv(player)
 	local inv = player:get_inventory()
 	local data = meta:get("sbo_upgrades:ugpacks")
 
-	inv:set_size("ugpacks", 4)
+	inv:set_size("ugpacks", 24)
 	if not data then
 		return -- List was empty or it's a new player
 	end
@@ -14,7 +14,7 @@ function sbo_upgrades.meta_to_inv(player)
 		minetest.log("warning", "[sbo_upgrades] Failed to deserialize "
 			.. "player meta of player " .. player:get_player_name())
 	else
-		for i = 1, 4 do
+		for i = 1, 24 do
 			list[i] = ItemStack(list[i])
 		end
 		inv:set_list("ugpacks", list)
@@ -61,7 +61,7 @@ function sbo_upgrades.add_wear(player, pack, amount)
 end
 
 function sbo_upgrades.register_pack(name, pack, pack_def)
-	assert(pack == "breath" or pack == "health")
+	assert(pack == "breath" or pack == "health" or pack == "hunger" or pack == "jump" or pack == "speed" or pack == "gravity")
 	assert(pack_def.description)
 	assert(pack_def.image)
 	assert(pack_def.strength > 0)
@@ -75,14 +75,23 @@ function sbo_upgrades.register_pack(name, pack, pack_def)
 
 	minetest.register_tool(name, def)
 end
-
+sbo_upgrades._speedid=nil
 function sbo_upgrades.update_player(player)
 	local inv = player:get_inventory()
 	local health = minetest.PLAYER_MAX_HP_DEFAULT
 	local breath = minetest.PLAYER_MAX_BREATH_DEFAULT
+	local hunger = hbhunger.DEF_SAT_MAX
+	local speed = 1
+	local gravity = 1
+	local jump = 1
 
 	local health_items = sbo_upgrades.health_items
 	local breath_items = sbo_upgrades.breath_items
+	local hunger_items = sbo_upgrades.hunger_items
+	local gravity_items = sbo_upgrades.gravity_items
+	local jump_items = sbo_upgrades.jump_items
+	local speed_items = sbo_upgrades.speed_items
+
 
 	local list = inv:get_list("ugpacks")
 	for i, stack in pairs(list) do
@@ -91,13 +100,32 @@ function sbo_upgrades.update_player(player)
 			health = health + health_items[name]
 		elseif breath_items[name] then
 			breath = breath + breath_items[name]
-		else
-			-- How did we reach this?
+		elseif hunger_items[name] then
+			hunger = hunger + hunger_items[name]
+		elseif gravity_items[name] then
+			gravity = gravity + gravity_items[name]
+		elseif jump_items[name] then
+			jump = jump + jump_items[name]
+		elseif speed_items[name] then
+			speed = speed + speed_items[name]
 		end
 	end
+
+	hbhunger.SAT_MAX = hunger
 
 	player:set_properties({
 		hp_max = health,
 		breath_max = breath
 	})
+	player:set_physics_override({
+		--speed = speed,
+		jump = jump,
+		gravity = gravity
+	})
+	if sbo_upgrades._speedid then
+		player_monoids.speed:del_change(player, 'upgrades:speed')
+	end
+	sbo_upgrades._speedid=player_monoids.speed:add_change(player, speed, 'upgrades:speed')
+	--sbz_api.displayDialogLine(player:get_player_name(), "Run Update Hud")
+	hbhunger.update_hud(player)
 end

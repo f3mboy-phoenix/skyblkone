@@ -28,7 +28,7 @@ hbhunger.EXHAUST_LVL = 160 -- at what exhaustion player satiation gets lowerd
 hbhunger.SAT_MAX = 30 -- maximum satiation points
 hbhunger.SAT_INIT = 20 -- initial satiation points
 hbhunger.SAT_HEAL = 15 -- required satiation points to start healing
-
+hbhunger.DEF_SAT_MAX = 30 -- maximum satiation points
 
 --load custom settings
 local set = io.open(minetest.get_modpath("hbhunger").."/hbhunger.conf", "r")
@@ -48,19 +48,41 @@ dofile(minetest.get_modpath("hbhunger").."/register_foods.lua")
 hb.register_hudbar("satiation", 0xFFFFFF, S("Satiation"), { icon = "hbhunger_icon.png", bgicon = "hbhunger_bgicon.png",  bar = "hbhunger_bar.png" }, hbhunger.SAT_INIT, hbhunger.SAT_MAX, false, nil, { format_value = "%.1f", format_max_value = "%d" })
 
 -- update hud elemtens if value has changed
-local function update_hud(player)
+function hbhunger.update_hud(player)
 	local name = player:get_player_name()
+
  --hunger
 	local h_out = tonumber(hbhunger.hunger_out[name])
 	local h = tonumber(hbhunger.hunger[name])
+	--sbz_api.displayDialogLine(name, "Running Update Hud "..tostring(h) )
 	if h_out ~= h then
-		hbhunger.hunger_out[name] = h
-		if h >= 20 then hb.hide_hudbar(player, 'satiation') end
-		if h <= 20 then hb.unhide_hudbar(player, 'satiation') end
-		hb.change_hudbar(player, "satiation", h)
-	end
-end
 
+		if h > hbhunger.SAT_MAX then h = hbhunger.SAT_MAX end
+		--hbhunger.hunger[name] = h
+		--hbhunger.hunger_out[name] = h+1
+		hbhunger.set_hunger_raw(player)
+		if player:get_meta():get_int('no_autohide_hp') == 0 then
+			if h >= 20 then hb.hide_hudbar(player, 'satiation') end
+			if h <= 20 then hb.unhide_hudbar(player, 'satiation') end
+		else
+			hb.unhide_hudbar(player, 'satiation')
+		end
+		--sbz_api.displayDialogLine(player:get_player_name(), ""..h..",".. hbhunger.SAT_MAX)
+		hb.change_hudbar(player, "satiation", h, hbhunger.SAT_MAX)
+	else
+		hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
+		return
+	end
+	--local hbs=hb.get_hudbar_state(player, "satiation")
+	--[[sbz_api.displayDialogLine(player:get_player_name(),""..hbs.value)
+	if hbs.value > hbhunger.SAT_MAX then
+		hbhunger.hunger[name] = hbhunger.SAT_MAX
+		hbhunger.set_hunger_raw(player)
+		sbz_api.displayDialogLine(player:get_player_name(), "hunger over:".. hbhunger.SAT_MAX)
+	end]]
+end
+--sbz_api.displayDialogLine(player:get_player_name(), "hunger: "..hbhunger.hunger[name]..", max: ".. hbhunger.SAT_MAX)
+local update_hud=hbhunger.update_hud
 hbhunger.get_hunger_raw = function(player)
 	local inv = player:get_inventory()
 	if not inv then return nil end

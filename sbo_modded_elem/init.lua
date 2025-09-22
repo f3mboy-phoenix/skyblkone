@@ -5,6 +5,55 @@ sbz_api.register_element("mercury", "#B5B5B5", "Mercury %s (Hg)", { disabled = f
 sbz_api.register_element("magnesium", "#DADADA", "Magnesium %s (Mg)", { disabled = false }, "sbo_modded_elem:")
 sbz_api.register_element("calcium", "#F5F5DC", "Calcium %s (Ca)", { disabled = false }, "sbo_modded_elem:")
 sbz_api.register_element("sodium", "#F4F4F4", "Sodium %s (Na)", { disabled = false }, "sbo_modded_elem:")
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:zinc_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:platinum_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:mercury_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:magnesium_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:calcium_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+sbz_api.recipe.register_craft {
+    output = "sbo_modded_elem:sodium_powder ",
+    type = "centrifugeing",
+    chance = 75,
+    items = {
+        "sbz_resources:sand"
+    }
+}
+
 
 -- disabled alloys
 sbz_api.register_element("white_gold", "#E5E4E2", "White Gold %s (AuNi)",
