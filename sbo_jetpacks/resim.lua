@@ -196,10 +196,6 @@ end)
 minetest.register_on_leaveplayer(function()
 	storage:set_string("color", minetest.serialize(color))
 end)
-local color_list = {
-	"white", "red","orange","yellow","green","cyan","blue","purple","purple",
-	"white", "red","orange","yellow","green","cyan","blue","purple"
-}
 minetest.register_on_player_receive_fields(function(player, name, form)
 	if name ~="sbo:jetpacks:color" then return end
 	local fields=form
