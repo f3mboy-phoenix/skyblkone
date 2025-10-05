@@ -50,3 +50,30 @@ minetest.register_craft({
     output = "sbo_rein_cable:power_pipe",
     recipe = { "sbz_power:power_pipe", "sbo_emittrium_plate:emittrium_plate" }
 })
+
+minetest.register_node("sbo_rein_cable:airtight_power_cable", {
+    description = "Reinforced Airtight Emittrium Power Cable",
+    connects_to = { "group:pipe_connects" },
+    connect_sides = { "top", "bottom", "front", "left", "back", "right" },
+
+    tiles = { "rein_airtight_power_cable.png" },
+
+    drawtype = "mesh",
+    mesh = "voxelmodel.obj",
+    light_source = 3,
+    paramtype = "light",
+    paramtype2 = "wallmounted",
+    sunlight_propagates = true,
+
+    groups = { matter = 1, cracky = 3, pipe_connects = 1, pipe_conducts = 1, habitat_conducts = 0 },
+
+    use_texture_alpha = "clip",
+})
+
+minetest.register_craft {
+    output = "sbo_rein_cable:airtight_power_cable",
+    type = "shapeless",
+    recipe = {
+        "sbo_rein_cable:power_pipe", "sbz_resources:emittrium_glass",
+    }
+}

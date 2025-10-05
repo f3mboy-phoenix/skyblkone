@@ -59,4 +59,13 @@ sbz_api.recipe.register_craft {
 sbz_api.register_element("white_gold", "#E5E4E2", "White Gold %s (AuNi)",
     { disabled = false, part_of_crusher_drops = false }, "sbo_modded_elem:")
 sbz_api.register_element("brass", "#B5A642", "Brass %s (CuZn)", { disabled = false, part_of_crusher_drops = false }, "sbo_modded_elem:")
-
+sbz_api.recipe.register_craft {
+    output = 'sbo_modded_elem:white_gold_powder',
+    items = { 'sbz_chem:gold_powder', 'sbz_chem:nickel_powder' },
+    type = 'alloying',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_modded_elem:brass_powder',
+    items = { 'sbz_chem:copper_powder', 'sbo_modded_elem:zinc_powder' },
+    type = 'alloying',
+}

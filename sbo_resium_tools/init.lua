@@ -16,10 +16,11 @@ local function check_player(player, timer)
     local inv = minetest.get_inventory({type="player", name=player:get_player_name()})
     for i, stack in pairs(inv:get_list("main")) do
         if not stack:is_empty() then
-            local name = stack:get_name()
-            if name:sub(1,16) == "sbo_resium_tools" then
+            local charges = stack:get_definition().groups.resium
+            if charges then
                 if stack:get_wear() ~= 0 then
                     stack:add_wear( -resium_tools.factor )
+                    --stack:get_meta():set_string("info_extra",tostring(stack:get_wear()))
                     inv:set_stack("main", i, stack)
                     if resium_tools.log == true then
                         minetest.log("action", "[resium_tools] ["..i.."] "..stack:get_wear())

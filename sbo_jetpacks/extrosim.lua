@@ -102,8 +102,11 @@ minetest.register_globalstep(function(dtime)
                 -- make a effect
                 local vel = real_player:get_velocity()
                 vel = vector.subtract(vector.zero(), vel)
-
-                minetest.add_particlespawner({
+				local setter = minetest.add_particlespawner
+				if minetest.set_particlespawner then
+					setter = minetest.set_particlespawner
+				end
+                setter({
                     amount = num_particles,
                     time = dtime,
                     texture = "star.png",

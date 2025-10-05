@@ -1,11 +1,11 @@
 minetest.register_node("sbo_light_blk:light_block", {
-    description = "Light Block\n\nLight Source Only. Strength: 14.",
+    description = "Light Block",
     drawtype = "glasslike",
     tiles = { "light_block.png" },
     groups = { matter = 1, explody = 3 },
     sunlight_propagates = true,
     paramtype = "light",
-    light_source = 20,
+    light_source = 14,
     walkable = true,
 })
 minetest.register_craft({

@@ -49,7 +49,7 @@ minetest.register_tool("sbo_jetpacks:rjetpack", {
             [0] = "lime"
         }
     },
-    groups = { disable_repair = 1, power_tool = 1 },
+    groups = { disable_repair = 1, power_tool = 1, resium = 1 },
     wear_represents = "power",
     on_use = function(itemstack, user, pointed_thing)
         -- Check if user is valid
@@ -149,8 +149,11 @@ minetest.register_globalstep(function(dtime)
                 -- make a effect
                 local vel = real_player:get_velocity()
                 vel = vector.subtract(vector.zero(), vel)
-
-                minetest.add_particlespawner({
+				local setter = minetest.add_particlespawner
+				if minetest.set_particlespawner then
+					setter = minetest.set_particlespawner
+				end
+                setter({
                     amount = num_particles,
                     time = dtime,
                     texture = "star.png",
@@ -196,6 +199,7 @@ end)
 minetest.register_on_leaveplayer(function()
 	storage:set_string("color", minetest.serialize(color))
 end)
+
 minetest.register_on_player_receive_fields(function(player, name, form)
 	if name ~="sbo:jetpacks:color" then return end
 	local fields=form

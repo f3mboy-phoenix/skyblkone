@@ -1,7 +1,9 @@
 minetest.register_tool("sbo_resium_tools:drill", {
     description = "Resium Drill",
     inventory_image = "resium_tool.png",
-    groups = { core_drop_multi = 10 },
+    groups = {  core_drop_multi = 10,
+				resium = 1
+    },
     -- Tool properties
     tool_capabilities = {
         full_punch_interval = 0.1,

@@ -1,13 +1,13 @@
 local S = sbo_upgrades.translator
 
 sbo_upgrades.register_pack("sbo_upgrades:health", "health", {
-	description = S("Health Boost"),
-	strength = 10,
+	description = S("Emittrium Health Boost"),
+	strength = 5,
 	image = "heart.png"
 })
 
-local mc = "sbo_resium:crystal"
-local gb = "sbo_extrosim_glass:extrosim_glass"
+local mc = "sbz_resources:raw_emittrium"
+local gb = "sbz_resources:emittrium_glass"
 local ci = "sbo_modded_elem:sodium_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:health",
@@ -26,6 +26,61 @@ minetest.register_on_craft(function(itemstack, player)
 	end
 end)
 ---------------------------------------------------------------
+sbo_upgrades.register_pack("sbo_upgrades:ehealth", "health", {
+	description = S("Extrosim Health Boost"),
+	strength = 10,
+	image = "eheart.png"
+})
+
+local mc = "sbo_extrosim:raw_extrosim"
+local gb = "sbo_upgrades:health"
+
+minetest.register_craft({
+	output = "sbo_upgrades:ehealth",
+	recipe = {
+		{mc, mc, mc},
+		{mc, gb, mc},
+		{mc, mc, mc}
+	}
+})
+
+-- Take something else from the player. BLOOD AND AIR
+minetest.register_on_craft(function(itemstack, player)
+	local name = itemstack:get_name()
+	if name == "sbo_upgrades:ehealth" then
+		player:set_hp(player:get_hp() - 5)
+	end
+end)
+
+---------------------------------------------------------------
+
+sbo_upgrades.register_pack("sbo_upgrades:rhealth", "health", {
+	description = S("Resium Health Boost"),
+	strength = 20,
+	image = "rheart.png"
+})
+
+local mc = "sbo_resium:crystal"
+local gb = "sbo_upgrades:ehealth"
+
+minetest.register_craft({
+	output = "sbo_upgrades:rhealth",
+	recipe = {
+		{mc, mc, mc},
+		{mc, gb, mc},
+		{mc, mc, mc}
+	}
+})
+
+-- Take something else from the player. BLOOD AND AIR
+minetest.register_on_craft(function(itemstack, player)
+	local name = itemstack:get_name()
+	if name == "sbo_upgrades:rhealth" then
+		player:set_hp(player:get_hp() - 10)
+	end
+end)
+---------------------------------------------------------------
+
 sbo_upgrades.register_pack("sbo_upgrades:hunger", "hunger", {
 	description = S("Hunger Boost"),
 	strength = 10,
@@ -46,7 +101,7 @@ minetest.register_craft({
 ---------------------------------------------------------------
 sbo_upgrades.register_pack("sbo_upgrades:speed", "speed", {
 	description = S("Speed Boost"),
-	strength = 2,
+	strength = .5,
 	image = "sprint_stamina_icon.png"
 })
 
@@ -64,7 +119,7 @@ minetest.register_craft({
 ---------------------------------------------------------------
 sbo_upgrades.register_pack("sbo_upgrades:jump", "jump", {
 	description = S("Jump Boost"),
-	strength = 1,
+	strength = .2,
 	image = "jump.png"
 })
 

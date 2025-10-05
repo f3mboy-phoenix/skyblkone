@@ -30,7 +30,7 @@ minetest.register_node("sbo_resium_reactor:reactor_shell", {
     },
     drawtype = "glasslike_framed",
     paramtype = "light",
-    groups = { matter = 1, reactor_shell = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, charged = 1 },
 })
 
 minetest.register_craft {
@@ -50,7 +50,7 @@ minetest.register_node("sbo_resium_reactor:reactor_glass", {
     },
     drawtype = "glasslike_framed",
     paramtype = "light",
-    groups = { matter = 1, reactor_shell = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, charged = 1 },
 })
 
 minetest.register_craft {
@@ -67,7 +67,7 @@ local reactor_shell = "blank.png^[invert:rgba^[multiply:#87FF63^resium_reactor_s
 minetest.register_node("sbo_resium_reactor:reactor_item_input", {
     description = "Reactor Resium Input",
     info_extra = "ONLY ONE can be used in an resium reactor, supplies resium to the reactor core",
-    groups = { matter = 1, reactor_shell = 1, tubedevice = 1, tubedevice_receiver = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, tubedevice = 1, tubedevice_receiver = 1, charged = 1 },
 
     tiles = {
         reactor_shell,
@@ -116,7 +116,7 @@ sbz_api.register_stateful("sbo_resium_reactor:reactor_core", {
     tiles = {
         "resium_reactor_core.png"
     },
-    groups = { matter = 1, reactor_shell = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, charged = 1 },
     after_place_node = function(pos, placer, itemstack, pointed_thing)
         minetest.get_meta(pos):set_string("owner", placer:get_player_name())
     end,
@@ -191,7 +191,7 @@ minetest.register_node("sbo_resium_reactor:reactor_infoscreen", {
         reactor_shell,
         "resium_reactor_infoscreen.png",
     },
-    groups = { matter = 1, reactor_shell = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, charged = 1 },
     on_rightclick = function(pos)
         local meta = minetest.get_meta(pos)
         if meta:get_int("linked") == 0 then
@@ -291,7 +291,7 @@ sbz_api.register_generator("sbo_resium_reactor:reactor_power_port", {
         "resium_reactor_powerport.png",
     },
     info_generated = POWER_GEN,
-    groups = { matter = 1, reactor_shell = 1, pipe_connects = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, pipe_connects = 1, charged = 1 },
     connect_sides = { "front" },
     action = function(pos, node, meta, supply, demand)
         meta:set_string("infotext", "")
@@ -317,7 +317,7 @@ minetest.register_craft {
 }
 
 minetest.register_node("sbo_resium_reactor:reactor_coolant_port", {
-    description = "Reactor Coolant Port",
+    description = "Resium Reactor Coolant Port",
     info_extra = "Provide it water",
     paramtype2 = "4dir",
     tiles = {
@@ -330,7 +330,7 @@ minetest.register_node("sbo_resium_reactor:reactor_coolant_port", {
         reactor_shell,
         "resium_reactor_coolantport.png",
     },
-    groups = { matter = 1, reactor_shell = 1, fluid_pipe_connects = 1, fluid_pipe_stores = 1, explody = 1, charged = 1 },
+    groups = { matter = 1, reactor_shell = 1, fluid_pipe_connects = 1, fluid_pipe_stores = 1, charged = 1 },
     connect_sides = { "front" },
     on_construct = function(pos)
         minetest.get_meta(pos):set_string("liquid_inv", minetest.serialize({
@@ -528,3 +528,11 @@ mesecon.register_on_mvps_move(function(moved_nodes)
         end
     end
 end)
+
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_shell")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_glass")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_item_input")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_core_off")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_infoscreen")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_power_port")
+unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_coolant_port")

@@ -132,9 +132,9 @@ laptop.register_app("printer_launcher", {
 	allow_metadata_inventory_put = function(app, mtos, player, listname, index, stack)
 		if mtos.sysdata.selected_view == 'output' then
 			-- nothing
-		elseif  mtos.sysdata.selected_view == 'paper' and stack:get_name() == 'default:paper' then
+		elseif  mtos.sysdata.selected_view == 'paper' and stack:get_name() == 'sbz_bio:paper' then
 			return stack:get_stack_max()
-		elseif mtos.sysdata.selected_view == 'dye' and stack:get_name() == 'dye:black' then
+		elseif mtos.sysdata.selected_view == 'dye' and stack:get_name() == 'sbz_resources:matter_dust' then
 			return stack:get_stack_max()
 		end
 		return 0
@@ -153,11 +153,11 @@ laptop.register_app("printer_launcher", {
 			idata.stack = ItemStack(mtos.sysdata.out_stack_save or "")
 		elseif fields.view_paper then
 			mtos.sysdata.selected_view = 'paper'
-			idata.stack = ItemStack('default:paper')
+			idata.stack = ItemStack('sbz_bio:paper')
 			idata.stack:set_count(mtos.sysdata.paper_count)
 		elseif fields.view_dye then
 			mtos.sysdata.selected_view = 'dye'
-			idata.stack = ItemStack('dye:black')
+			idata.stack = ItemStack('sbz_resources:matter_dust')
 			idata.stack:set_count(math.floor(mtos.sysdata.dye_count))
 		elseif fields.reset then
 			mtos.sysdata.print_queue = {}

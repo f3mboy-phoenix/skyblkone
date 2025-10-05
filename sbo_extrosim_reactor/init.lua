@@ -317,7 +317,7 @@ minetest.register_craft {
 }
 
 minetest.register_node("sbo_extrosim_reactor:reactor_coolant_port", {
-    description = "Reactor Coolant Port",
+    description = "Extrosim Reactor Coolant Port",
     info_extra = "Provide it water",
     paramtype2 = "4dir",
     tiles = {
@@ -528,3 +528,11 @@ mesecon.register_on_mvps_move(function(moved_nodes)
         end
     end
 end)
+
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_shell")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_glass")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_item_input")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_core_off")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_infoscreen")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_power_port")
+unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_coolant_port")

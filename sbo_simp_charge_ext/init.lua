@@ -36,7 +36,7 @@ sbz_api.register_machine("sbo_simp_charge_ext:simple_charge_extractor", {
     action = function(pos, node, meta)
         local inv = meta:get_inventory()
         local itemstack = ItemStack("sbz_resources:charged_particle")
-        itemstack:set_count(1)
+        itemstack:set_count(2)
 
 
         if inv:room_for_item("main", itemstack) then
@@ -63,7 +63,7 @@ sbz_api.register_machine("sbo_simp_charge_ext:simple_charge_extractor", {
         end
     end,
     power_needed = 1,
-    action_interval = 2,
+    action_interval = 1,
     output_inv = "main",
 })
 

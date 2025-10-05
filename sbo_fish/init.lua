@@ -9,6 +9,8 @@ minetest.register_craftitem("sbo_fish:fish", {
     inventory_image = "fish.png", -- replace or draw your own
 })
 hbhunger.register_food("sbo_fish:fish", 1.5)
+unified_inventory.add_category_item('food', "sbo_fish:fish")
+
 minetest.register_craft({
     type = "shapeless",
     output = "sbo_life:essence",
@@ -110,7 +112,7 @@ minetest.register_abm({
     label = "Spawn Flying Fish",
     nodenames = {"air"},
     interval = 1000, -- every 1000 seconds
-    chance = 30000,   -- 1 in 30000 chance
+    chance = 3000,   -- 1 in 30000 chance
     action = function(pos)
         -- only spawn above y=0 to avoid void
         if pos.y > 0 and __fish < 100 then
