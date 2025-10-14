@@ -12,10 +12,10 @@ pipeworks.register_tube("sbo_ultra_pipes:rlp_tube", {
         tube = {
             priority = 10,
         },
-        on_construct=function(pos)
-			local meta=minetest.get_meta(pos)
-			meta:set_string("infotext","Priority: 10")
-		end
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            meta:set_string("infotext", "Priority: 10")
+        end
     }
 })
 minetest.register_craft({
@@ -37,10 +37,10 @@ pipeworks.register_tube("sbo_ultra_pipes:ulp_tube", {
         tube = {
             priority = 20,
         },
-        on_construct=function(pos)
-			local meta=minetest.get_meta(pos)
-			meta:set_string("infotext","Priority: 20")
-		end
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            meta:set_string("infotext", "Priority: 20")
+        end
     }
 })
 minetest.register_craft({
@@ -62,10 +62,10 @@ pipeworks.register_tube("sbo_ultra_pipes:mlp_tube", {
         tube = {
             priority = 25,
         },
-        on_construct=function(pos)
-			local meta=minetest.get_meta(pos)
-			meta:set_string("infotext","Priority: 25")
-		end
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            meta:set_string("infotext", "Priority: 25")
+        end
     }
 })
 minetest.register_craft({
@@ -87,10 +87,10 @@ pipeworks.register_tube("sbo_ultra_pipes:tube_100", {
         tube = {
             priority = 100,
         },
-        on_construct=function(pos)
-			local meta=minetest.get_meta(pos)
-			meta:set_string("infotext","Priority: 100")
-		end
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            meta:set_string("infotext", "Priority: 100")
+        end
     }
 })
 minetest.register_craft({
@@ -112,10 +112,10 @@ pipeworks.register_tube("sbo_ultra_pipes:uhp_tube", {
         tube = {
             priority = 200,
         },
-        on_construct=function(pos)
-			local meta=minetest.get_meta(pos)
-			meta:set_string("infotext","Priority: 200")
-		end
+        on_construct = function(pos)
+            local meta = minetest.get_meta(pos)
+            meta:set_string("infotext", "Priority: 200")
+        end
     }
 })
 minetest.register_craft({
@@ -127,4 +127,10 @@ minetest.register_craft({
     output = "pipeworks:basic_tube_1 1",
     type = "shapeless",
     recipe = { "sbo_ultra_pipes:uhp_tube_1", "sbo_extrosim:raw_extrosim" }
+})
+sbo_api.register_wiki_page({
+    type = "text",
+    info = true,
+    title = "Ultra Pipes",
+    text = [[This mod adds more varients of pipes]]
 })

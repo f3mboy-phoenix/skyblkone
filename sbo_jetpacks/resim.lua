@@ -1,16 +1,16 @@
-sbz_api.jetpack={}
+sbz_api.jetpack = {}
 
 local storage = minetest.get_mod_storage()
-sbz_api.jetpack.color=minetest.deserialize(storage:get_string("color")) or {}
-local color=sbz_api.jetpack.color
+sbz_api.jetpack.color = minetest.deserialize(storage:get_string("color")) or {}
+local color = sbz_api.jetpack.color
 
 local color_list = {
-	"white", "red","orange","yellow","lime","green","cyan","blue","purple",
-	"gold", "tomato","magenta","teal","grey","black","brown","pink"
+    "white", "red", "orange", "yellow", "lime", "green", "cyan", "blue", "purple",
+    "gold", "tomato", "magenta", "teal", "grey", "black", "brown", "pink"
 }
 
 local function sheet(c)
-	return "star.png^[colorize:"..color_list[c]
+    return "star.png^[colorize:" .. color_list[c]
 end
 
 
@@ -70,36 +70,36 @@ minetest.register_tool("sbo_jetpacks:rjetpack", {
         edit_stack_image(username, itemstack)
         return itemstack
     end,
-  on_secondary_use = function(stack, player)
-    local size = vector.new(8, 1, 0)
-	local button_size = 0.8
-	local button_spacing = 0.9
+    on_secondary_use = function(stack, player)
+        local size = vector.new(8, 1, 0)
+        local button_size = 0.8
+        local button_spacing = 0.9
 
-	local fs = {
-		([[
+        local fs = {
+            ([[
 formspec_version[7]
 size[%s,%s]
 	]]):format((size.x * button_spacing) + 1.2, 1.2 + (size.y * button_spacing)), -- 1.5 spacing for the rest
-	}
+        }
 
-	local head = #fs + 1
+        local head = #fs + 1
 
-	local idx = 0
+        local idx = 0
 
-	for y = 0, size.y do
-		for x = 0, size.x do
-			idx = idx + 1
-			if y == size.y and x >= (size.x - size.z) then
-				break
-			end
-			fs[head] = string.format("image_button[%s,%s;%s,%s;%s;%s;]",
-				(x * button_spacing) + 0.2, (y * button_spacing) + 0.2,
-				button_size, button_size,
-				minetest.formspec_escape(sheet(idx)), idx)
-			head = head + 1
-		end
-	end
-		minetest.show_formspec(player:get_player_name(),"sbo:jetpacks:color",table.concat(fs))
+        for y = 0, size.y do
+            for x = 0, size.x do
+                idx = idx + 1
+                if y == size.y and x >= (size.x - size.z) then
+                    break
+                end
+                fs[head] = string.format("image_button[%s,%s;%s,%s;%s;%s;]",
+                    (x * button_spacing) + 0.2, (y * button_spacing) + 0.2,
+                    button_size, button_size,
+                    minetest.formspec_escape(sheet(idx)), idx)
+                head = head + 1
+            end
+        end
+        minetest.show_formspec(player:get_player_name(), "sbo:jetpacks:color", table.concat(fs))
     end,
     on_place = sbz_api.on_place_recharge(jetpack_charge_per_1_wear, function(stack, player, pointed)
         edit_stack_image(player:get_player_name(), stack)
@@ -149,16 +149,16 @@ minetest.register_globalstep(function(dtime)
                 -- make a effect
                 local vel = real_player:get_velocity()
                 vel = vector.subtract(vector.zero(), vel)
-				local setter = minetest.add_particlespawner
-				if minetest.set_particlespawner then
-					setter = minetest.set_particlespawner
-				end
+                local setter = minetest.add_particlespawner
+                if minetest.set_particlespawner then
+                    setter = minetest.set_particlespawner
+                end
                 setter({
                     amount = num_particles,
                     time = dtime,
                     texture = "star.png",
                     texpool = {
-                        "star.png^[colorize:"..color[player],
+                        "star.png^[colorize:" .. color[player],
                     },
                     exptime = { min = 1, max = 2 },
                     vel = { min = vector.new(-2, -2, -2), max = vector.new(2, 2, 2) },
@@ -183,36 +183,33 @@ end)
 minetest.register_craft {
     output = "sbo_jetpacks:rjetpack",
     recipe = {
-        { "sbo_resium:circuit", "sbz_power:battery",         "sbo_resium:circuit" },
-        { "sbz_resources:angels_wing",       "sbz_meteorites:neutronium", "sbz_resources:angels_wing" },
-        { "sbo_resium:circuit", "",                          "sbo_resium:circuit" }
+        { "sbo_resium:circuit",        "sbz_power:battery",         "sbo_resium:circuit" },
+        { "sbz_resources:angels_wing", "sbz_meteorites:neutronium", "sbz_resources:angels_wing" },
+        { "sbo_resium:circuit",        "",                          "sbo_resium:circuit" }
     }
 }
 
 minetest.register_on_joinplayer(function(player)
-	local name = player:get_player_name()
-	if not color[name] then
-		color[name]="#FFFFFF"
-	end
+    local name = player:get_player_name()
+    if not color[name] then
+        color[name] = "#FFFFFF"
+    end
 end)
 
 minetest.register_on_leaveplayer(function()
-	storage:set_string("color", minetest.serialize(color))
+    storage:set_string("color", minetest.serialize(color))
 end)
 
 minetest.register_on_player_receive_fields(function(player, name, form)
-	if name ~="sbo:jetpacks:color" then return end
-	local fields=form
-	local name= player:get_player_name()
-	if form.ok then
-		colors[name]=form.color_picker.hex
-	end
-	if fields.quit then return end
-	--sbz_api.displayDialogLine(name, ""..tostring(fields) )
-	if not next(fields) then return end
+    if name ~= "sbo:jetpacks:color" then return end
+    local fields = form
+    local name = player:get_player_name()
 
-	local idx = tonumber(({ next(fields) })[1])
-	if idx == nil then return end
+    if fields.quit then return end
+    if not next(fields) then return end
 
-	color[name]=color_list[idx]
+    local idx = tonumber(({ next(fields) })[1])
+    if idx == nil then return end
+
+    color[name] = color_list[idx]
 end)

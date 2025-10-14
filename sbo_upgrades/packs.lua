@@ -1,6 +1,6 @@
-local S = sbo_upgrades.translator
+local S = sbo_api.upgrades.translator
 
-sbo_upgrades.register_pack("sbo_upgrades:health", "health", {
+sbo_api.upgrades.register_pack("sbo_upgrades:health", "health", {
 	description = S("Emittrium Health Boost"),
 	strength = 5,
 	image = "heart.png"
@@ -12,9 +12,9 @@ local ci = "sbo_modded_elem:sodium_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:health",
 	recipe = {
-		{ci, mc, ci},
-		{mc, gb, mc},
-		{ci, mc, ci}
+		{ ci, mc, ci },
+		{ mc, gb, mc },
+		{ ci, mc, ci }
 	}
 })
 
@@ -26,7 +26,7 @@ minetest.register_on_craft(function(itemstack, player)
 	end
 end)
 ---------------------------------------------------------------
-sbo_upgrades.register_pack("sbo_upgrades:ehealth", "health", {
+sbo_api.upgrades.register_pack("sbo_upgrades:ehealth", "health", {
 	description = S("Extrosim Health Boost"),
 	strength = 10,
 	image = "eheart.png"
@@ -38,9 +38,9 @@ local gb = "sbo_upgrades:health"
 minetest.register_craft({
 	output = "sbo_upgrades:ehealth",
 	recipe = {
-		{mc, mc, mc},
-		{mc, gb, mc},
-		{mc, mc, mc}
+		{ mc, mc, mc },
+		{ mc, gb, mc },
+		{ mc, mc, mc }
 	}
 })
 
@@ -54,7 +54,7 @@ end)
 
 ---------------------------------------------------------------
 
-sbo_upgrades.register_pack("sbo_upgrades:rhealth", "health", {
+sbo_api.upgrades.register_pack("sbo_upgrades:rhealth", "health", {
 	description = S("Resium Health Boost"),
 	strength = 20,
 	image = "rheart.png"
@@ -66,9 +66,9 @@ local gb = "sbo_upgrades:ehealth"
 minetest.register_craft({
 	output = "sbo_upgrades:rhealth",
 	recipe = {
-		{mc, mc, mc},
-		{mc, gb, mc},
-		{mc, mc, mc}
+		{ mc, mc, mc },
+		{ mc, gb, mc },
+		{ mc, mc, mc }
 	}
 })
 
@@ -81,7 +81,7 @@ minetest.register_on_craft(function(itemstack, player)
 end)
 ---------------------------------------------------------------
 
-sbo_upgrades.register_pack("sbo_upgrades:hunger", "hunger", {
+sbo_api.upgrades.register_pack("sbo_upgrades:hunger", "hunger", {
 	description = S("Hunger Boost"),
 	strength = 10,
 	image = "hbhunger_icon.png"
@@ -93,13 +93,13 @@ local ci = "sbo_modded_elem:platinum_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:hunger",
 	recipe = {
-		{ci, mc, ci},
-		{mc, gb, mc},
-		{ci, mc, ci}
+		{ ci, mc, ci },
+		{ mc, gb, mc },
+		{ ci, mc, ci }
 	}
 })
 ---------------------------------------------------------------
-sbo_upgrades.register_pack("sbo_upgrades:speed", "speed", {
+sbo_api.upgrades.register_pack("sbo_upgrades:speed", "speed", {
 	description = S("Speed Boost"),
 	strength = .5,
 	image = "sprint_stamina_icon.png"
@@ -111,13 +111,13 @@ local ci = "sbo_chromium:chromium_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:speed",
 	recipe = {
-		{ci, mc, ci},
-		{mc, gb, mc},
-		{ci, mc, ci}
+		{ ci, mc, ci },
+		{ mc, gb, mc },
+		{ ci, mc, ci }
 	}
 })
 ---------------------------------------------------------------
-sbo_upgrades.register_pack("sbo_upgrades:jump", "jump", {
+sbo_api.upgrades.register_pack("sbo_upgrades:jump", "jump", {
 	description = S("Jump Boost"),
 	strength = .2,
 	image = "jump.png"
@@ -129,13 +129,13 @@ local ci = "sbo_modded_elem:brass_powder"
 minetest.register_craft({
 	output = "sbo_upgrades:jump",
 	recipe = {
-		{ci, mc, ci},
-		{mc, gb, mc},
-		{ci, mc, ci}
+		{ ci, mc, ci },
+		{ mc, gb, mc },
+		{ ci, mc, ci }
 	}
 })
 ---------------------------------------------------------------
-sbo_upgrades.register_pack("sbo_upgrades:gravity", "gravity", {
+sbo_api.upgrades.register_pack("sbo_upgrades:gravity", "gravity", {
 	description = S("Gravity Boost"),
 	strength = 1.3,
 	image = "gravity.png"
@@ -147,10 +147,8 @@ local ci = "sbo_modded_elem:platinum_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:gravity",
 	recipe = {
-		{ci, mc, ci},
-		{mc, gb, mc},
-		{ci, mc, ci}
+		{ ci, mc, ci },
+		{ mc, gb, mc },
+		{ ci, mc, ci }
 	}
 })
-
-

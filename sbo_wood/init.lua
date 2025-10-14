@@ -6,7 +6,7 @@ minetest.register_craftitem("sbo_wood:stick", {
 minetest.register_craft({
     output = "sbo_wood:stick 4",
     recipe = {
-        { "", "", "" },
+        { "", "",                        "" },
         { "", "sbz_bio:colorium_planks", "" },
         { "", "sbz_bio:colorium_planks", "" }
     }
@@ -17,4 +17,10 @@ minetest.register_craft({
     output = "sbz_bio:colorium_planks 4",
     recipe = { "sbz_bio:colorium_tree_core" }
 })
-
+sbo_api.register_wiki_page({
+    type = "text",
+    info = true,
+    title = "Wood",
+    text =
+    [[This mod adds sticks, and makes tree cores able to be turned into planks]]
+})

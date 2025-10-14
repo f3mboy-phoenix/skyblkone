@@ -71,18 +71,16 @@ sbz_api.register_machine("sbo_simp_core_ext:simple_core_extractor", {
 minetest.register_craft({
     output = "sbo_simp_core_ext:simple_core_extractor",
     recipe = {
-        { "sbz_resources:compressed_core_dust",   "sbz_resources:matter_blob",        "sbz_resources:compressed_core_dust" },
-        { "sbz_resources:matter_blob", "sbz_resources:matter_annihilator", "sbz_resources:matter_blob" },
-        { "sbz_resources:compressed_core_dust",   "sbo_extrosim_circuit:extrosim_circuit",        "sbz_resources:compressed_core_dust" }
+        { "sbz_resources:compressed_core_dust", "sbz_resources:matter_blob",             "sbz_resources:compressed_core_dust" },
+        { "sbz_resources:matter_blob",          "sbz_resources:matter_annihilator",      "sbz_resources:matter_blob" },
+        { "sbz_resources:compressed_core_dust", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:compressed_core_dust" }
     }
 })
-sbz_api.achievment_table["sbo_simp_core_ext:simple_core_extractor"] = "Core Extractors"
-sbz_api.register_quest_to("Questline: Extrosim",{
-        type = "quest",
-        title = "Core Extractors",
-        text = [[Here's what you'll need for a Simple Core Extractor:
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Core Extractors",
+    text = [[Here's what you'll need for a Simple Core Extractor:
 
 One Matter Annihilator, three matter blobs, an extrosim circuit, and four compressed core blocks.
 ]],
-        requires = { "Annihilator", "Compressed Core Dust", "Extrosim Circuit" }
-    })
+})

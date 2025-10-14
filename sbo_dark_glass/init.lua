@@ -12,17 +12,19 @@ minetest.register_node("sbo_dark_glass:dark_glass", {
 minetest.register_craft({
     output = "sbo_dark_glass:dark_glass 16",
     recipe = {
-        { "sbz_resources:black_sand",   "sbz_resources:antimatter_dust", "sbz_resources:black_sand" },
+        { "sbz_resources:black_sand",      "sbz_resources:antimatter_dust", "sbz_resources:black_sand" },
         { "sbz_resources:antimatter_dust", "",                              "sbz_resources:antimatter_dust" },
-        { "sbz_resources:black_sand",   "sbz_resources:antimatter_dust", "sbz_resources:black_sand" }
+        { "sbz_resources:black_sand",      "sbz_resources:antimatter_dust", "sbz_resources:black_sand" }
     }
 })
 
-sbz_api.achievment_table["sbo_dark_glass:dark_glass"] = "Dark Glass"
-sbz_api.register_quest_to("Questline: Decorator",{
-        type = "quest",
-        title = "Dark Glass",
-        text = "Dark Glass looks cool for Glass",
-        requires = { "Centrifuge" }
+sbo_api.register_wiki_page({
+    type = "quest",
+    info = true,
+    title = "Dark Glass",
+    text = [[
+Just another kind of glass.
+They are made with:
+    4 Black sand
+    4 Antimatter dust]],
 })
-

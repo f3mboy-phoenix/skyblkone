@@ -24,17 +24,16 @@ sbz_power.register_battery("sbo_sup_bat:super_battery", {
 minetest.register_craft({
     output = "sbo_sup_bat:super_battery",
     recipe = {
-        { "sbo_extrosim:raw_extrosim",  "sbo_colorium_plate:colorium_plate", "sbo_extrosim:raw_extrosim" },
-        { "sbo_colorium_plate:colorium_plate", "sbz_power:very_advanced_battery", "sbo_colorium_plate:colorium_plate" },
-        { "sbo_colorium_circuit:colorium_circuit",  "sbo_extrosim_circuit:extrosim_circuit", "sbo_colorium_circuit:colorium_circuit" }
+        { "sbo_extrosim:raw_extrosim",             "sbo_colorium_plate:colorium_plate",     "sbo_extrosim:raw_extrosim" },
+        { "sbo_colorium_plate:colorium_plate",     "sbz_power:very_advanced_battery",       "sbo_colorium_plate:colorium_plate" },
+        { "sbo_colorium_circuit:colorium_circuit", "sbo_extrosim_circuit:extrosim_circuit", "sbo_colorium_circuit:colorium_circuit" }
     }
 })
 
-sbz_api.achievment_table["sbo_sup_bat:super_battery"] = "Super Battery"
-sbz_api.register_quest_to("Questline: Extrosim",{
-        type = "quest",
-        title = "Super Battery",
-        text = [[Bets Battery Ever
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Super Battery",
+    text = [[Best Battery Ever, stores 150cj/h.
 ]],
-        requires = { "Colorium Plates", "Extrosim Circuit", "Colorium Circuit", }
-    })
+    requires = { "Colorium Plates", "Extrosim Circuit", "Colorium Circuit", }
+})

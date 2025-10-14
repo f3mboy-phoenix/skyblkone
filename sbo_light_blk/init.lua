@@ -16,10 +16,9 @@ minetest.register_craft({
         { "sbo_photon:photon", "sbo_photon:photon", "sbo_photon:photon" }
     }
 })
-sbz_api.achievment_table["sbo_light_blk:light_block"] = "Block of Light??"
-sbz_api.register_quest_to("Questline: Chemistry",{
+sbo_api.register_wiki_page({
     type = "quest",
-    title = "Block of Light??",
-    text = [[A Block of Light ????]],
-    requires = { "Photons" }
+    info = true,
+    title = "Light Blocks",
+    text = [[Light blocks are made from 9 photons and give off a light level of 14.]],
 })

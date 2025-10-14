@@ -72,17 +72,15 @@ sbz_api.register_machine("sbo_warp_maker:warp_maker", {
 minetest.register_craft({
     output = "sbo_warp_maker:warp_maker",
     recipe = {
-        { "sbo_photon:photon",   "sbz_resources:matter_plate",        "sbz_bio:warpshroom" },
-        { "sbz_resources:matter_plate", "sbo_control_board:control_board","sbz_resources:matter_plate" },
-        { "sbz_bio:warpshroom",   "sbz_bio:neutron_emitter_off",        "sbo_photon:photon" }
+        { "sbo_photon:photon",          "sbz_resources:matter_plate",      "sbz_bio:warpshroom" },
+        { "sbz_resources:matter_plate", "sbo_control_board:control_board", "sbz_resources:matter_plate" },
+        { "sbz_bio:warpshroom",         "sbz_bio:neutron_emitter_off",     "sbo_photon:photon" }
     }
 })
 
-sbz_api.achievment_table["sbo_warp_maker:warp_maker"] = "Warp Making'"
-sbz_api.register_quest_to("Questline: Organics",{
-        type = "quest",
-        title = "Warp Making'",
-        text =
-        [[  You can create a Warp Maker to grow warpshrooms.]],
-        requires = { "Photons", "Control Board"}
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Warp Makers",
+    text = [[Warp Makers are used to grow warpshrooms.]],
+    requires = { "Photons", "Control Board" }
 })

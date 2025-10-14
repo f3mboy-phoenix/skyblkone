@@ -12,17 +12,19 @@ minetest.register_node("sbo_extrosim_glass:extrosim_glass", {
 minetest.register_craft({
     output = "sbo_extrosim_glass:extrosim_glass 16",
     recipe = {
-        { "sbo_extrosim:raw_extrosim",   "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" },
+        { "sbo_extrosim:raw_extrosim",     "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" },
         { "sbz_resources:antimatter_dust", "",                              "sbz_resources:antimatter_dust" },
-        { "sbo_extrosim:raw_extrosim",   "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" }
+        { "sbo_extrosim:raw_extrosim",     "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" }
     }
 })
 
-sbz_api.achievment_table["sbo_extrosim_glass:extrosim_glass"] = "Extrosim Glass"
-sbz_api.register_quest_to("Questline: Extrosim",{
-        type = "quest",
-        title = "Extrosim Glass",
-        text = "Extrosim Glass?",
-        requires = { "Obtain Extrosim" }
+sbo_api.register_wiki_page({
+    type = "quest",
+    info = true,
+    title = "Extrosim Glass",
+    text = [[
+Just another kind of glass.
+They are made with:
+    4 Extrosim crystals
+    4 Antimatter dust]],
 })
-

@@ -36,9 +36,9 @@ minetest.register_node("sbo_extrosim_reactor:reactor_shell", {
 minetest.register_craft {
     output = "sbo_extrosim_reactor:reactor_shell",
     recipe = {
-        { "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim",        "sbz_resources:compressed_core_dust" },
-        { "sbo_extrosim:raw_extrosim",        "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim" },
-        { "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim",        "sbz_resources:compressed_core_dust" },
+        { "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim",          "sbz_resources:compressed_core_dust" },
+        { "sbo_extrosim:raw_extrosim",          "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim" },
+        { "sbz_resources:compressed_core_dust", "sbo_extrosim:raw_extrosim",          "sbz_resources:compressed_core_dust" },
     }
 }
 
@@ -56,9 +56,9 @@ minetest.register_node("sbo_extrosim_reactor:reactor_glass", {
 minetest.register_craft {
     output = "sbo_extrosim_reactor:reactor_glass",
     recipe = {
-        { "sbz_power:simple_charged_field", "sbo_extrosim_glass:extrosim_glass", "sbz_power:simple_charged_field" },
-        { "sbo_extrosim_glass:extrosim_glass",  "sbo_extrosim_reactor:reactor_shell",       "sbo_extrosim_glass:extrosim_glass" },
-        { "sbz_power:simple_charged_field", "sbo_extrosim_glass:extrosim_glass", "sbz_power:simple_charged_field" }
+        { "sbz_power:simple_charged_field",    "sbo_extrosim_glass:extrosim_glass",  "sbz_power:simple_charged_field" },
+        { "sbo_extrosim_glass:extrosim_glass", "sbo_extrosim_reactor:reactor_shell", "sbo_extrosim_glass:extrosim_glass" },
+        { "sbz_power:simple_charged_field",    "sbo_extrosim_glass:extrosim_glass",  "sbz_power:simple_charged_field" }
     }
 }
 
@@ -133,9 +133,9 @@ sbz_api.register_stateful("sbo_extrosim_reactor:reactor_core", {
 minetest.register_craft {
     output = "sbo_extrosim_reactor:reactor_core",
     recipe = {
-        { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", },
-        { "sbz_meteorites:neutronium", "sbo_extrosim_reactor:reactor_shell",   "sbz_meteorites:neutronium", },
-        { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", }
+        { "sbo_extrosim_reactor:reactor_shell", "sbz_meteorites:neutronium", "sbo_extrosim_reactor:reactor_shell", },
+        { "sbz_meteorites:neutronium",          "sbz_power:reactor_core",    "sbz_meteorites:neutronium", },
+        { "sbo_extrosim_reactor:reactor_shell", "sbz_meteorites:neutronium", "sbo_extrosim_reactor:reactor_shell", }
     }
 }
 
@@ -259,7 +259,7 @@ minetest.register_node("sbo_extrosim_reactor:reactor_infoscreen", {
             sbz_api.turn_off(linkedpos)
             meta:set_string("formspec", make_infoscreen_off_formspec(meta))
         elseif fields.relink then
-            try_lPOWER_GENinking(pos, meta)
+            try_linking(pos, meta)
             meta:set_string("formspec", "")
             meta:set_string("infotext", "")
         end

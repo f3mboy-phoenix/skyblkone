@@ -72,17 +72,16 @@ sbz_api.register_machine("sbo_shockshroom_grower:shockshroom_grower", {
 minetest.register_craft({
     output = "sbo_shockshroom_grower:shockshroom_grower",
     recipe = {
-        { "sbo_photon:photon",   "sbz_resources:matter_plate",        "sbz_bio:shockshroom" },
-        { "sbz_resources:matter_plate", "sbo_control_board:control_board","sbz_resources:matter_plate" },
-        { "sbz_bio:shockshroom",   "sbz_resources:matter_blob",        "sbo_photon:photon" }
+        { "sbo_photon:photon",          "sbz_resources:matter_plate",      "sbz_bio:shockshroom" },
+        { "sbz_resources:matter_plate", "sbo_control_board:control_board", "sbz_resources:matter_plate" },
+        { "sbz_bio:shockshroom",        "sbz_resources:matter_blob",       "sbo_photon:photon" }
     }
 })
 
-sbz_api.achievment_table["sbo_shockshroom_grower:shockshroom_grower"] = "Shockshroom Growin'"
-sbz_api.register_quest_to("Questline: Organics",{
-        type = "quest",
-        title = "Shockshroom Growin'",
-        text =
-        [[  You can create Shockshroom Grower.]],
-        requires = { "Generators", "Control Board"}
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Shockshroom Grower",
+    text =
+    [[  Shockshroom Growers create Shockshrooms]],
+    requires = { "Generators", "Control Board" }
 })

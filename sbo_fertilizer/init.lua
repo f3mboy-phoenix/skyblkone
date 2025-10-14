@@ -32,4 +32,4 @@ local fert_use = function(itemstack, user, pointed)
     itemstack:take_item()
     return itemstack
 end
-minetest.override_item("sbz_bio:fertilizer",{on_use= fert_use})
+minetest.override_item("sbz_bio:fertilizer", { on_use = fert_use })

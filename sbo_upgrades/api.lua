@@ -1,4 +1,4 @@
-function sbo_upgrades.meta_to_inv(player)
+function sbo_api.upgrades.meta_to_inv(player)
 	local meta = player:get_meta()
 	local inv = player:get_inventory()
 	local data = meta:get("sbo_upgrades:ugpacks")
@@ -24,7 +24,7 @@ end
 
 -- Metadata cannot be accessed directly
 -- If this mod is disabled, the inventory list will be unavailable
-function sbo_upgrades.inv_to_meta(player)
+function sbo_api.upgrades.inv_to_meta(player)
 	local meta = player:get_meta()
 	local inv = player:get_inventory()
 	local list = inv:get_list("ugpacks")
@@ -38,8 +38,8 @@ function sbo_upgrades.inv_to_meta(player)
 end
 
 -- Maximum wear: (2^16 - 1)
-function sbo_upgrades.add_wear(player, pack, amount)
-	local lookup = sbo_upgrades[pack .. "_items"]
+function sbo_api.upgrades.add_wear(player, pack, amount)
+	local lookup = sbo_api.upgrades[pack .. "_items"]
 
 	local needs_update = false
 	local inv = player:get_inventory()
@@ -56,12 +56,13 @@ function sbo_upgrades.add_wear(player, pack, amount)
 	end
 	inv:set_list("ugpacks", list)
 	if needs_update then
-		sbo_upgrades.update_player(player)
+		sbo_api.upgrades.update_player(player)
 	end
 end
 
-function sbo_upgrades.register_pack(name, pack, pack_def)
-	assert(pack == "breath" or pack == "health" or pack == "hunger" or pack == "jump" or pack == "speed" or pack == "gravity")
+function sbo_api.upgrades.register_pack(name, pack, pack_def)
+	assert(pack == "breath" or pack == "health" or pack == "hunger" or pack == "jump" or pack == "speed" or
+		pack == "gravity")
 	assert(pack_def.description)
 	assert(pack_def.image)
 	assert(pack_def.strength > 0)
@@ -75,8 +76,9 @@ function sbo_upgrades.register_pack(name, pack, pack_def)
 
 	minetest.register_tool(name, def)
 end
-sbo_upgrades._speedid=nil
-function sbo_upgrades.update_player(player)
+
+sbo_api.upgrades._speedid = nil
+function sbo_api.upgrades.update_player(player)
 	local inv = player:get_inventory()
 	local health = minetest.PLAYER_MAX_HP_DEFAULT
 	local breath = minetest.PLAYER_MAX_BREATH_DEFAULT
@@ -85,12 +87,12 @@ function sbo_upgrades.update_player(player)
 	local gravity = 1
 	local jump = 1
 
-	local health_items = sbo_upgrades.health_items
-	local breath_items = sbo_upgrades.breath_items
-	local hunger_items = sbo_upgrades.hunger_items
-	local gravity_items = sbo_upgrades.gravity_items
-	local jump_items = sbo_upgrades.jump_items
-	local speed_items = sbo_upgrades.speed_items
+	local health_items = sbo_api.upgrades.health_items
+	local breath_items = sbo_api.upgrades.breath_items
+	local hunger_items = sbo_api.upgrades.hunger_items
+	local gravity_items = sbo_api.upgrades.gravity_items
+	local jump_items = sbo_api.upgrades.jump_items
+	local speed_items = sbo_api.upgrades.speed_items
 
 
 	local list = inv:get_list("ugpacks")
@@ -122,10 +124,10 @@ function sbo_upgrades.update_player(player)
 		jump = jump,
 		gravity = gravity
 	})
-	if sbo_upgrades._speedid then
+	if sbo_api.upgrades._speedid then
 		player_monoids.speed:del_change(player, 'upgrades:speed')
 	end
-	sbo_upgrades._speedid=player_monoids.speed:add_change(player, speed, 'upgrades:speed')
+	sbo_api.upgrades._speedid = player_monoids.speed:add_change(player, speed, 'upgrades:speed')
 	--sbz_api.displayDialogLine(player:get_player_name(), "Run Update Hud")
 	hbhunger.update_hud(player)
 end

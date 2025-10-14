@@ -72,19 +72,17 @@ sbz_api.register_machine("sbo_grim_grower:grim_grower", {
 minetest.register_craft({
     output = "sbo_grim_grower:grim_grower",
     recipe = {
-        { "sbo_photon:photon",   "sbz_resources:matter_plate",        "sbz_bio:algae" },
-        { "sbz_resources:matter_plate", "sbo_extrosim_circuit:extrosim_circuit","sbz_resources:matter_plate" },
-        { "sbz_bio:algae",   "sbz_resources:matter_blob",        "sbo_photon:photon" }
+        { "sbo_photon:photon",          "sbz_resources:matter_plate",            "sbz_bio:algae" },
+        { "sbz_resources:matter_plate", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:matter_plate" },
+        { "sbz_bio:algae",              "sbz_resources:matter_blob",             "sbo_photon:photon" }
     }
 })
 
-sbz_api.achievment_table["sbo_grim_grower:grim_grower"] = "Grime Growin'"
-sbz_api.register_quest_to("Questline: Organics",{
-        type = "quest",
-        title = "Grime Growin'",
-        text =
-        [[  You can create Grime Grower.
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Grime Grower",
+    text =
+    [[  You can create Grime Grower.
     2 photons, 2 peices of algae, 4 matter blobs, 1 extrosim circuit
         ]],
-        requires = { "Generators", "Extrosim Circuit"}
 })

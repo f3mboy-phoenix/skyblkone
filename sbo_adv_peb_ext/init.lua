@@ -71,17 +71,15 @@ sbz_api.register_machine("sbo_adv_peb_ext:advanced_peb_extractor", {
 minetest.register_craft({
     output = "sbo_adv_peb_ext:advanced_peb_extractor",
     recipe = {
-        { "sbz_resources:stone",   "sbz_resources:stone",        "sbz_resources:stone" },
-        { "sbz_resources:stone", "sbz_power:advanced_matter_extractor","sbz_resources:stone" },
-        { "sbz_resources:stone",   "sbo_extrosim_circuit:extrosim_circuit",        "sbz_resources:stone" }
+        { "sbz_resources:stone", "sbz_resources:stone",                   "sbz_resources:stone" },
+        { "sbz_resources:stone", "sbz_power:advanced_matter_extractor",   "sbz_resources:stone" },
+        { "sbz_resources:stone", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:stone" }
     }
 })
 
-sbz_api.achievment_table["sbo_adv_peb_ext:advanced_peb_extractor"] = "Cement Mixer"
-sbz_api.register_quest_to("Questline: Extrosim",{
+sbo_api.register_wiki_page({
     type = "quest",
     title = "Cement Mixer",
     text =
-        [[You can create an Advanced Pebble Extractor. Creates Stone Blocks]],
-    requires = { "Concrete Plan","Extrosim Circuit" }
+    [[Advanced Pebble Extractor requires 100 Cj. Creates 1 pebble per second.]],
 })

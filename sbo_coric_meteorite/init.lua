@@ -84,7 +84,7 @@ local function meteorite_explode(pos, type)
         })
     end
 end
-sbz_api.coric_meteorite={explode=meteorite_explode}
+sbo_api.coric_meteorite = { explode = meteorite_explode }
 minetest.register_entity("sbo_coric_meteorite:coric", {
     initial_properties = {
         visual = "cube",
@@ -92,16 +92,16 @@ minetest.register_entity("sbo_coric_meteorite:coric", {
         automatic_rotate = 0.2,
         glow = 14,
         physical = false, --so they enter unloaded chunks properly
-        typename="meteorite",
-        apiname="coric_meteorite",
+        typename = "meteorite",
+        apiname = "coric_meteorite",
     },
     on_activate = function(self, staticdata, dtime)
         if dtime and dtime > 600 then
             self.object:remove()
             return
         end
-        self.typename="meteorite"
-        self.apiname="coric_meteorite"
+        self.typename = "meteorite"
+        self.apiname = "coric_meteorite"
         self.object:set_rotation(vector.new(math.random() * 2, math.random(), math.random() * 2) * math.pi)
         if staticdata and staticdata ~= "" then --not new, just unpack staticdata
             self.type = staticdata
@@ -242,7 +242,7 @@ end
 minetest.register_globalstep(meteorite_globalstep)
 
 minetest.register_abm({
-    nodenames = {"sbo_coric_meteorite:coric_matter"},
+    nodenames = { "sbo_coric_meteorite:coric_matter" },
     interval = 60,
     chance = 1,
     action = function(pos, node)

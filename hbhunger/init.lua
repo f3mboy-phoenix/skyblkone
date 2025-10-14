@@ -54,12 +54,8 @@ function hbhunger.update_hud(player)
  --hunger
 	local h_out = tonumber(hbhunger.hunger_out[name])
 	local h = tonumber(hbhunger.hunger[name])
-	--sbz_api.displayDialogLine(name, "Running Update Hud "..tostring(h) )
 	if h_out ~= h then
-
 		if h > hbhunger.SAT_MAX then h = hbhunger.SAT_MAX end
-		--hbhunger.hunger[name] = h
-		--hbhunger.hunger_out[name] = h+1
 		hbhunger.set_hunger_raw(player)
 		if player:get_meta():get_int('no_autohide_hp') == 0 then
 			if h >= 20 then hb.hide_hudbar(player, 'satiation') end
@@ -67,21 +63,13 @@ function hbhunger.update_hud(player)
 		else
 			hb.unhide_hudbar(player, 'satiation')
 		end
-		--sbz_api.displayDialogLine(player:get_player_name(), ""..h..",".. hbhunger.SAT_MAX)
 		hb.change_hudbar(player, "satiation", h, hbhunger.SAT_MAX)
 	else
 		hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
 		return
 	end
-	--local hbs=hb.get_hudbar_state(player, "satiation")
-	--[[sbz_api.displayDialogLine(player:get_player_name(),""..hbs.value)
-	if hbs.value > hbhunger.SAT_MAX then
-		hbhunger.hunger[name] = hbhunger.SAT_MAX
-		hbhunger.set_hunger_raw(player)
-		sbz_api.displayDialogLine(player:get_player_name(), "hunger over:".. hbhunger.SAT_MAX)
-	end]]
+
 end
---sbz_api.displayDialogLine(player:get_player_name(), "hunger: "..hbhunger.hunger[name]..", max: ".. hbhunger.SAT_MAX)
 local update_hud=hbhunger.update_hud
 hbhunger.get_hunger_raw = function(player)
 	local inv = player:get_inventory()

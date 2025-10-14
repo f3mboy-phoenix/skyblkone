@@ -33,43 +33,38 @@ local mal = "sbo_resium:circuit"
 minetest.register_craft({
     output = "sbo_resium_armor:resium_helmet",
     recipe = {
-        {mat, mat, mat},
-        {mat, mal, mat}
+        { mat, mat, mat },
+        { mat, mal, mat }
     }
 })
 
 minetest.register_craft({
     output = "sbo_resium_armor:resium_chestplate",
     recipe = {
-        {mat, mal, mat},
-        {mat, mat, mat},
-        {mat, mat, mat}
+        { mat, mal, mat },
+        { mat, mat, mat },
+        { mat, mat, mat }
     }
 })
 
 minetest.register_craft({
     output = "sbo_resium_armor:resium_leggings",
     recipe = {
-        {mat, mat, mat},
-        {mat, mal, mat},
-        {mat, "", mat}
+        { mat, mat, mat },
+        { mat, mal, mat },
+        { mat, "",  mat }
     }
 })
 
 minetest.register_craft({
     output = "sbo_resium_armor:resium_boots",
     recipe = {
-        {mat, mal, mat},
-        {mat, "", mat}
+        { mat, mal, mat },
+        { mat, "",  mat }
     }
 })
-sbz_api.achievment_table["sbo_resium_armor:resium_boots"] = "Resium Armor"
-sbz_api.achievment_table["sbo_resium_armor:resium_leggings"] = "Resium Armor"
-sbz_api.achievment_table["sbo_resium_armor:resium_chestplate"] = "Resium Armor"
-sbz_api.achievment_table["sbo_resium_armor:resium_helmet"] = "Resium Armor"
-sbz_api.register_quest_to("Questline: Resium",{
-        type = "quest",
-        title = "Resium Armor",
-        text = "Armor made out of Resium can repair itself",
-        requires = { "Obtain Resium", "Resium Circuit" }
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Resium Armor",
+    text = "Armor made out of Resium can repair itself",
 })

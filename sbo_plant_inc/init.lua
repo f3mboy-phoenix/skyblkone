@@ -74,19 +74,17 @@ sbz_api.register_machine("sbo_plant_inc:plant_incubator", {
 minetest.register_craft({
     output = "sbo_plant_inc:plant_incubator",
     recipe = {
-        { "sbo_photon:photon",   "sbz_resources:matter_plate",        "sbz_bio:moss" },
-        { "sbz_resources:matter_plate", "sbo_extrosim_circuit:extrosim_circuit","sbz_resources:matter_plate" },
-        { "sbz_bio:moss",   "sbz_resources:matter_blob",        "sbo_photon:photon" }
+        { "sbo_photon:photon",          "sbz_resources:matter_plate",            "sbz_bio:moss" },
+        { "sbz_resources:matter_plate", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:matter_plate" },
+        { "sbz_bio:moss",               "sbz_resources:matter_blob",             "sbo_photon:photon" }
     }
 })
 
-sbz_api.achievment_table["sbo_plant_inc:plant_incubator"] = "Plants Galore"
-sbz_api.register_quest_to("Questline: Organics",{
-        type = "quest",
-        title = "Plants Galore",
-        text =
-        [[  You can create Plant Incubators.
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Plant Incubators",
+    text =
+    [[  You can create Plant Incubators.
     2 photons, 2 peices of moss, 4 matter blobs, 1 simple circuit
         ]],
-        requires = { "Generators", "Extrosim Circuit"}
 })

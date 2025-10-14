@@ -56,17 +56,15 @@ sbz_api.register_machine("sbo_anti_ext:simple_antimatter_extractor", {
 minetest.register_craft({
     output = "sbo_anti_ext:simple_antimatter_extractor",
     recipe = {
-        { "sbz_resources:core_dust",   "sbz_resources:antimatter_blob",        "sbz_resources:core_dust" },
+        { "sbz_resources:core_dust",       "sbz_resources:antimatter_blob",        "sbz_resources:core_dust" },
         { "sbz_resources:antimatter_blob", "sbz_resources:antimatter_annihilator", "sbz_resources:antimatter_blob" },
-        { "sbz_resources:core_dust",   "sbz_resources:antimatter_blob",        "sbz_resources:core_dust" }
+        { "sbz_resources:core_dust",       "sbo_emmitrex:emmitrex_ingot",          "sbz_resources:core_dust" }
     }
 })
 
 
-sbz_api.achievment_table["sbo_anti_ext:simple_antimatter_extractor"] = "Antimatter Extractor"
-sbz_api.register_quest_to("Questline: Introduction",{
-        type = "quest",
-        title = "Antimatter Extractor",
-        text = [[Useful for antimatter generators]],
-        requires = { "Annihilator" }
-    })
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Antimatter Extractor",
+    text = [[Useful for antimatter generators. Creates 7 antimatter dust per second.]],
+})

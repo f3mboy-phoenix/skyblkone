@@ -36,9 +36,9 @@ minetest.register_node("sbo_resium_reactor:reactor_shell", {
 minetest.register_craft {
     output = "sbo_resium_reactor:reactor_shell",
     recipe = {
-        { "sbz_resources:compressed_core_dust", "sbo_resium:crystal",        "sbz_resources:compressed_core_dust" },
-        { "sbo_resium:crystal",        "sbz_resources:compressed_core_dust", "sbo_resium:crystal" },
-        { "sbz_resources:compressed_core_dust", "sbo_resium:crystal",        "sbz_resources:compressed_core_dust" },
+        { "sbz_resources:compressed_core_dust", "sbo_resium:crystal",                 "sbz_resources:compressed_core_dust" },
+        { "sbo_resium:crystal",                 "sbz_resources:compressed_core_dust", "sbo_resium:crystal" },
+        { "sbz_resources:compressed_core_dust", "sbo_resium:crystal",                 "sbz_resources:compressed_core_dust" },
     }
 }
 
@@ -56,9 +56,9 @@ minetest.register_node("sbo_resium_reactor:reactor_glass", {
 minetest.register_craft {
     output = "sbo_resium_reactor:reactor_glass",
     recipe = {
-        { "sbz_power:simple_charged_field", "sbo_resium_glass:resium_glass", "sbz_power:simple_charged_field" },
-        { "sbo_resium_glass:resium_glass",  "sbo_resium_reactor:reactor_shell",       "sbo_resium_glass:resium_glass" },
-        { "sbz_power:simple_charged_field", "sbo_resium_glass:resium_glass", "sbz_power:simple_charged_field" }
+        { "sbz_power:simple_charged_field", "sbo_resium_glass:resium_glass",    "sbz_power:simple_charged_field" },
+        { "sbo_resium_glass:resium_glass",  "sbo_resium_reactor:reactor_shell", "sbo_resium_glass:resium_glass" },
+        { "sbz_power:simple_charged_field", "sbo_resium_glass:resium_glass",    "sbz_power:simple_charged_field" }
     }
 }
 
@@ -133,9 +133,9 @@ sbz_api.register_stateful("sbo_resium_reactor:reactor_core", {
 minetest.register_craft {
     output = "sbo_resium_reactor:reactor_core",
     recipe = {
-        { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", },
-        { "sbz_meteorites:neutronium", "sbo_resium_reactor:reactor_shell",   "sbz_meteorites:neutronium", },
-        { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", }
+        { "sbo_resium_reactor:reactor_shell", "sbz_meteorites:neutronium",         "sbo_resium_reactor:reactor_shell", },
+        { "sbz_meteorites:neutronium",        "sbo_extrosim_reactor:reactor_core", "sbz_meteorites:neutronium", },
+        { "sbo_resium_reactor:reactor_shell", "sbz_meteorites:neutronium",         "sbo_resium_reactor:reactor_shell", }
     }
 }
 

@@ -106,19 +106,17 @@ listring[]
 minetest.register_craft({
     output = "sbo_adv_chg_gen:advanced_charge_generator",
     recipe = {
-        { "sbz_power:simple_charged_field", "sbz_resources:matter_blob",    "sbz_power:simple_charged_field" },
+        { "sbz_power:simple_charged_field", "sbz_resources:matter_blob",         "sbz_power:simple_charged_field" },
         { "sbz_resources:matter_blob",      "sbz_power:simple_charge_generator", "sbz_resources:matter_blob" },
-        { "sbz_power:simple_charged_field", "sbo_extrosim:raw_extrosim",        "sbz_power:simple_charged_field" }
+        { "sbz_power:simple_charged_field", "sbo_extrosim:raw_extrosim",         "sbz_power:simple_charged_field" }
     }
 })
 
-sbz_api.achievment_table["sbo_adv_chg_gen:advanced_charge_generator_off"] = "Advanced Generators"
-sbz_api.register_quest_to("Questline: Extrosim",{
-        type = "quest",
-        title = "Advanced Generators",
-        text =
-        [[  So you have made Generators but you can make Advanced versions as well.
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Advanced Generators",
+    text =
+    [[  If you have made Generators then you can make Advanced versions as well.
     They produce 90 power
     Craft with 4 Simple Charged Fields, 3 Matter Blobs, 1 Extrosim Circuit and 1 Generator]],
-        requires = { "Generators", "Extrosim Circuit"}
 })

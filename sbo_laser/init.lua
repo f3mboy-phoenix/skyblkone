@@ -3,7 +3,7 @@ local laser_range = 300
 local max_wear = 50
 local power_per_1_use = 50
 
-minetest.register_tool("sbo_laser:laser_weapon", {
+minetest.register_tool(":sbz_resources:laser_weapon", {
     description = "Laser",
     info_extra = "Do you want to get all the meteorites you see, without bridging to them? This is the perfect weapon",
     inventory_image = "laser_pointer.png",
@@ -33,7 +33,7 @@ minetest.register_tool("sbo_laser:laser_weapon", {
                     if luaentity and luaentity.typename == "meteorite" then
                         minetest.after(0.1, function()
                             if ref and ref:is_valid() then
-                                sbz_api[luaentity.apiname].explode(ref:get_pos(), luaentity.type)
+                                sbo_api[luaentity.apiname].explode(ref:get_pos(), luaentity.type)
                             end
                         end)
                     end
@@ -79,23 +79,4 @@ minetest.register_tool("sbo_laser:laser_weapon", {
     wield_scale = { x = 1, y = 1, z = 2.5 },
     wield_image = "laser_wield.png",
     wear_color = { color_stops = { [0] = "lime" } },
-})
-
-minetest.register_craft {
-    output = "sbo_laser:laser_weapon",
-    recipe = {
-        { "sbz_resources:emittrium_circuit" },
-        { "sbz_power:advanced_battery" },
-        { "sbz_resources:reinforced_matter" }
-    }
-}
-sbz_api.achievment_table["sbz_laser:laser_weapon"] = "Laser"
-
-minetest.register_craft({
-    output = "sbz_chem:engraver",
-    recipe = {
-        { "sbz_resources:reinforced_matter", "sbo_laser:laser_weapon", "sbz_resources:reinforced_matter" },
-        { "sbz_resources:emittrium_circuit", "sbz_resources:storinator",   "sbz_resources:emittrium_circuit" },
-        { "sbz_meteorites:neutronium",       "sbz_meteorites:neutronium",  "sbz_meteorites:neutronium" },
-    }
 })

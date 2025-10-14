@@ -29,8 +29,8 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 
 	local inv = meta:get_inventory()
 	local pieceFrom = inv:get_stack(from_list, from_index):get_name():sub(8) --:sub(8) cuts "laptop:"
-	local pieceTo = inv:get_stack(to_list, to_index):get_name():sub(8) --:sub(8) cuts "laptop:"
-	local thisMove -- will replace lastMove when move is legal
+	local pieceTo = inv:get_stack(to_list, to_index):get_name():sub(8)    --:sub(8) cuts "laptop:"
+	local thisMove                                                        -- will replace lastMove when move is legal
 
 	if pieceFrom:find("white") then
 		if data.playerWhite ~= "" and data.playerWhite ~= playerName then
@@ -69,7 +69,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 	local from_x, from_y = index_to_xy(from_index)
 	local to_x, to_y = index_to_xy(to_index)
 
-	if pieceFrom:sub(11,14) == "pawn" then
+	if pieceFrom:sub(11, 14) == "pawn" then
 		if thisMove == "white" then
 			local pawnWhiteMove = inv:get_stack(from_list, xy_to_index(from_x, from_y - 1)):get_name()
 			-- white pawns can go up only
@@ -163,8 +163,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 		else
 			return 0
 		end
-
-	elseif pieceFrom:sub(11,14) == "rook" then
+	elseif pieceFrom:sub(11, 14) == "rook" then
 		if from_x == to_x then
 			-- moving vertically
 			if from_y < to_y then
@@ -215,8 +214,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 				data.castlingWhiteR = 0
 			end
 		end
-
-	elseif pieceFrom:sub(11,16) == "knight" then
+	elseif pieceFrom:sub(11, 16) == "knight" then
 		-- get relative pos
 		local dx = from_x - to_x
 		local dy = from_y - to_y
@@ -234,8 +232,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 		end
 		-- just ensure that destination cell does not contain friend piece
 		-- ^ it was done already thus everything ok
-
-	elseif pieceFrom:sub(11,16) == "bishop" then
+	elseif pieceFrom:sub(11, 16) == "bishop" then
 		-- get relative pos
 		local dx = from_x - to_x
 		local dy = from_y - to_y
@@ -284,8 +281,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 				end
 			end
 		end
-
-	elseif pieceFrom:sub(11,15) == "queen" then
+	elseif pieceFrom:sub(11, 15) == "queen" then
 		local dx = from_x - to_x
 		local dy = from_y - to_y
 
@@ -369,8 +365,7 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 				end
 			end
 		end
-
-	elseif pieceFrom:sub(11,14) == "king" then
+	elseif pieceFrom:sub(11, 14) == "king" then
 		local dx = from_x - to_x
 		local dy = from_y - to_y
 		local check = true
@@ -456,16 +451,16 @@ function realchess.move(data, pos, from_list, from_index, to_list, to_index, _, 
 	data.lastMoveTime = minetest.get_gametime()
 
 	if data.lastMove == "black" then
-		data.messageWhite = "["..os.date("%H:%M:%S").."] "..
-				playerName.." moved a "..pieceFrom:match("_(%a+)")..", it's now your turn."
+		data.messageWhite = "[" .. os.date("%H:%M:%S") .. "] " ..
+			playerName .. " moved a " .. pieceFrom:match("_(%a+)") .. ", it's now your turn."
 	elseif data.lastMove == "white" then
-		data.messageBlack = "["..os.date("%H:%M:%S").."] "..
-				playerName.." moved a "..pieceFrom:match("_(%a+)")..", it's now your turn."
+		data.messageBlack = "[" .. os.date("%H:%M:%S") .. "] " ..
+			playerName .. " moved a " .. pieceFrom:match("_(%a+)") .. ", it's now your turn."
 	end
 
-	if pieceTo:sub(11,14) == "king" then
-		data.messageWhite =  playerName.." won the game."
-		data.messageBlack =  playerName.." won the game."
+	if pieceTo:sub(11, 14) == "king" then
+		data.messageWhite = playerName .. " won the game."
+		data.messageBlack = playerName .. " won the game."
 		data.winner = thisMove
 	end
 
@@ -477,29 +472,29 @@ local function timeout_format(timeout_limit)
 	local minutes = math.floor(time_remaining / 60)
 	local seconds = time_remaining % 60
 
-	if minutes == 0 then return seconds.." sec." end
-	return minutes.." min. "..seconds.." sec."
+	if minutes == 0 then return seconds .. " sec." end
+	return minutes .. " min. " .. seconds .. " sec."
 end
 
 local function register_piece(name, count)
-	for _, color in pairs({"black", "white"}) do
-	if not count then
-		minetest.register_craftitem("laptop:realchess_"..name.."_"..color, {
-			description = color:gsub("^%l", string.upper).." "..name:gsub("^%l", string.upper),
-			inventory_image = "laptop_realchess_"..name.."_"..color..".png",
-			stack_max = 1,
-			groups = {not_in_creative_inventory=1}
-		})
-	else
-		for i = 1, count do
-			minetest.register_craftitem("laptop:realchess_"..name.."_"..color.."_"..i, {
-				description = color:gsub("^%l", string.upper).." "..name:gsub("^%l", string.upper),
-				inventory_image = "laptop_realchess_"..name.."_"..color..".png",
+	for _, color in pairs({ "black", "white" }) do
+		if not count then
+			minetest.register_craftitem("laptop:realchess_" .. name .. "_" .. color, {
+				description = color:gsub("^%l", string.upper) .. " " .. name:gsub("^%l", string.upper),
+				inventory_image = "laptop_realchess_" .. name .. "_" .. color .. ".png",
 				stack_max = 1,
-				groups = {not_in_creative_inventory=1}
+				groups = { not_in_creative_inventory = 1 }
 			})
+		else
+			for i = 1, count do
+				minetest.register_craftitem("laptop:realchess_" .. name .. "_" .. color .. "_" .. i, {
+					description = color:gsub("^%l", string.upper) .. " " .. name:gsub("^%l", string.upper),
+					inventory_image = "laptop_realchess_" .. name .. "_" .. color .. ".png",
+					stack_max = 1,
+					groups = { not_in_creative_inventory = 1 }
+				})
+			end
 		end
-	end
 	end
 end
 
@@ -512,121 +507,121 @@ register_piece("king")
 
 
 -- Laptop app registration
-	laptop.register_app("realchess", {
-		app_name = "Realchess",
-		app_icon = "laptop_realchess_chessboard_icon.png",
-		app_info = "A Chess game",
-		os_min_version = "5.51",
-		formspec_func = function(app, mtos)
-			local data = mtos.bdev:get_app_storage('ram', 'realchess')
-			if not data.init_done then
-				data.init_done = true
-				-- Initialize the game
-				data.playerBlack = ""
-				data.playerWhite = ""
-				data.lastMove = ""
-				data.winner = ""
+laptop.register_app("realchess", {
+	app_name = "Realchess",
+	app_icon = "laptop_realchess_chessboard_icon.png",
+	app_info = "A Chess game",
+	os_min_version = "5.51",
+	formspec_func = function(app, mtos)
+		local data = mtos.bdev:get_app_storage('ram', 'realchess')
+		if not data.init_done then
+			data.init_done = true
+			-- Initialize the game
+			data.playerBlack = ""
+			data.playerWhite = ""
+			data.lastMove = ""
+			data.winner = ""
 
-				data.lastMoveTime = 0
-				data.castlingBlackL = 1
-				data.castlingBlackR = 1
-				data.castlingWhiteL = 1
-				data.castlingWhiteR = 1
+			data.lastMoveTime = 0
+			data.castlingBlackL = 1
+			data.castlingBlackR = 1
+			data.castlingWhiteL = 1
+			data.castlingWhiteR = 1
 
-				local meta = minetest.get_meta(mtos.pos)
-				local inv = meta:get_inventory()
-				inv:set_size("board", 64)
-				inv:set_list("board", {
-					"laptop:realchess_rook_black_1",
-					"laptop:realchess_knight_black_1",
-					"laptop:realchess_bishop_black_1",
-					"laptop:realchess_queen_black",
-					"laptop:realchess_king_black",
-					"laptop:realchess_bishop_black_2",
-					"laptop:realchess_knight_black_2",
-					"laptop:realchess_rook_black_2",
-					"laptop:realchess_pawn_black_1",
-					"laptop:realchess_pawn_black_2",
-					"laptop:realchess_pawn_black_3",
-					"laptop:realchess_pawn_black_4",
-					"laptop:realchess_pawn_black_5",
-					"laptop:realchess_pawn_black_6",
-					"laptop:realchess_pawn_black_7",
-					"laptop:realchess_pawn_black_8",
-					'','','','','','','','','','','','','','','','',
-					'','','','','','','','','','','','','','','','',
-					"laptop:realchess_pawn_white_1",
-					"laptop:realchess_pawn_white_2",
-					"laptop:realchess_pawn_white_3",
-					"laptop:realchess_pawn_white_4",
-					"laptop:realchess_pawn_white_5",
-					"laptop:realchess_pawn_white_6",
-					"laptop:realchess_pawn_white_7",
-					"laptop:realchess_pawn_white_8",
-					"laptop:realchess_rook_white_1",
-					"laptop:realchess_knight_white_1",
-					"laptop:realchess_bishop_white_1",
-					"laptop:realchess_queen_white",
-					"laptop:realchess_king_white",
-					"laptop:realchess_bishop_white_2",
-					"laptop:realchess_knight_white_2",
-					"laptop:realchess_rook_white_2"
-				})
-			end
-			local formspec =
-					"bgcolor[#080808BB;true]background[3,1;8,8;laptop_realchess_chess_bg.png]"..
-					mtos.theme:get_button('12,1;2,2', 'major', 'new', 'New Game', 'Start a new game')..
-					"list[context;board;3,1;8,8;]"..
-					"listcolors[#00000000;#00000000;#00000000;#30434C;#FFF]"
-					if data.messageOther then
-						formspec = formspec..mtos.theme:get_label('4,9.3', mtos.sysram.current_player.." "..data.messageOther)
-					else
-						formspec=formspec..
-								mtos.theme:get_label('2,0.3', data.playerBlack.." "..(data.messageBlack or ""))..
-								mtos.theme:get_label('4,9.3', data.playerWhite.." "..(data.messageWhite or ""))
-					end
-					return formspec
-		end,
+			local meta = minetest.get_meta(mtos.pos)
+			local inv = meta:get_inventory()
+			inv:set_size("board", 64)
+			inv:set_list("board", {
+				"laptop:realchess_rook_black_1",
+				"laptop:realchess_knight_black_1",
+				"laptop:realchess_bishop_black_1",
+				"laptop:realchess_queen_black",
+				"laptop:realchess_king_black",
+				"laptop:realchess_bishop_black_2",
+				"laptop:realchess_knight_black_2",
+				"laptop:realchess_rook_black_2",
+				"laptop:realchess_pawn_black_1",
+				"laptop:realchess_pawn_black_2",
+				"laptop:realchess_pawn_black_3",
+				"laptop:realchess_pawn_black_4",
+				"laptop:realchess_pawn_black_5",
+				"laptop:realchess_pawn_black_6",
+				"laptop:realchess_pawn_black_7",
+				"laptop:realchess_pawn_black_8",
+				'', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+				'', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+				"laptop:realchess_pawn_white_1",
+				"laptop:realchess_pawn_white_2",
+				"laptop:realchess_pawn_white_3",
+				"laptop:realchess_pawn_white_4",
+				"laptop:realchess_pawn_white_5",
+				"laptop:realchess_pawn_white_6",
+				"laptop:realchess_pawn_white_7",
+				"laptop:realchess_pawn_white_8",
+				"laptop:realchess_rook_white_1",
+				"laptop:realchess_knight_white_1",
+				"laptop:realchess_bishop_white_1",
+				"laptop:realchess_queen_white",
+				"laptop:realchess_king_white",
+				"laptop:realchess_bishop_white_2",
+				"laptop:realchess_knight_white_2",
+				"laptop:realchess_rook_white_2"
+			})
+		end
+		local formspec =
+			"bgcolor[#080808BB;true]background[3,1;8,8;laptop_realchess_chess_bg.png]" ..
+			mtos.theme:get_button('12,1;2,2', 'major', 'new', 'New Game', 'Start a new game') ..
+			"list[context;board;3,1;8,8;]" ..
+			"listcolors[#00000000;#00000000;#00000000;#30434C;#FFF]"
+		if data.messageOther then
+			formspec = formspec .. mtos.theme:get_label('4,9.3', mtos.sysram.current_player .. " " .. data.messageOther)
+		else
+			formspec = formspec ..
+				mtos.theme:get_label('2,0.3', data.playerBlack .. " " .. (data.messageBlack or "")) ..
+				mtos.theme:get_label('4,9.3', data.playerWhite .. " " .. (data.messageWhite or ""))
+		end
+		return formspec
+	end,
 
-		receive_fields_func = function(app, mtos, sender, fields)
-			local data = mtos.bdev:get_app_storage('ram', 'realchess')
-			local playerName = sender:get_player_name()
-			local timeout_limit = (data.lastMoveTime or 0) + 300
+	receive_fields_func = function(app, mtos, sender, fields)
+		local data = mtos.bdev:get_app_storage('ram', 'realchess')
+		local playerName = sender:get_player_name()
+		local timeout_limit = (data.lastMoveTime or 0) + 300
 
-			if fields.quit then return end
+		if fields.quit then return end
 
-			data.messageBlack = nil
-			data.messageWhite = nil
-			data.messageOther = nil
+		data.messageBlack = nil
+		data.messageWhite = nil
+		data.messageOther = nil
 
-			-- timeout is 5 min. by default for resetting the game (non-players only)
-			if fields.new and (data.playerWhite == playerName or data.playerBlack == playerName) then
-				data.init_done = nil
-			elseif fields.new and data.lastMoveTime ~= 0 and minetest.get_gametime() >= timeout_limit and
-					(data.playerWhite ~= playerName or data.playerBlack ~= playerName) then
-				data.init_done = nil
-			else
-				data.messageOther = "[!] You can't reset the chessboard, a game has been started.\n"..
-						"If you are not a current player, try again in "..timeout_format(timeout_limit)
-			end
-		end,
-		allow_metadata_inventory_move = function(app, mtos, player, from_list, from_index, to_list, to_index, count)
-			local data = mtos.bdev:get_app_storage('ram', 'realchess')
+		-- timeout is 5 min. by default for resetting the game (non-players only)
+		if fields.new and (data.playerWhite == playerName or data.playerBlack == playerName) then
+			data.init_done = nil
+		elseif fields.new and data.lastMoveTime ~= 0 and minetest.get_gametime() >= timeout_limit and
+			(data.playerWhite ~= playerName or data.playerBlack ~= playerName) then
+			data.init_done = nil
+		else
+			data.messageOther = "[!] You can't reset the chessboard, a game has been started.\n" ..
+				"If you are not a current player, try again in " .. timeout_format(timeout_limit)
+		end
+	end,
+	allow_metadata_inventory_move = function(app, mtos, player, from_list, from_index, to_list, to_index, count)
+		local data = mtos.bdev:get_app_storage('ram', 'realchess')
 
-			data.messageBlack = nil
-			data.messageWhite = nil
-			data.messageOther = nil
+		data.messageBlack = nil
+		data.messageWhite = nil
+		data.messageOther = nil
 
-			local ret = realchess.move(data, mtos.pos, from_list, from_index, to_list, to_index, count, player), false  --reshow = true
-			minetest.after(0, mtos.set_app, mtos, mtos.sysram.current_app) -- refresh screen
-			return ret
-		end,
-		on_metadata_inventory_move = function(app, mtos, player, from_list, from_index, to_list, to_index, count)
-			local inv = minetest.get_meta(mtos.pos):get_inventory()
-			inv:set_stack(from_list, from_index, '')
-			return false
-		end,
-		allow_metadata_inventory_take = function()
-			return 0
-		end,
-	})
+		local ret = realchess.move(data, mtos.pos, from_list, from_index, to_list, to_index, count, player) --reshow = true
+		minetest.after(0, mtos.set_app, mtos, mtos.sysram.current_app)                                 -- refresh screen
+		return ret
+	end,
+	on_metadata_inventory_move = function(app, mtos, player, from_list, from_index, to_list, to_index, count)
+		local inv = minetest.get_meta(mtos.pos):get_inventory()
+		inv:set_stack(from_list, from_index, '')
+		return false
+	end,
+	allow_metadata_inventory_take = function()
+		return 0
+	end,
+})

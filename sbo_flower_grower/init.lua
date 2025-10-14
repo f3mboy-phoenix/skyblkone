@@ -72,17 +72,15 @@ sbz_api.register_machine("sbo_flower_grower:flower_grower", {
 minetest.register_craft({
     output = "sbo_flower_grower:flower_grower",
     recipe = {
-        { "sbo_photon:photon",   "sbz_resources:matter_plate",        "sbz_bio:stemfruit " },
-        { "sbz_resources:matter_plate", "sbo_resium:circuit","sbz_resources:matter_plate" },
-        { "sbz_bio:stemfruit",   "sbz_resources:matter_blob",        "sbo_photon:photon" }
+        { "sbo_photon:photon",          "sbz_resources:matter_plate", "sbz_bio:stemfruit " },
+        { "sbz_resources:matter_plate", "sbo_resium:circuit",         "sbz_resources:matter_plate" },
+        { "sbz_bio:stemfruit",          "sbz_resources:matter_blob",  "sbo_photon:photon" }
     }
 })
 
-sbz_api.achievment_table["sbo_flower_grower:flower_grower"] = "Flower Growin'"
-sbz_api.register_quest_to("Questline: Organics",{
-        type = "quest",
-        title = "Flower Growin'",
-        text =
-        [[  You can create Flower Grower. These can make stemfruit]],
-        requires = { "Generators", "Control Board"}
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Flower Grower",
+    text =
+    [[Flower Growers can make stemfruit]],
 })

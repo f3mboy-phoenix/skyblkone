@@ -17,7 +17,7 @@ minetest.register_tool("sbo_comp_ani:matter_annihilator", {
     sound = {
         punch_use = {
             name = "block_annihilated",
-            gain = 1.0,
+            gain = 1,
         }
     },
 })
@@ -29,9 +29,8 @@ minetest.register_craft({
         { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" }
     }
 })
-sbz_api.achievment_table["sbo_comp_ani:matter_annihilator"] = "Super Annihilator"
-sbz_api.register_quest_to("Questline: Secrets",{
-        type = "secret",
-        title = "Super Annihilator",
-        text = [[You made a super annihilator, it gives 9x core drops]],
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Super Annihilator",
+    text = [[Super annihilators give 9x core drops and are made from 9 Matter annihilators]],
 })

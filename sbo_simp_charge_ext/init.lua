@@ -70,18 +70,16 @@ sbz_api.register_machine("sbo_simp_charge_ext:simple_charge_extractor", {
 minetest.register_craft({
     output = "sbo_simp_charge_ext:simple_charge_extractor",
     recipe = {
-        { "sbz_resources:charged_particle",   "sbz_resources:matter_blob",        "sbz_resources:charged_particle" },
-        { "sbz_resources:matter_blob", "sbz_resources:antimatter_annihilator", "sbz_resources:matter_blob" },
-        { "sbz_resources:charged_particle",   "sbo_extrosim_circuit:extrosim_circuit",        "sbz_resources:charged_particle" }
+        { "sbz_resources:charged_particle", "sbz_resources:matter_blob",             "sbz_resources:charged_particle" },
+        { "sbz_resources:matter_blob",      "sbz_resources:antimatter_annihilator",  "sbz_resources:matter_blob" },
+        { "sbz_resources:charged_particle", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:charged_particle" }
     }
 })
-sbz_api.achievment_table["sbo_simp_charge_ext:simple_charge_extractor"] = "Charge Extractors"
-sbz_api.register_quest_to("Questline: Extrosim",{
-        type = "quest",
-        title = "Charge Extractors",
-        text = [[Here's what you'll need for a Simple Charge Extractor:
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Charge Extractors",
+    text = [[Here's what you'll need for a Simple Charge Extractor:
 
 One Antimatter Annihilator, three matter blobs, an Extrosim circuit, and four charged particles.
 ]],
-        requires = { "Annihilator", "Charged Field","Obtain Extrosim"}
-    })
+})

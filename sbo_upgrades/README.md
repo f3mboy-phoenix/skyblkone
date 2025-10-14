@@ -14,3 +14,5 @@ Optional dependencies: unified_inventory, sfinv
 
 ## Craft recipes
 1. Download and install a craft guide
+
+## retextured and renamed and changed to fit into Skyblock: Zero

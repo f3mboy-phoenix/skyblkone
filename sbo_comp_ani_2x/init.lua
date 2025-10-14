@@ -3,7 +3,7 @@ minetest.register_tool("sbo_comp_ani_2x:matter_annihilator", {
     description = "Super Super Matter Annihilator",
     inventory_image = "compmatter_annihilator2.png",
 
-    groups = { core_drop_multi = 72 },
+    groups = { core_drop_multi = 18 },
     -- Tool properties
     tool_capabilities = {
         full_punch_interval = 0.1,
@@ -17,7 +17,7 @@ minetest.register_tool("sbo_comp_ani_2x:matter_annihilator", {
     sound = {
         punch_use = {
             name = "block_annihilated",
-            gain = 1.0,
+            gain = 1,
         }
     },
 })
@@ -29,9 +29,8 @@ minetest.register_craft({
         { "sbo_comp_ani:matter_annihilator", "sbo_comp_ani:matter_annihilator", "sbo_comp_ani:matter_annihilator" }
     }
 })
-sbz_api.achievment_table["sbo_comp_ani:matter_annihilator"] = "Super Super Annihilator"
-sbz_api.register_quest_to("Questline: Secrets",{
-        type = "secret",
-        title = "Super Super Annihilator",
-        text = [[You made a super annihilator, it gives 72x core drops]],
+sbo_api.register_wiki_page({
+    type = "quest",
+    title = "Super Super Annihilator",
+    text = [[Super super annihilators give 72x core drops, and are made from 9 Super Annihilators]],
 })

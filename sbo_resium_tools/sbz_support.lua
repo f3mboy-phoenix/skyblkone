@@ -1,8 +1,10 @@
 minetest.register_tool("sbo_resium_tools:drill", {
     description = "Resium Drill",
     inventory_image = "resium_tool.png",
-    groups = {  core_drop_multi = 10,
-				resium = 1
+    groups = {
+        core_drop_multi = 25,
+        resium = 1,
+        can_mine_resium = 1
     },
     -- Tool properties
     tool_capabilities = {
@@ -12,13 +14,13 @@ minetest.register_tool("sbo_resium_tools:drill", {
         groupcaps = {
             matter = {
                 times = { [1] = 1.50 / 2, [2] = 0.30 / 2, [3] = 0.10 / 2 },
-                uses = 60,
+                uses = 500 * 3 * 3,
                 leveldiff = 2,
                 maxlevel = 2
             },
             antimatter = {
                 times = { [1] = 1.50 / 2, [2] = 0.30 / 2, [3] = 0.10 / 2 },
-                uses = 60,
+                uses = 500 * 3 * 3,
                 leveldiff = 2,
                 maxlevel = 2
             },
@@ -36,16 +38,17 @@ minetest.register_tool("sbo_resium_tools:drill", {
 
 minetest.register_craft {
     recipe = {
-        { "sbz_chem:titanium_ingot",         "sbz_resources:robotic_arm",       "sbz_chem:titanium_ingot" },
-        { "sbo_modded_elem:magnesium_ingot",         "sbz_power:battery",               "sbo_modded_elem:magnesium_ingot" },
-        { "sbz_resources:reinforced_matter", "sbo_resium:circuit", "sbz_resources:reinforced_matter" }
+        { "sbo_resitrex:resitrex_ingot",   "sbz_resources:robotic_arm", "sbo_resitrex:resitrex_ingot" },
+        { "sbo_resitrex:resitrex_ingot",   "sbo_extrosim_drill:drill",  "sbo_resitrex:resitrex_ingot" },
+        { "sbz_resources:phlogiston_blob", "sbo_resium:circuit",        "sbz_resources:phlogiston_blob" }
     },
     output = "sbo_resium_tools:drill"
 }
-sbz_api.achievment_table["sbo_resium_tools:drill"] = "Resium Drill"
-sbz_api.register_quest_to("Questline: Resium",{
-        type = "quest",
-        title = "Resium Drill",
-        text = "A Drill made out of Resium can repair itself",
-        requires = { "Obtain Resium", "Resium Circuit" }
+sbo_api.register_wiki_page({
+    info = true,
+    title = "Resium Drill",
+    text = [[
+A Drill made out of Resium can repair itself. It has 4500 uses.
+It also has 25x core drops.
+]],
 })

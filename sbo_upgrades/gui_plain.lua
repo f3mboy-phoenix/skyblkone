@@ -1,4 +1,4 @@
-local S = sbo_upgrades.translator
+local S = sbo_api.upgrades.translator
 
 minetest.register_chatcommand("sbo_upgrades", {
 	description = S("Allows using upgrade packs without CSM"),

@@ -29,7 +29,7 @@ sbz_api.register_machine("sbo_adv_blob_ext:advanced_blob_extractor", {
         inv:set_size("main", 3)
 
         minetest.sound_play("machine_build", {
-            to_player = player_name,
+            to_player = player_name or "singleplayer",
             gain = 1.0,
             pos = pos,
         })
@@ -71,9 +71,8 @@ sbz_api.register_machine("sbo_adv_blob_ext:advanced_blob_extractor", {
 minetest.register_craft({
     output = "sbo_adv_blob_ext:advanced_blob_extractor",
     recipe = {
-        { "sbz_resources:matter_blob",   "sbz_resources:matter_blob",        "sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob", "sbz_power:simple_matter_extractor","sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob",   "sbo_resium:circuit",        "sbz_resources:matter_blob" }
+        { "sbz_resources:matter_blob", "sbz_resources:matter_blob",         "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbz_power:simple_matter_extractor", "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbo_resium:circuit",                "sbz_resources:matter_blob" }
     }
 })
-

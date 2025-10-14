@@ -9,10 +9,11 @@ minetest.register_craft({
     recipe = { "sbz_resources:antimatter_dust", "sbz_resources:matter_dust" }
 })
 
-sbz_api.achievment_table["sbo_photon:photon"] = "Photons"
-sbz_api.register_quest_to("Questline: Chemistry",{
-        type = "quest",
-        title = "Photons",
-        text = [[Let there be Light!]],
-        requires = { "Antimatter", "Introduction" }
+sbo_api.register_wiki_page({
+    type = "quest",
+    info = true,
+    title = "Photons",
+    text = [[Let there be Light!
+Photons can be used in life making machines, and in light blocks.
+They stack up to 256.]],
 })
