@@ -23,7 +23,7 @@ sbz_api.register_machine("sbo_anti_ext:simple_antimatter_extractor", {
         local inv = meta:get_inventory()
 
         local itemstack = ItemStack("sbz_resources:antimatter_dust")
-        itemstack:set_count(7)
+        itemstack:set_count(1)
 
         if inv:room_for_item("main", itemstack) then
             inv:add_item("main", itemstack)
@@ -65,6 +65,6 @@ minetest.register_craft({
 
 sbo_api.register_wiki_page({
     type = "quest",
-    title = "Antimatter Extractor",
-    text = [[Useful for antimatter generators. Creates 7 antimatter dust per second.]],
+    title = "Simple Antimatter Extractor",
+    text = [[Useful for antimatter generators. Creates 1 antimatter dust per second.]],
 })

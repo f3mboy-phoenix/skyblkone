@@ -7,7 +7,7 @@ unified_inventory.register_craft({
     type = "ele_fab",
     output = "sbo_emittrium_plate:emittrium_plate",
     items = {
-        "sbz_resources:raw_emittrium 2",
+        "sbo_emmitrex:emmitrex_powder 2",
     },
     width = 2,
     height = 1

@@ -1,7 +1,7 @@
 -- This code is garbage, avoid it if you can
 -- Rewrite if you must
 
-local POWER_GEN = 100000000
+local POWER_GEN = 1000000
 local offset = vector.new(3, 3, 3)
 
 local function try_linking(pos, meta)

@@ -36,13 +36,13 @@
 ✔ Tree Rot:sbo_tree_rot
 ✔ Upgrades:sbo_upgrades
 ✔ Modded Elements: sbo_modded_elem
-
+✔ Neutrons:sbo_neutrons
+✔ Core Wart:sbo_core_wart
+✔ ElectroGrass:sbo_electrograss
+✔ Advanced Blob Extractor:sbo_adv_blob_ext
 
 Doors:sbo_doors
 Mud:sbo_mud
-Neutrons:sbo_neutrons
-Core Wart:sbo_core_wart
-ElectroGrass:sbo_electrograss
 Neutronium Generator:sbo_neu_gen
 Cd:Cadmium:sbo_cadmium
 Effective Starlight Collector:sbo_eff_star_col
@@ -58,7 +58,6 @@ Diamond:sbo_diamond
 Atomic Reconstructor:sbo_atomic
 Water:sbo_h2o
 Crafting Table:sbo_craft_table
-Advanced Blob Extractor:sbo_adv_blob_ext
 Basic Executor:sbo_basic
 Technetium Plates:sbop_technetium_plates
 Contsruction Board:sbo_constructor

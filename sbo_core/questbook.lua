@@ -26,7 +26,7 @@ local function get_wiki_formspec(selected_quest_index, player_name, quests_to_sh
         elseif quest.warning == true then -- info text
             ins(pal.bright_red)
             ins '0'
-            ins '⚠️'
+            ins '⚠'
             ins(quest.title)
         elseif quest.type == 'text' then
             ins(pal.bright_aqua)

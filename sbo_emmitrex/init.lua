@@ -5,7 +5,7 @@ sbz_api.recipe.register_craft {
 }
 
 sbz_api.register_element("emmitrex", "#380038", "Emmitrex %s",
-    { part_of_enhanced_drops = false, part_of_crusher_drops = false }, "sbo_emmitrex:")
+    { part_of_enhanced_drops = false, part_of_crusher_drops = false, fluid = 1 }, "sbo_emmitrex:")
 
 sbo_api.register_wiki_page({
     type = "quest",

@@ -17,3 +17,13 @@ sbo_api.register_wiki_page({
 Photons can be used in life making machines, and in light blocks.
 They stack up to 256.]],
 })
+unified_inventory.register_craft({
+    type = "ele_fab",
+    output = "sbo_photon:photon",
+    items = {
+        "sbz_resources:antimatter_dust",
+        "sbz_resources:matter_dust"
+    },
+    width = 2,
+    height = 1
+})

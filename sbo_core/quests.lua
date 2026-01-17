@@ -29,7 +29,7 @@ end
 sbo_api.quests[#sbo_api.quests + 1] = {
     type = "text",
     title = "Wiki:",
-    text = "Mods that dont add quests will add information about what they do to this section"
+    text = "Mods will add information here."
 }
 sbo_api.register_wiki_page_to("Wiki:", {
     title = "Quests+",

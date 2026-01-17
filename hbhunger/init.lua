@@ -58,7 +58,7 @@ function hbhunger.update_hud(player)
 		if h > hbhunger.SAT_MAX then h = hbhunger.SAT_MAX end
 		hbhunger.set_hunger_raw(player)
 		if player:get_meta():get_int('no_autohide_hp') == 0 then
-			if h >= 20 then hb.hide_hudbar(player, 'satiation') end
+			if h >= hbhunger.SAT_MAX * 0.9 then hb.hide_hudbar(player, 'satiation') end
 			if h <= 20 then hb.unhide_hudbar(player, 'satiation') end
 		else
 			hb.unhide_hudbar(player, 'satiation')

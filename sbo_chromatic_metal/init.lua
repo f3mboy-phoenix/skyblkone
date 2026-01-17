@@ -1,4 +1,4 @@
-sbz_api.register_element("cuticr", "#814f2f", "Chromatic Metal %s (CuTiCr)", { disabled = false, part_of_crusher_drops = false }, "sbo_chromatic_metal:")
+sbz_api.register_element("cuticr", "#814f2f", "Chromatic Metal %s (CuTiCr)", { disabled = false, part_of_crusher_drops = false, fluid = 1 }, "sbo_chromatic_metal:")
     sbz_api.recipe.register_craft {
         output = "sbo_chromatic_metal:cuticr_ingot 2",
         type = "blast_furnace",

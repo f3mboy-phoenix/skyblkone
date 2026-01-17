@@ -109,7 +109,7 @@ minetest.register_ore({
     ore_type = "scatter",
     ore = "sbo_extrosim:extrosim",
     wherein = "air",
-    clust_scarcity = 80 * 80 * 80 * 2,
+    clust_scarcity = 80 * 80 * 80,
     clust_num_ores = 1,
     clust_size = 1,
     _min = -31000,

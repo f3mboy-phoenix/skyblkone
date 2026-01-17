@@ -1,4 +1,4 @@
-sbz_api.register_element("chromium", "#e3e3e3", "Chromium %s (Cr)", {part_of_enhanced_drops = true }, "sbo_chromium:")
+sbz_api.register_element("chromium", "#e3e3e3", "Chromium %s (Cr)", {part_of_enhanced_drops = true, fluid = 1 }, "sbo_chromium:")
 --sbo_chromium:chromium
 sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",

@@ -43,3 +43,37 @@ minetest.register_chatcommand("scan_tubes", {
         return true, string.format("Scanned %d nodes, updated %d with priority infotext.", total, updated)
     end,
 })
+
+
+minetest.register_chatcommand("scan_autocrafters", {
+    params = "",
+    description = "Scan area and fixes missing proccessor slot when updating from R39 to R40",
+    privs = {server = true}, -- restrict to server/admin
+
+    func = function(name, param)
+        -- Define area to scan
+        local p1 = {x=-150, y=0, z=-150}
+        local p2 = {x=150, y=50, z=150}
+
+        local total = 0
+        local updated = 0
+
+        -- Loop through all tubenodes
+            local positions = minetest.find_nodes_in_area(p1, p2, {"pipeworks:autocrafter"})
+            for _, pos in ipairs(positions) do
+                total = total + 1
+                local meta = minetest.get_meta(pos)
+                meta:set_string('formspec', meta:get_string("formspec").. 'list[context;processor;4,2.7;1,1;]')
+				local inv = meta:get_inventory()
+                inv:set_size('src', 9)
+				inv:set_size('recipe', 3 * 3)
+				inv:set_size('dst', 4 * 3)
+				inv:set_size('output', 1)
+				inv:set_size('processor', 1)
+                updated = updated + 1
+            end
+
+
+        return true, string.format("Scanned %d nodes, updated %d with priority infotext.", total, updated)
+    end,
+})

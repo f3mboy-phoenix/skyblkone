@@ -28,3 +28,19 @@ They are made with:
     4 Resium crystals
     4 Antimatter dust]],
 })
+color = "#63BD63"
+stairs.register("sbo_resium_glass:resium_glass", {
+	tiles = {
+		"block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+    },
+    tex = {
+        stair_front = "block_stair_front.png^[colorize:" .. color .. ":200",
+        stair_side =  "block_stair_side.png^[colorize:" .. color .. ":200",
+        stair_cross = "block_stair_cross.png^[colorize:" .. color .. ":200",
+    }
+})

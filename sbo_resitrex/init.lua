@@ -5,7 +5,7 @@ sbz_api.recipe.register_craft {
 }
 
 sbz_api.register_element("resitrex", "#7AE051", "Resitrex %s",
-    { part_of_enhanced_drops = false, part_of_crusher_drops = false }, "sbo_resitrex:")
+    { part_of_enhanced_drops = false, part_of_crusher_drops = false, fluid = 1 }, "sbo_resitrex:")
 
 sbo_api.register_wiki_page({
     type = "quest",

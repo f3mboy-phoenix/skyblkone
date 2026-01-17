@@ -71,7 +71,7 @@ pipeworks.register_tube("sbo_ultra_pipes:mlp_tube", {
 minetest.register_craft({
     output = "sbo_ultra_pipes:mlp_tube_1 1",
     type = "shapeless",
-    recipe = { "sbo_ultra_pipes:rlp_tube_1", "sbz_resources:matter_dust" }
+    recipe = { "sbo_ultra_pipes:ulp_tube_1", "sbz_resources:matter_dust" }
 })
 minetest.register_craft({
     output = "pipeworks:basic_tube_1 1",

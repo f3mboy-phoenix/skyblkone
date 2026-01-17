@@ -78,6 +78,7 @@ function sbo_api.upgrades.register_pack(name, pack, pack_def)
 end
 
 sbo_api.upgrades._speedid = nil
+sbo_api.upgrades._jumpid = nil
 function sbo_api.upgrades.update_player(player)
 	local inv = player:get_inventory()
 	local health = minetest.PLAYER_MAX_HP_DEFAULT
@@ -124,10 +125,13 @@ function sbo_api.upgrades.update_player(player)
 		jump = jump,
 		gravity = gravity
 	})
-	if sbo_api.upgrades._speedid then
+	if sbo_api.upgrades._speedid or sbo_api.upgrades._jumpid then
 		player_monoids.speed:del_change(player, 'upgrades:speed')
+		player_monoids.jump:del_change(player, 'upgrades:jump')
 	end
+	
 	sbo_api.upgrades._speedid = player_monoids.speed:add_change(player, speed, 'upgrades:speed')
+	sbo_api.upgrades._jumpid = player_monoids.jump:add_change(player, jump, 'upgrades:jump')
 	--sbz_api.displayDialogLine(player:get_player_name(), "Run Update Hud")
 	hbhunger.update_hud(player)
 end
