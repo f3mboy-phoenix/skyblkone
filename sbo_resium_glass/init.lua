@@ -1,3 +1,7 @@
+if not stairs. register then
+	stairs.register = function()end
+end
+
 minetest.register_node("sbo_resium_glass:resium_glass", {
     description = "Resium Glass",
     drawtype = "glasslike_framed_optional",

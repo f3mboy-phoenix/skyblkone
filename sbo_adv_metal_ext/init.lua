@@ -3,6 +3,26 @@ unified_inventory.register_category('extractors', {
 	symbol = "sbo_adv_metal_ext:aluminum_extractor",
 	label = "Metal Extractors"
 })
+core.register_craftitem("sbo_adv_metal_ext:n64_processor", {
+    description = "Creox Fabrication Processor",
+    inventory_image = "creox_processor.png",
+    stack_max = 16
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "sbo_adv_metal_ext:n64_processor",
+    recipe = { "sbz_resources:mosfet", "sbz_resources:nuclear_crafting_processor", "sbo_nexus:creox_fab_cube" }
+})
+
+local processor_stats_map = {
+    ["sbz_resources:simple_crafting_processor"] = { crafts = 1, power = 10 },
+    ["sbz_resources:quick_crafting_processor"] = { crafts = 2, power = 25 },
+    ["sbz_resources:fast_crafting_processor"] = { crafts = 4, power = 50 },
+    ["sbz_resources:accelerated_silicon_crafting_processor"] = { crafts = 8, power = 100 },
+    ["sbz_resources:nuclear_crafting_processor"] = { crafts = 16, power = 175 },
+	["sbo_adv_metal_ext:n64_processor"] = {crafts = 64 }
+}
 for def, _ in pairs(core.registered_items) do
 
 local powder = def
@@ -26,10 +46,13 @@ sbz_api.register_machine("sbo_adv_metal_ext:".. element .."_extractor", {
             "size[8.2,9]" ..
             "style_type[list;spacing=.2;size=.8]" ..
             "list[nodemeta:" .. pos.x .. "," .. pos.y .. "," .. pos.z .. ";main;2.5,2;3,1;]" ..
-            "list[current_player;main;0.2,5;8,4;]" ..
+            "list[current_player;main;0.2,5;8,4;]" .. 
+            "list[nodemeta:" .. pos.x .. "," .. pos.y .. "," .. pos.z .. ';proc;3.5,3.5;1,1;]' ..
             "listring[]")
 
-
+		local meta = minetest.get_meta(pos)
+        local inv = meta:get_inventory()		
+		inv:set_size("proc", 1)
         minetest.sound_play("machine_open", {
             to_player = player_name,
             gain = 1.0,
@@ -40,7 +63,7 @@ sbz_api.register_machine("sbo_adv_metal_ext:".. element .."_extractor", {
         local meta = minetest.get_meta(pos)
         local inv = meta:get_inventory()
         inv:set_size("main", 3)
-
+		inv:set_size("proc", 1)
         minetest.sound_play("machine_build", {
             to_player = player_name or "singleplayer",
             gain = 1.0,
@@ -50,7 +73,19 @@ sbz_api.register_machine("sbo_adv_metal_ext:".. element .."_extractor", {
     action = function(pos, node, meta)
         local inv = meta:get_inventory()
         local itemstack = ItemStack(powder)
-        itemstack:set_count(1)
+        local processor_stack = inv:get_stack("proc", 1)
+
+        if processor_stack:is_empty() then
+            meta:set_string('infotext', 'No processor.')
+            return 0
+        end
+
+        local item_name = processor_stack:get_name()
+        if not processor_stats_map[item_name] then
+			meta:set_string('infotext', 'Invalid processor.')
+            return 0
+        end
+        itemstack:set_count(processor_stats_map[item_name].crafts or 0)
 
 
         if inv:room_for_item("main", itemstack) then

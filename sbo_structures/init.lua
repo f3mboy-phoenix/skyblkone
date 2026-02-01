@@ -112,7 +112,7 @@ sbo_api.register_loot("sky_loot", "rare", "sbz_resources:simple_processor", 3)
 sbo_api.register_loot("sky_loot", "rare", "sbz_resources:strange_dust", 5)
 sbo_api.register_loot("sky_loot", "rare", "unifieddyes:colorium_powder", 3)
 sbo_api.register_loot("sky_loot", "rare", "sbz_resources:raw_emittrium", 25)
-sbo_api.register_loot("sky_loot", "rare", "sbz_planets:snowball", 3)
+
 sbo_api.register_loot("sky_loot", "rare", "sbz_resources:antimatter_blob", 3)
 sbo_api.register_loot("sky_loot", "rare", "sbz_power:manual_crafter", 2)
 sbo_api.register_loot("sky_loot", "rare", "sbz_resources:emittrium_circuit", 2)
@@ -128,11 +128,15 @@ sbo_api.register_loot("sky_loot", "god", "sbz_resources:heating_element", 3)
 sbo_api.register_loot("sky_loot", "god", "sbz_resources:bomb_stick", 3)
 sbo_api.register_loot("sky_loot", "god", "sbz_instatube:instantinium", 3)
 sbo_api.register_loot("sky_loot", "god", "sbz_meteorites:neutronium", 3)
-sbo_api.register_loot("sky_loot", "god", "sbz_planets:dwarf_orb", 1)
 
 if minetest.get_modpath("sbo_fish") then
 	sbo_api.register_loot("sky_loot", "common", "sbo_fish:fish", 3)
 end
+if minetest.get_modpath("sbz_planets") then
+	sbo_api.register_loot("sky_loot", "rare", "sbz_planets:snowball", 3)
+	sbo_api.register_loot("sky_loot", "god", "sbz_planets:dwarf_orb", 1)
+end
+
 if minetest.get_modpath("sbo_extrosim") then
 	sbo_api.register_loot("sky_loot", "rare", "sbo_extrosim:raw_extrosim", 15)
 end

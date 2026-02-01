@@ -132,3 +132,145 @@ minetest.register_craft {
         { "sbz_power:simple_charged_field",    "sbo_colorium_plate:colorium_plate", "sbz_power:simple_charged_field" }
     }
 }
+
+
+minetest.register_craftitem("sbo_atomic:carbon", {
+    description = "Carbon",
+    inventory_image = "atom.png^[colorize:black:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:nitrogen", {
+    description = "Nitrogen",
+    inventory_image = "atom.png^[colorize:green:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:oxygen", {
+    description = "Oxygen",
+    inventory_image = "atom.png^[colorize:aqua:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:hydrogen", {
+    description = "Hydrogen",
+    inventory_image = "atom.png^[colorize:blue:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:helium", {
+    description = "Helium",
+    inventory_image = "atom.png^[colorize:red:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:fluorine", {
+    description = "Fluorine",
+    inventory_image = "atom.png^[colorize:green:75",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:phosphorus", {
+    description = "Phosphorus",
+    inventory_image = "atom.png^[colorize:red:75",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:sulfur", {
+    description = "Sulfur",
+    inventory_image = "atom.png^[colorize:yellow:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:chlorine", {
+    description = "Chlorine",
+    inventory_image = "atom.png^[colorize:green:90",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:neon", {
+    description = "Neon",
+    inventory_image = "atom.png^[colorize:white:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:iodine", {
+    description = "Iodine",
+    inventory_image = "atom.png^[colorize:blue:75",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:technetium", {
+    description = "Technetium",
+    inventory_image = "atom.png^[colorize:grey:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:indium", {
+    description = "Indium",
+    inventory_image = "atom.png^[colorize:purple:50",
+    stack_max = 256,
+})
+minetest.register_craftitem("sbo_atomic:gallium", {
+    description = "Gallium",
+    inventory_image = "atom.png^[colorize:orange:50",
+    stack_max = 256,
+})
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:gallium',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:core_dust' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:indium',
+    items = { 'sbo_nexus:alloy537_powder', 'sbo_emmitrex:emmitrex_powder' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:technetium',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:matter_dust' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:iodine',
+    items = { 'sbo_nexus:alloy537_powder', 'sbo_photon:photon' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:neon',
+    items = { 'sbo_nexus:alloy537_powder', 'unifieddyes:colorium_powder' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:chlorine',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:strange_dust' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:sulfur',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:shock_crystal' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:phosphorus',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:phlogiston' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:fluorine',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:pebble' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:oxygen',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_instatube:instantinium' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:helium',
+    items = { 'sbo_nexus:alloy537_powder', 'sbo_neutrons:neutron' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:hydrogen',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:antimatter_dust' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:nitrogen',
+    items = { 'sbo_nexus:alloy537_powder', 'sbz_resources:charged_particle' },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbo_atomic:carbon',
+    items = { 'sbo_nexus:alloy537_powder', 'sbo_life:essence' },
+    type = 'atomic',
+}

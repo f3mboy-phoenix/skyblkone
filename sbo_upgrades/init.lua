@@ -72,8 +72,10 @@ table.insert(minetest.registered_on_joinplayers, 1, function(player)
 	sbo_api.upgrades.meta_to_inv(player)
 	sbo_api.upgrades.update_player(player)
 	--hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
-	hbhunger.update_hud(player)
-	hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
+	if hbhunger then
+		hbhunger.update_hud(player)
+		hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
+	end
 end)
 
 minetest.register_on_leaveplayer(sbo_api.upgrades.inv_to_meta)

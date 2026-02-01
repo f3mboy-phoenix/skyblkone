@@ -1,4 +1,6 @@
 local S = sbo_api.upgrades.translator
+local modpath = minetest.get_modpath("hbhunger")
+
 
 sbo_api.upgrades.register_pack("sbo_upgrades:health", "health", {
 	description = S("Emittrium Health Boost"),
@@ -80,7 +82,7 @@ minetest.register_on_craft(function(itemstack, player)
 	end
 end)
 ---------------------------------------------------------------
-
+if hbhunger then
 sbo_api.upgrades.register_pack("sbo_upgrades:hunger", "hunger", {
 	description = S("Hunger Boost"),
 	strength = 10,
@@ -98,6 +100,7 @@ minetest.register_craft({
 		{ ci, mc, ci }
 	}
 })
+end
 ---------------------------------------------------------------
 sbo_api.upgrades.register_pack("sbo_upgrades:speed", "speed", {
 	description = S("Speed Boost"),

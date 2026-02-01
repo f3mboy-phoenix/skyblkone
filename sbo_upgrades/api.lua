@@ -44,7 +44,7 @@ function sbo_api.upgrades.add_wear(player, pack, amount)
 	local needs_update = false
 	local inv = player:get_inventory()
 	local list = inv:get_list("ugpacks")
-	for i, stack in pairs(list) do
+	for i, stack in pairs(list or {}) do
 		if lookup[stack:get_name()] then
 			assert(stack:add_wear(amount), "Wear out impossible: "
 				.. stack:get_name())
@@ -83,7 +83,7 @@ function sbo_api.upgrades.update_player(player)
 	local inv = player:get_inventory()
 	local health = minetest.PLAYER_MAX_HP_DEFAULT
 	local breath = minetest.PLAYER_MAX_BREATH_DEFAULT
-	local hunger = hbhunger.DEF_SAT_MAX
+	local hunger = (hbhunger or {}).DEF_SAT_MAX
 	local speed = 1
 	local gravity = 1
 	local jump = 1
@@ -114,7 +114,7 @@ function sbo_api.upgrades.update_player(player)
 		end
 	end
 
-	hbhunger.SAT_MAX = hunger
+	(hbhunger or {}).SAT_MAX = hunger
 
 	player:set_properties({
 		hp_max = health,
@@ -133,5 +133,7 @@ function sbo_api.upgrades.update_player(player)
 	sbo_api.upgrades._speedid = player_monoids.speed:add_change(player, speed, 'upgrades:speed')
 	sbo_api.upgrades._jumpid = player_monoids.jump:add_change(player, jump, 'upgrades:jump')
 	--sbz_api.displayDialogLine(player:get_player_name(), "Run Update Hud")
-	hbhunger.update_hud(player)
+	if hbhunger then
+		hbhunger.update_hud(player)
+	end
 end
