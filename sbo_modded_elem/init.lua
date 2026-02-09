@@ -92,3 +92,10 @@ for source, fluid_cell in pairs(sbz_api.sources2fluid_cells) do
     }
 end
 end)
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Modded Elements",
+    text =
+        [[Enables Disabled Elements so mods can use them]],
+})

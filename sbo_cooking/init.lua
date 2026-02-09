@@ -214,73 +214,78 @@ minetest.register_craft({
         "sbz_chem:water_fluid_cell"
     }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Energy Pellet",
-    text = [[
-Energy Pellets are Edible
-Restores 5 hunger points.]],
+quests[#quests+1]={ type = "text", title = "Questline: Food", text = "Quests for getting foods" }
+
+sbo_api.quests.on_craft["sbo_cooking:energy_pellet"] = "Energy Pellet"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Energy Pellet",
+        text = [[You made a Energy Pellet, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Quantum Snack",
-    text = [[
-Quantum Snacks are Edible
-Restores 1 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:snack"] = "Quantum Snack"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Quantum Snack",
+        text = [[You made a Quantum Snack, it is Edible]],
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Fusion Meal",
-    text = [[Fusion Meals are Edible
-Restores 1.5 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:emeal"] = "Fusion Meal"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Fusion Meal",
+        text = [[You made a Fusion Meal, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Dust Biscuits",
-    text = [[Dust Biscuits are Edible
-Restores 1.5 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:dust"] = "Dust Biscuits"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Dust Biscuits",
+        text = [[You made a Dust Biscuits, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Photon Drop",
-    text = [[Photon Drops are Edible
-Restores 2 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:photon"] = "Photon Drop"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Photon Drop",
+        text = [[You made a Photon Drop, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Resium Candy",
-    text = [[Resium Candies are Edible
-Restores 18 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:resium"] = "Resium Candy"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Resium Candy",
+        text = [[You made a Resium Candy, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Extrosim Paste",
-    text = [[Extrosim Paste is Edible
-Restores 10 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:epaste"] = "Extrosim Paste"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Extrosim Paste",
+        text = [[You made a Extrosim Paste, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Emittrium Flakes",
-    text = [[Emittrium Flakes are Edible
-Restores 8 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:eflakes"] = "Emittrium Flakes"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Emittrium Flakes",
+        text = [[You made a Emittrium Flakes, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Shock Bites",
-    text = [[Shock Bites are Edible
-Restores 8 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:bites"] = "Shock Bites"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Shock Bites",
+        text = [[You made a Shock Bites, it is Edible]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Color Loaf",
-    text = [[A Color Loaf is Edible
-Restores 8 hunger points.]],
+sbo_api.quests.on_craft["sbo_cooking:loaf"] = "Color Loaf"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Color Loaf",
+        text = [[You made a Color Loaf, it is Edible]],
 })
-
+sbo_api.quests.on_craft["sbo_cooking:broth"] = "Phlogiston Broth"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Extrosim Paste",
+        text = [[You made a Extrosim Paste, it is Edible]],
+})
 unified_inventory.register_category('food', {
-    symbol = "sbo_cooking:snack",
-    label = "Food"
+	symbol = "sbo_cooking:snack",
+	label = "Food"
 })
 unified_inventory.add_category_item('food', "sbo_cooking:energy_pellet")
 unified_inventory.add_category_item('food', "sbo_cooking:broth")

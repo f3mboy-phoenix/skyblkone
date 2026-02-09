@@ -27,21 +27,22 @@ minetest.register_craft({
         "sbo_emittrium_plate:emittrium_plate",
     },
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Shock Circuit",
-    text = [[
+
+sbo_api.quests.on_craft["sbo_shock_circuit:shock_circuit"] = "Shock Circuit"
+sbo_api.quests.register_to("Questline: Resources",{
+        type = "quest",
+        title = "Shock Circuit",
+        text = [[
 Shock Circuits are required for crafting.
 They are made with:
     1 Shock Processor
     1 Emittrium plate]],
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Shock Processor",
-    text = [[
+sbo_api.quests.on_craft["sbo_shock_circuit:shock_processor"] = "Shock Processor"
+sbo_api.quests.register_to("Questline: Resources",{
+        type = "quest",
+        title = "Shock Processor",
+        text = [[
 Shock Processors are required for crafting.
 They are made with:
     1 Simple processor

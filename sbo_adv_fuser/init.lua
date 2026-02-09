@@ -102,3 +102,11 @@ minetest.register_craft({
         { "sbo_extrosim_circuit:extrosim_circuit", "sbo_resium:circuit", "sbz_resources:emittrium_circuit" },
     }
 })
+sbo_api.quests.on_craft["sbo_adv_fuser:phlogiston_fuser"] = "Advanced Phlogiston Fuser"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced Phlogiston Fuser",
+    text =
+        [[Useful for automation. Creates Phlogiston faster than the original fuser.]],
+    requires = { "Phlogiston Fuser", }
+})

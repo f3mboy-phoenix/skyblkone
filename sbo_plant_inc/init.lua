@@ -80,11 +80,13 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Plant Incubators",
-    text =
-    [[  You can create Plant Incubators.
+sbo_api.quests.on_craft["sbo_plant_inc:plant_incubator"] = "Plants Galore"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Plants Galore",
+        text =
+        [[  You can create Plant Incubators.
     2 photons, 2 peices of moss, 4 matter blobs, 1 simple circuit
         ]],
+        requires = { "Generators", "Extrosim Circuit"}
 })

@@ -30,10 +30,10 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Super Battery",
-    text = [[Best Battery Ever, stores 150cj/h.
-]],
-    requires = { "Colorium Plates", "Extrosim Circuit", "Colorium Circuit", }
-})
+sbo_api.quests.on_craft["sbo_sup_bat:super_battery"] = "Super Battery"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Super Battery",
+        text = [[Best Battery Ever Stores 150cjh]],
+        requires = { "Colorium Plates", "Extrosim Circuit", "Colorium Circuit", }
+    })

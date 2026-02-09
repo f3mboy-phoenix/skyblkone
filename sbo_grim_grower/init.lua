@@ -78,11 +78,13 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Grime Grower",
-    text =
-    [[  You can create Grime Grower.
+sbo_api.quests.on_craft["sbo_grim_grower:grim_grower"] = "Grime Growin'"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Grime Growin'",
+        text =
+        [[  You can create Grime Grower.
     2 photons, 2 peices of algae, 4 matter blobs, 1 extrosim circuit
         ]],
+        requires = { "Generators", "Extrosim Circuit"}
 })

@@ -76,11 +76,13 @@ minetest.register_craft({
         { "sbz_resources:compressed_core_dust", "sbo_extrosim_circuit:extrosim_circuit", "sbz_resources:compressed_core_dust" }
     }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Core Extractors",
-    text = [[Here's what you'll need for a Simple Core Extractor:
+sbo_api.quests.on_craft["sbo_simp_core_ext:simple_core_extractor"] = "Core Extractors"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Core Extractors",
+        text = [[Here's what you'll need for a Simple Core Extractor:
 
 One Matter Annihilator, three matter blobs, an extrosim circuit, and four compressed core blocks.
 ]],
-})
+        requires = { "Annihilator", "Compressed Core Dust", "Extrosim Circuit" }
+    })

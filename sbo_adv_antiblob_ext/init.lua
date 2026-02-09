@@ -76,3 +76,12 @@ minetest.register_craft({
         { "sbz_resources:antimatter_blob", "sbo_resium:circuit",                "sbz_resources:antimatter_blob" }
     }
 })
+
+sbo_api.quests.on_craft["sbo_adv_antiblob_ext:extractor"] = "Advanced AntiBlob Extractor"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced AntiBlob Extractor",
+    text =
+        [[Useful for automation. Creates 1 antimatter blob per second.]],
+    requires = { "Advanced Antimatter Extractor", }
+})

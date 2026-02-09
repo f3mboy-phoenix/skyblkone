@@ -18,16 +18,6 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Extrosim Glass",
-    text = [[
-Just another kind of glass.
-They are made with:
-    4 Extrosim crystals
-    4 Antimatter dust]],
-})
 color = "#C88D60"
 stairs.register("sbo_extrosim_glass:extrosim_glass", {
 	tiles = {
@@ -43,4 +33,15 @@ stairs.register("sbo_extrosim_glass:extrosim_glass", {
         stair_side =  "block_stair_side.png^[colorize:" .. color .. ":200",
         stair_cross = "block_stair_cross.png^[colorize:" .. color .. ":200",
     }
+})
+sbo_api.quests.on_craft["sbo_extrosim_glass:extrosim_glass"] = "Extrosim Glass"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Extrosim Glass",
+        text = [[
+Just another kind of glass.
+They are made with:
+    4 Extrosim crystals
+    4 Antimatter dust]],
+        requires = { "Obtain Extrosim" }
 })

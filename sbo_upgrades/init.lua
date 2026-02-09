@@ -138,7 +138,7 @@ minetest.register_on_player_inventory_action(function(player, action, inv, data)
 	end
 end)
 
-sbo_api.register_wiki_page({
+sbo_api.quests.register_to("SBO: Other infos",{
 	type = "text",
 	info = true,
 	title = "Upgrades",

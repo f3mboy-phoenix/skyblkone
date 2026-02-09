@@ -42,3 +42,10 @@ minetest.register_craft {
     },
     output = "sbo_diamond_plated_drill:drill"
 }
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Diamond Drill",
+    info = true,
+    text =
+        [[Adds Diamond Plated Resium drill, more duribility and 50x core drops]],
+})

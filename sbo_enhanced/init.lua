@@ -83,3 +83,11 @@ unified_inventory.register_craft({
     width = 2,
     height = 1
 })
+sbo_api.quests.on_craft["sbo_adv_core_ext:extractor"] = "Stone Enhancer"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Stone Enhancer",
+    text =
+        [[Useful for automation. Simply put a stone into the stone enhancer, it will become enhanced.  ]],
+    requires = { "Pebble Enhancer", }
+})

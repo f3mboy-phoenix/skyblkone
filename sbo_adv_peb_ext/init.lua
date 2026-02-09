@@ -77,9 +77,11 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
+sbo_api.quests.on_craft["sbo_adv_peb_ext:advanced_peb_extractor"] = "Cement Mixer"
+sbo_api.quests.register_to("Questline: Extrosim",{
     type = "quest",
     title = "Cement Mixer",
     text =
-    [[Advanced Pebble Extractor requires 100 Cj. Creates 1 pebble per second.]],
+        [[Advanced Pebble Extractor requires 100 Cj. Creates 1 pebble per second.]],
+    requires = { "Concrete Plan","Extrosim Circuit" }
 })

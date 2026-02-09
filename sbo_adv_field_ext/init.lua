@@ -1,7 +1,7 @@
 -- Advanced Pebble Extractor Node
 sbz_api.register_machine("sbo_adv_field_ext:extractor", {
     description =
-    "Advanced Blob Extractor",
+    "Advanced Field Extractor",
     tiles = { "sbo_adv_field_ext.png" },
     groups = { matter = 1, sbz_machine = 1, pipe_connects = 1 },
     sunlight_propagates = true,
@@ -75,4 +75,13 @@ minetest.register_craft({
         { "sbz_power:simple_charged_field", "sbo_simp_charge_ext:simple_charge_extractor", "sbz_power:simple_charged_field" },
         { "sbz_power:simple_charged_field", "sbo_resium:circuit",                "sbz_power:simple_charged_field" }
     }
+})
+
+sbo_api.quests.on_craft["sbo_adv_field_ext:extractor"] = "Advanced Field Extractor"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced Field Extractor",
+    text =
+        [[Useful for automation. Creates 1 Charged Field per second.]],
+    requires = { "Automation", }
 })

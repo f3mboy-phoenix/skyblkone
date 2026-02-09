@@ -274,3 +274,13 @@ sbz_api.recipe.register_craft {
     items = { 'sbo_nexus:alloy537_powder', 'sbo_life:essence' },
     type = 'atomic',
 }
+
+sbo_api.quests.on_craft["sbo_atomic:reconstructor"] = "Atomic Reconstructor"
+sbo_api.quests.register_to("Questline: Atomic",{
+    type = "quest",
+    title = "Atomic Reconstructor",
+    text =
+        [[So the atomic reconstructor takes in Alloy 537 and a catalyst to create a new element
+not really much use for them yet but maybe in the future]],
+    requires = { "Colorium Plate", "Shock Circuit", }
+})

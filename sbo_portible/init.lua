@@ -311,3 +311,11 @@ minetest.register_craft({
     output = "sbo_portible:storinator_craftitem"
 })
 
+sbo_api.quests.on_craft["sbo_adv_core_ext:extractor"] = "Portable Storinator"
+sbo_api.quests.register_to("Questline: Colorium",{
+    type = "quest",
+    title = "Portable Storinator",
+    text =
+        [[As the name says adds a Portable Storinator made from 4 Colorium Plates and a Storinator.]],
+    requires = { "Colorium Plate", }
+})

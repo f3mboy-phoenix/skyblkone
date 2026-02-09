@@ -78,10 +78,11 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Shockshroom Grower",
-    text =
-    [[  Shockshroom Growers create Shockshrooms]],
-    requires = { "Generators", "Control Board" }
+sbo_api.quests.on_craft["sbo_shockshroom_grower:shockshroom_grower"] = "Shockshroom Growin'"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Shockshroom Growin'",
+        text =
+        [[  You can create Shockshroom Grower.]],
+        requires = { "Generators", "Control Board"}
 })

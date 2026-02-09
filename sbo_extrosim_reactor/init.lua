@@ -536,3 +536,10 @@ unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_co
 unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_infoscreen")
 unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_power_port")
 unified_inventory.add_category_item('reactors', "sbo_extrosim_reactor:reactor_coolant_port")
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Extrosim Reactor",
+    text =
+        [[Extrosim Reactors produce 100K Power. Setup like Emittrium Reactors]],
+})

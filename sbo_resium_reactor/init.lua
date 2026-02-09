@@ -536,3 +536,11 @@ unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_core
 unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_infoscreen")
 unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_power_port")
 unified_inventory.add_category_item('reactors', "sbo_resium_reactor:reactor_coolant_port")
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Resium Reactor",
+    text =
+        [[Resium Reactors produce 1M Power. Setup like Emittrium Reactors]],
+})

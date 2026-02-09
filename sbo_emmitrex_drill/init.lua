@@ -62,3 +62,10 @@ minetest.register_craft {
     },
     output = "sbo_emmitrex_drill:drill"
 }
+sbo_api.quests.in_inven["sbo_emmitrex_drill:drill"] = "Emmitrex Drill"
+sbo_api.quests.register_to("Questline: Extrosim",{
+    type = "quest",
+    title = "Emmitrex Drill",
+    text = [[An Emmitrex Drill is required to mine Extrosim, also has a better battey efficency and 15x core drops]],
+    requires = { "Emmitrex", }
+})

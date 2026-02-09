@@ -18,13 +18,14 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Dark Glass",
-    text = [[
+sbo_api.quests.on_craft["sbo_dark_glass:dark_glass"] = "Dark Glass"
+sbo_api.quests.register_to("Questline: Decorator",{
+        type = "quest",
+        title = "Dark Glass",
+        text = [[
 Just another kind of glass.
 They are made with:
     4 Black sand
     4 Antimatter dust]],
+        requires = { "Centrifuge" }
 })

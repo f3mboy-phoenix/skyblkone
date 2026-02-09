@@ -399,3 +399,11 @@ minetest.register_craft {
         { 'sbz_resources:matter_blob', 'sbz_resources:matter_blob', 'sbz_resources:matter_blob' },
     },
 }
+sbo_api.quests.on_craft["sbo_adv_injector:injector"] = "Advanced Automatic Filter-Injector"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced Automatic Filter-Injector",
+    text =
+        [[Don't remember why it was added but it acts like the original injector but can have a block inbetween it and the tube]],
+    requires = { "Automatic Filter-Injectors", }
+})

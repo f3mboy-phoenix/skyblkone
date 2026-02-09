@@ -5,3 +5,10 @@ sbz_api.recipe.register_craft {
      'sbz_chem:titanium_powder' },
     type = 'alloying',
 }
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Copper Titanium",
+    info = true,
+    text =
+        [[Adds alloy Copper Titanium, made from copper and titanium in a alloy smelter]],
+})

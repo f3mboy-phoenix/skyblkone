@@ -63,8 +63,10 @@ minetest.register_craft({
         { mat, "",  mat }
     }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Diamond Plated Armor",
-    text = "Armor made out of Diamond can repair itself and your almost immortal",
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Diamond Armor",
+    text =
+        [[Adds Diamond Plated Resium Armor, making you immune to lasers, strange matter, and 95% of everything else]],
 })

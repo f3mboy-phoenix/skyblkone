@@ -25,14 +25,14 @@ local tool_caps = {
 }
 
 minetest.register_tool("sbo_extrosim_drill:drill", {
-    description = "Extrosim Drill",
+    description = "Extrex Drill",
     inventory_image = "edrill.png",
     info_extra = {
         "Powered by electricity. Wear bar indicates the amount of charge left.",
         ("%s uses"):format(drill_max_wear),
         "\"Place\" it on a battery to re-charge it."
     },
-    groups = { core_drop_multi = 15, disable_repair = 1, power_tool = 1, can_mine_extrosim = 1, can_mine_resium = 1 },
+    groups = { core_drop_multi = 20, disable_repair = 1, power_tool = 1, can_mine_extrosim = 1, can_mine_resium = 1 },
     -- Tool properties
     tool_capabilities = tool_caps,
     after_use = function(stack, user, node, digparams)
@@ -62,3 +62,10 @@ minetest.register_craft {
     },
     output = "sbo_extrosim_drill:drill"
 }
+sbo_api.quests.in_inven["sbo_emmitrex_drill:drill"] = "Extrex Drill"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Extrex Drill",
+    text = [[An Extrex Drill is required to mine Resium, also has a better battey efficency and 20x core drops]],
+    requires = { "Extrex", }
+})

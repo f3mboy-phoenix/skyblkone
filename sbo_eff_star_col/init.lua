@@ -21,7 +21,7 @@ sbz_api.register_generator('sbo_eff_star_col:gen', {
     use_texture_alpha = 'clip',
     action_interval = 1,
     action = function(pos, node, meta)
-        return 60
+        return 30
     end,
     info_extra = "Bio-Elecrticaly Powered"
 })
@@ -62,3 +62,11 @@ if not sbz_api.server_optimizations then
         end,
     }
 end
+sbo_api.quests.on_craft["sbo_eff_star_col:gen"] = "Effective Starlight Collector"
+sbo_api.quests.register_to("Questline: Organics",{
+    type = "quest",
+    title = "Effective Starlight Collector",
+    text =
+        [[An Effective Starlight Collector Creates 30 power per second. It is Bio-Electricaly powered.]],
+    requires = { "Starlight Collectors", }
+})

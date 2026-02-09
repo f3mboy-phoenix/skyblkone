@@ -21,17 +21,18 @@ minetest.register_craft({
         { "sbo_resium:crystal",            "sbz_resources:antimatter_dust", "sbo_resium:crystal" }
     }
 })
-
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Resium Glass",
-    text = [[
+sbo_api.quests.on_craft["sbo_resium_glass:resium_glass"] = "Resium Glass"
+sbo_api.quests.register_to("Questline: Resium",{
+        type = "quest",
+        title = "Resium Glass",
+        text = [[
 Just another kind of glass.
 They are made with:
     4 Resium crystals
     4 Antimatter dust]],
+        requires = { "Obtain Resium" }
 })
+
 color = "#63BD63"
 stairs.register("sbo_resium_glass:resium_glass", {
 	tiles = {

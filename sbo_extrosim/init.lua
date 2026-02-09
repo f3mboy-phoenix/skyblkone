@@ -11,11 +11,11 @@ local action = function(pos, _, puncher)
             pos = pos
         })
         if puncher.is_fake_player then return end
-        sbz_api.displayDialogLine(puncher:get_player_name(), "Extrosim can only be mined using tools or machines.")
+        sbz_api.displayDialogLine(puncher:get_player_name(), "Extrosim can only be mined An Emmetrex Drill or better.")
         return
     end
     for _ = 1, minetest.get_item_group(tool_name, "core_drop_multi") do
-        if math.random(1, 10) >= 1 then
+        if math.random(1, 10) == 1 then
             puncher:get_inventory():add_item("main", "sbo_extrosim:raw_extrosim")
             minetest.sound_play("punch_core", {
                 gain = 1.0,
@@ -40,6 +40,7 @@ local action = function(pos, _, puncher)
                 texture = "raw_extrosim.png",
                 glow = 10
             })
+            unlock_achievement(puncher:get_player_name(), "Obtain Extrosim")
         else
             minetest.sound_play("punch_core", {
                 gain = 1.0,
@@ -123,20 +124,6 @@ minetest.register_craftitem("sbo_extrosim:raw_extrosim", {
     stack_max = 256,
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Extrosim Stars",
-    text =
-    [[Do you see those orange stars in the distance? They're called Extrosim Emitters. To obtain Extrosim from them, you will have to build a bridge over to one.
-I would recommend to choose the closest one to you, but any Emitter works. Next, you'll need a Matter Annihilator. You can't destroy the Emitters, but you can chip away at them.
-
-Punch your Emitter of choice until it yields some 'Raw Extrosim'. We'll refine the Extrosim later, but for now we just need it in its raw state.
-
-Emitters have a 1/10 chance of producing Raw Extrosim, and a 9/10 chance of just producing the same materials that core does.
-]],
-})
-
 local actions = function(pos, _, puncher)
     local itemstack = puncher:get_wielded_item()
     local tool_name = itemstack:get_name()
@@ -148,10 +135,10 @@ local actions = function(pos, _, puncher)
             pos = pos
         })
         if puncher.is_fake_player then return end
-        sbz_api.displayDialogLine(puncher:get_player_name(), "Extrosim can only be mined using tools or machines.")
+        sbz_api.displayDialogLine(puncher:get_player_name(), "Extrosim can only be mined An Emmetrex Drill or better.")
     end
     for _ = 1, minetest.get_item_group(tool_name, "core_drop_multi") do
-        if math.random(1, 10) >= 1 then
+        if math.random(1, 10) ~= 1 then
             puncher:get_inventory():add_item("main", "sbo_extrosim:raw_extrosim")
             minetest.sound_play("punch_core", {
                 gain = 1.0,
@@ -214,14 +201,28 @@ core.register_craft {
     output = "sbo_extrosim:movable_emitter",
     recipe = {
         { "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", },
-        { "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", },
+        { "sbo_extrosim:raw_extrosim", "sbz_planets:dwarf_orb", "sbo_extrosim:raw_extrosim", },
         { "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", "sbo_extrosim:raw_extrosim", },
     }
 }
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Movable Extrosim Emitter",
-    text = "Movable Extrosim Emitters work like normal Movable Emitters but for Extrosim",
-    requires = { "Centrifuge" }
+quests[#quests+1]={ type = "text", title = "Questline: Extrosim", text = "Extrosim is a new item from Skyblock: One." }
+sbo_api.quests.on_craft["sbo_extrosim:movable_emitter"] = "Movable Extrosim Emitter"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Movable Extrosim Emitter",
+        text = "Movable Extrosim Emitters work like normal Movable Emitters but for Extrosim",
+        requires = { "Centrifuge" }
+})
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Obtain Extrosim",
+        text =
+        [[Do you see those orange stars in the distance? They're called Extrosim Emitters. To obtain Extrosim from them, you will have to build a bridge over to one.
+I would recommend to choose the closest one to you, but any Emitter works. Next, you'll need a Emmetrex Drill. You can't destroy the Emitters, but you can chip away at them.
+
+Punch your Emitter of choice until it yields some 'Raw Extrosim'. We'll refine the Extrosim later, but for now we just need it in its raw state.
+
+Emitters have a 1/10 chance of producing Raw Extrosim, and a 9/10 chance of just producing the same materials that core does.
+]],
+        requires = { "Annihilator" }
 })

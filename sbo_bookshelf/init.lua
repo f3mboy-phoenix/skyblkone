@@ -16,3 +16,11 @@ minetest.register_craft({
         { "sbz_bio:colorium_planks", "sbz_bio:colorium_planks", "sbz_bio:colorium_planks" }
     }
 })
+sbo_api.quests.on_craft["sbo_bookshelf:bookshelf"] = "Bookshelf"
+sbo_api.quests.register_to("Questline: Decorator",{
+    type = "quest",
+    title = "Bookshelf",
+    text =
+        [[Decoration bookshelf.]],
+    requires = { "Getting Wood", }
+})

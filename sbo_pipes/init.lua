@@ -47,7 +47,7 @@ minetest.register_chatcommand("scan_tubes", {
 
 minetest.register_chatcommand("scan_autocrafters", {
     params = "",
-    description = "Scan area and fixes missing proccessor slot when updating from R39 to R40",
+    description = "Scan area and fix missing proccessor slot when updating from R39 to R40",
     privs = {server = true}, -- restrict to server/admin
 
     func = function(name, param)
@@ -76,4 +76,14 @@ minetest.register_chatcommand("scan_autocrafters", {
 
         return true, string.format("Scanned %d nodes, updated %d with priority infotext.", total, updated)
     end,
+})
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Pipes",
+    text =
+        [[Adds visible Priority int info text. 
+/scan_tubes: Scan area and add priority infotext to tube nodes
+/scan_autocrafters: Scan area and fix missing proccessor slot when updating from R39 to R40]],
 })

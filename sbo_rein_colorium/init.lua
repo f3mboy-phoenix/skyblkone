@@ -16,3 +16,10 @@ minetest.register_craft({
         { "",                                  "sbo_colorium_plate:colorium_plate", "" }
     }
 })
+sbo_api.quests.on_craft["sbo_rein_colorium:reinforced_colorium"] = "Reinforced Colorium"
+sbo_api.quests.register_to("Questline: Colorium",{
+    type = "quest",
+    title = "Reinforced Colorium",
+    text =
+        [[Colorium that is blast resistive.]],
+})

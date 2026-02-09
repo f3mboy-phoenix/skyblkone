@@ -12,11 +12,12 @@ unified_inventory.register_craft({
     width = 2,
     height = 1
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Emmitrex Plate",
-    text = [[Emmitrex Plates are often used for machinery. They are simple to craft, yet very important.
+sbo_api.quests.in_inven["sbo_emittrium_plate:emittrium_plate"] = "Emittrium Plate"
+sbo_api.quests.register_to("Questline: Emittrium",{
+        type = "quest",
+        title = "Emittrium Plate",
+        text = [[Emittrium Plates are often used for machinery. They are simple to craft, yet very important.
 
-You can get one Emmitrex Plates by placing two Emmitrex powder into the Ele Fab.]],
-    requires = { "Obtain Emittrium", "Ele Fabs" }
+You can get one Emittrium Plates by placing two Raw Emittrium into the Ele Fab.]],
+        requires = {"Obtain Emittrium","Ele Fabs"}
 })

@@ -15,9 +15,10 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Creox Battery",
-    text = [[Best Battery Ever, stores 1M.
-]],
-})
+sbo_api.quests.on_craft["sbo_creox_bat:battery"] = "Creox Battery"
+sbo_api.quests.register_to("Questline: Creox",{
+        type = "quest",
+        title = "Creox Battery",
+        text = [[Best Battery Ever. Stores 1M.]],
+        requires = { "Resium Circuit", "Creox Fabrication Cube", "Very Advanced Batteries", }
+    })

@@ -9,7 +9,7 @@ local action = function(pos, _, puncher)
             pos = pos
         })
         if puncher.is_fake_player then return end
-        sbz_api.displayDialogLine(puncher:get_player_name(), "Resium can only be mined using tools or machines.")
+        sbz_api.displayDialogLine(puncher:get_player_name(), "Resium can only be mined using an Extrex Drill or better")
         return
     end
     for _ = 1, minetest.get_item_group(tool_name, "core_drop_multi") do
@@ -38,6 +38,7 @@ local action = function(pos, _, puncher)
                 texture = "resium_crystal.png",
                 glow = 10
             })
+            unlock_achievement(puncher:get_player_name(), "Obtain Resium")
         else
             minetest.sound_play("punch_core", {
                 gain = 1.0,
@@ -185,30 +186,31 @@ core.register_craft {
         { "sbo_resium:crystal", "sbo_resium:crystal", "sbo_resium:crystal", },
     }
 }
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Movable Resium Emitter",
-    text = "Movable Resium Emitter work like normal Movable Emitters but for Resium",
+quests[#quests+1]={ type = "text", title = "Questline: Resium", text = "????" }
+sbo_api.quests.on_craft["sbo_resium:movable_emitter"] = "Movable Resium Emitter"
+sbo_api.quests.register_to("Questline: Resium",{
+        type = "quest",
+        title = "Movable Resium Emitter",
+        text = "Movable Resium Emitter work like normal Movable Emitters but for Resium",
+        requires = { "Centrifuge" }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Resium Stars",
-    text =
-    [[Do you see those green stars in the distance? They're called Resium Emitters. To obtain Resium from them, you will have to build a bridge over to one.
+sbo_api.quests.register_to("Questline: Resium",{
+        type = "quest",
+        title = "Obtain Resium",
+        text =
+        [[Do you see those green stars in the distance? They're called Resium Emitters. To obtain Resium from them, you will have to build a bridge over to one.
 I would recommend to choose the closest one to you, but any Emitter works. Next, you'll need a Matter Annihilator. You can't destroy the Emitters, but you can chip away at them.
 
 Punch your Emitter of choice until it yields some 'Resium Crystals'. We'll refine the Resium later, but for now we just need it in its raw state.
 
 Emitters have a 1/10 chance of producing Raw Resium.
 ]],
-    requires = { "Annihilator" }
+        requires = { "Annihilator" }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    info = true,
-    title = "Resium Circuit",
-    text = "Yet another circuit... Used fore more advanced machines",
-    requires = { "Obtain Resium" }
+sbo_api.quests.on_craft["sbo_resium:circuit"] = "Resium Circuit"
+sbo_api.quests.register_to("Questline: Resium",{
+        type = "quest",
+        title = "Resium Circuit",
+        text = "Yet another circuit...",
+        requires = { "Obtain Resium" }
 })

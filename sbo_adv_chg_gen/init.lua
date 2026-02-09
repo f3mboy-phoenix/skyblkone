@@ -112,11 +112,13 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Advanced Generators",
-    text =
-    [[  If you have made Generators then you can make Advanced versions as well.
+sbo_api.quests.on_craft["sbo_adv_chg_gen:advanced_charge_generator_off"] = "Advanced Generators"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Advanced Generators",
+        text =
+        [[  So you have made Generators but you can make Advanced versions as well.
     They produce 90 power
     Craft with 4 Simple Charged Fields, 3 Matter Blobs, 1 Extrosim Circuit and 1 Generator]],
+        requires = { "Generators", "Extrosim Circuit"}
 })

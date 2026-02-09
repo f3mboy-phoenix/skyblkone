@@ -17,7 +17,7 @@ minetest.register_craft({
     output = "sbz_bio:colorium_planks 4",
     recipe = { "sbz_bio:colorium_tree_core" }
 })
-sbo_api.register_wiki_page({
+sbo_api.quests.register_to("SBO: Other infos",{
     type = "text",
     info = true,
     title = "Wood",

@@ -51,4 +51,10 @@ struct.map[2][1][2]="sbz_resources:matter_blob"
 struct.map[1][1][2]="sbz_resources:reinforced_matter"
 sbo_api.register_structure(struct)
 
-
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Ship",
+    text =
+        [[Adds a ship structure floating in the void]],
+})

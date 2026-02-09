@@ -16,10 +16,12 @@ minetest.register_craft({
 		"sbz_resources:prediction_circuit",
 		"sbz_resources:simple_logic_circuit" }
 })
-sbo_api.register_wiki_page({
-	type = "quest",
-	title = "Control Board",
-	text = [[
+
+sbo_api.quests.on_craft["sbo_control_board:control_board"] = "Control Board"
+sbo_api.quests.register_to("Questline: Resources",{
+        type = "quest",
+        title = "Control Board",
+        text = [[
 Control boards are required for crafting.
 They are made with:
 	1 Shock circuit

@@ -63,8 +63,9 @@ minetest.register_craft({
         { mat, "",  mat }
     }
 })
-sbo_api.register_wiki_page({
-    type = "quest",
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
     title = "Resium Armor",
     text = "Armor made out of Resium can repair itself",
 })

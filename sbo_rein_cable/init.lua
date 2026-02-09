@@ -77,3 +77,12 @@ minetest.register_craft {
         "sbo_rein_cable:power_pipe", "sbz_resources:emittrium_glass",
     }
 }
+
+sbo_api.quests.on_craft["sbo_adv_core_ext:extractor"] = "Reinforced Power Cables"
+sbo_api.quests.register_to("Questline: Emittrium",{
+    type = "quest",
+    title = "Reinforced Power Cables",
+    text =
+        [[Power Cables that are blast resistive. Airtight is avaliable as well!]],
+    requires = { "Power Cables", }
+})

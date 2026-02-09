@@ -78,9 +78,12 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Warp Makers",
-    text = [[Warp Makers are used to grow warpshrooms.]],
-    requires = { "Photons", "Control Board" }
+sbo_api.quests.on_craft["sbo_warp_maker:warp_maker"] = "Warp Making'"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Warp Making'",
+        text =
+        [[  You can create a Warp Maker to grow warpshrooms.]],
+        requires = { "Photons", "Control Board"}
 })
+

@@ -62,9 +62,11 @@ minetest.register_craft({
     }
 })
 
-
-sbo_api.register_wiki_page({
+sbo_api.quests.on_craft["sbo_adv_anti_ext:extractor"] = "Advanced Antimatter Extractor"
+sbo_api.quests.register_to("Questline: Resium",{
     type = "quest",
     title = "Advanced Antimatter Extractor",
-    text = [[Useful for antimatter generators. Creates 7 antimatter dust per second.]],
+    text =
+        [[Useful for antimatter generators. Creates 7 antimatter dust per second.]],
+    requires = { "Antimatter", }
 })

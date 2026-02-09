@@ -80,3 +80,11 @@ minetest.register_tool(":sbz_resources:laser_weapon", {
     wield_image = "laser_wield.png",
     wear_color = { color_stops = { [0] = "lime" } },
 })
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Laser Fix",
+    text =
+        [[Laser Fix is required so modded meteorites explode from the laser... ]],
+})

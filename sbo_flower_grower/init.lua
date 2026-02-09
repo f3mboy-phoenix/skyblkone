@@ -78,9 +78,11 @@ minetest.register_craft({
     }
 })
 
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Flower Grower",
-    text =
-    [[Flower Growers can make stemfruit]],
+sbo_api.quests.on_craft["sbo_flower_grower:flower_grower"] = "Flower Growin'"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Flower Growin'",
+        text =
+        [[  You can create Flower Grower. These can make stemfruit]],
+        requires = { "Generators", "Control Board"}
 })

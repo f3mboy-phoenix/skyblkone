@@ -25,3 +25,10 @@ sbz_api.recipe.register_craft {
         "sbz_resources:dark_sand"
     }
 }
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Chromium",
+    info = true,
+    text =
+        [[Adds chromium obtained from centrifugeing sand, dark sand, or white sand]],
+})

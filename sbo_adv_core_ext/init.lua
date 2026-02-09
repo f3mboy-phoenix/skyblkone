@@ -76,3 +76,12 @@ minetest.register_craft({
         { "sbz_resources:compressed_core_dust", "sbo_resium:circuit",                      "sbz_resources:compressed_core_dust" }
     }
 })
+
+sbo_api.quests.on_craft["sbo_adv_core_ext:extractor"] = "Advanced Compressing Core Extractor"
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced Compressing Core Extractor",
+    text =
+        [[Useful for automation. Creates 1 Compressed Core Dust per second.]],
+    requires = { "Automation", }
+})

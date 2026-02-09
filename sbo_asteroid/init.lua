@@ -257,3 +257,11 @@ minetest.register_abm({
         end
     end,
 })
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Asteroids",
+    info = true,
+    text =
+        [[Adds Asteroids made of Stone that can be mined into pebbles]],
+})

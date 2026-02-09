@@ -255,3 +255,10 @@ minetest.register_abm({
         end
     end,
 })
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Coric Meteorites",
+    info = true,
+    text =
+        [[Adds meteorite that can be mined for core dust]],
+})

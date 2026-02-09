@@ -10,3 +10,10 @@ for _, name in ipairs(list) do
 		stack_max = 16,
 	})
 end
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Proccessor Stacksize is 16",
+    text =
+        [[Redefines Proccessor Stacksize to 16]],
+})

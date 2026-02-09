@@ -128,7 +128,7 @@ minetest.register_craft({
     type = "shapeless",
     recipe = { "sbo_ultra_pipes:uhp_tube_1", "sbo_extrosim:raw_extrosim" }
 })
-sbo_api.register_wiki_page({
+sbo_api.quests.register_to("SBO: Other infos",{
     type = "text",
     info = true,
     title = "Ultra Pipes",

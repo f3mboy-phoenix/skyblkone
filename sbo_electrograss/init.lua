@@ -1,6 +1,6 @@
 sbo_api.register_modded_plant("electrograss", {
     description = "Electrograss Plant",
-    drop = "sbz_resources:charged_particle 25",
+    drop = {"sbz_resources:charged_particle 25", "sbo_electrograss:grass",},
     growth_rate = 8,
     family = "pyrograss",
     width = 0.25,
@@ -23,3 +23,11 @@ core.register_craft {
         "sbz_bio:pyrograss", "sbz_resources:charged_particle",
     }
 }
+sbo_api.quests.on_craft["sbo_electrograss:grass"] = "Electrograss"
+sbo_api.quests.register_to("Questline: Organics",{
+    type = "quest",
+    title = "Electrograss",
+    text =
+        [[Electrograss creates 25 Charged Particles when full grown.]],
+    requires = { "Dirt", }
+})

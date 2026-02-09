@@ -49,7 +49,7 @@ sbz_api.register_machine("sbo_sup_ext:extractor", {
         end
     end,
     action_interval = 5,
-    power_needed = 3,
+    power_needed = 15,
     output_inv = "main",
 })
 
@@ -63,8 +63,12 @@ minetest.register_craft({
 })
 
 
-sbo_api.register_wiki_page({
+sbo_api.quests.on_craft["sbo_sup_ext:extractor"] = "Super Matter Extractor"
+sbo_api.quests.register_to("Questline: Extrosim",{
     type = "quest",
     title = "Super Matter Extractor",
-    text = [[Creates 7 matter dust per second.]],
+    text =
+        [[Useful for automation. Creates 7 Matter Dust per second.]],
+    requires = { "Automation", }
 })
+

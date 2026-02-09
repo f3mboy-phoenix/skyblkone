@@ -33,3 +33,11 @@ local fert_use = function(itemstack, user, pointed)
     return itemstack
 end
 minetest.override_item("sbz_bio:fertilizer", { on_use = fert_use })
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Bonemeal",
+    text =
+        [[Fertilizer acts like Bonemeal]],
+})

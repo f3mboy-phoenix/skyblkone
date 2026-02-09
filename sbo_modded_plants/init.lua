@@ -77,3 +77,10 @@ function sbo_api.register_modded_plant(name, defs, modname)
         wilt = defs.use_co2_in_final_stage and sbz_api.plant_wilt(2)
     })
 end
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Modded Plants",
+    text =
+        [[copy of internal code made external for mods]],
+})

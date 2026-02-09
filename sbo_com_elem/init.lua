@@ -80,3 +80,10 @@ sbz_api.recipe.register_craft {
         "sbz_resources:gravel"
     }
 }
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Common Elements",
+    info = true,
+    text =
+        [[Makes elements from centrifugeing more common, disable for default.]],
+})

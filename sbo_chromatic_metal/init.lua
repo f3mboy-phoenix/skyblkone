@@ -8,3 +8,10 @@ sbz_api.register_element("cuticr", "#814f2f", "Chromatic Metal %s (CuTiCr)", { d
             "sbo_chromium:chromium_powder 12"
         },
     }
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Chromatic Metal",
+    info = true,
+    text =
+        [[Adds the alloy Chromatic metal made from copper titanium and chromium]],
+})

@@ -13,12 +13,14 @@ minetest.register_craftitem("sbo_colorium_circuit:colorium_circuit", {
     inventory_image = "colorium_circuit.png",
     stack_max = 256,
 })
-sbo_api.register_wiki_page({
-    type = "quest",
-    title = "Colorium Circuit",
-    text = [[Colorium Circuits are often used for machinery. They are simple to craft, yet very important.
+
+sbo_api.quests.on_craft["sbo_colorium_circuit:colorium_circuit"] = "Colorium Circuit"
+sbo_api.quests.register_to("Questline: Colorium",{
+        type = "quest",
+        title = "Colorium Circuit",
+        text = [[Colorium Circuits are often used for machinery. They are simple to craft, yet very important.
 
 Crafted using the Ele Fab, Requires 4 Colorium and 2 Antimatter Plates
 ]],
-    requires = { "Coloring Tool" }
+        requires = {"Coloring Tool"}
 })

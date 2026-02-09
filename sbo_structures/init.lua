@@ -50,7 +50,7 @@ function sbo_api.register_loot(struct, teir, name, max_amount)
 	if sbo_api.loottables[struct] and sbo_api.loottables[struct][teir] and type(name) == "string" and type(max_amount) == "number" then
 		table.insert(sbo_api.loottables[struct][teir], { name, max_amount })
 		unified_inventory.register_craft {
-			type = struct .. teir,
+			type = "z_"..struct .. teir,
 			output = name,
 			items = { sbo_api.loottables[struct].nodename },
 			width = 1,
@@ -66,21 +66,21 @@ function sbo_api.register_loottype(name, nodename, nicename)
 		god = {},
 		nodename = nodename
 	}
-	unified_inventory.register_craft_type(name .. "common", {
+	unified_inventory.register_craft_type("z_"..name .. "common", {
 		description = nicename .. " loot. Common",
 		icon = "storinator_side.png^[colorize:green:100",
 		width = 1,
 		height = 1,
 		uses_crafting_grid = false,
 	})
-	unified_inventory.register_craft_type(name .. "rare", {
+	unified_inventory.register_craft_type("z_"..name .. "rare", {
 		description = nicename .. " loot. Rare",
 		icon = "storinator_side.png^[colorize:cyan:100",
 		width = 1,
 		height = 1,
 		uses_crafting_grid = false,
 	})
-	unified_inventory.register_craft_type(name .. "god", {
+	unified_inventory.register_craft_type("z_"..name .. "god", {
 		description = nicename .. " loot. Mystic",
 		icon = "storinator_side.png^[colorize:purple:100",
 		width = 1,
@@ -233,3 +233,10 @@ sbo_api.get_lootbox_on_punch = function(loottable, node)
 		end
 	end
 end
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Structures",
+    text =
+        [[Core Structure Api, Adds the floating sky lootbox]],
+})

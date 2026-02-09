@@ -55,7 +55,7 @@ core.register_craft {
     output = "sbo_emmiters:colorium",
     recipe = {
         { "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", },
-        { "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", },
+        { "unifieddyes:colorium_powder", "sbz_planets:dwarf_orb", "unifieddyes:colorium_powder", },
         { "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", "unifieddyes:colorium_powder", },
     }
 }
@@ -179,8 +179,15 @@ core.register_craft {
     output = "sbo_emmiters:neutronium",
     recipe = {
         { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", },
-        { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", },
+        { "sbz_meteorites:neutronium", "sbz_planets:dwarf_orb", "sbz_meteorites:neutronium", },
         { "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", "sbz_meteorites:neutronium", },
     }
 }
 
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    title = "Emitters",
+    info = true,
+    text =
+        [[Adds Neutronium, Strange Dust, and Colorium Movable emitters]],
+})

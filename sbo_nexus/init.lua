@@ -193,3 +193,12 @@ end
 if minetest.get_modpath("sbo_control_board") then
 	sbo_api.register_loot("nexus", "god", "sbo_control_board:control_board", 3)
 end
+
+quests[#quests+1]={ type = "text", title = "Questline: Creox", text = "Creox Based Questline" }
+sbo_api.quests.in_inven["sbo_nexus:creox_fab_cube"] = "Creox Fabrication Cube"
+sbo_api.quests.register_to("Questline: Creox",{
+    type = "quest",
+    title = "Creox Fabrication Cube",
+    text =
+        [[You Found a Nexus cube. A lost reminant of the early creox race.]],
+})

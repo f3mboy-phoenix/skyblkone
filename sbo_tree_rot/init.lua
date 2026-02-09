@@ -6,10 +6,10 @@ minetest.register_abm({
         minetest.remove_node(pos)
     end,
 })
-if sbo_api.register_wiki_page then
-    sbo_api.register_wiki_page({
+if sbz_api.register_quest_to then
+    sbo_api.quests.register_to("SBO: Other infos",{
         type = "text",
-        warning = true,
+        info = true,
         title = "Warning Tree Rot is Enabled",
         text = [[The mod sbo_tree_rot is enabled...
 Use this mod to get rid of tree trunks and leaves.

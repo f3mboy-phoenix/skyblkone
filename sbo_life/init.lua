@@ -38,3 +38,10 @@ minetest.register_craft({
     output = "sbo_life:essence",
     recipe = { "sbz_bio:fiberweed" }
 })
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Life",
+    text =
+        [[Adds life essence craftable from plants, and the core fore making spawn eggs for future animals/ foods.]],
+})

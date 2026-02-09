@@ -62,9 +62,11 @@ minetest.register_craft({
     }
 })
 
-
-sbo_api.register_wiki_page({
+sbo_api.quests.on_craft["sbo_anti_ext:simple_antimatter_extractor"] = "Simple Antimatter Extractor"
+sbo_api.quests.register_to("Questline: Emittrium",{
     type = "quest",
     title = "Simple Antimatter Extractor",
-    text = [[Useful for antimatter generators. Creates 1 antimatter dust per second.]],
+    text =
+        [[Useful for antimatter generators. Creates 1 antimatter dust per second.]],
+    requires = { "Automation", }
 })

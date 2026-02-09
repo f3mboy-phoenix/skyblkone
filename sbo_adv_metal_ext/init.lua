@@ -32,6 +32,7 @@ print(powder)
 local element = powder:split(":")[2]:split("_")[1]
 local modname = powder:split(":")[1]
 local block = modname..":"..element .."_block"
+sbo_api.quests.on_craft["sbo_adv_metal_ext:".. element .."_extractor"] = "Advanced Metal Extractor"
 sbz_api.register_machine("sbo_adv_metal_ext:".. element .."_extractor", {
     description =
     "Advanced ".._.description.." Extractor",
@@ -128,3 +129,12 @@ unified_inventory.add_category_item('extractors', "sbo_adv_metal_ext:".. element
 
 end
 end
+
+
+sbo_api.quests.register_to("Questline: Resium",{
+    type = "quest",
+    title = "Advanced Metal Extractor",
+    text =
+        [[Useful for automation. Creates 1 Metal Dust per second.]],
+    requires = { "Automation", "Creox Fabrication Cube" }
+})

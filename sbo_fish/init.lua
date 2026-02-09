@@ -213,3 +213,16 @@ minetest.register_craft {
 minetest.register_on_shutdown(function()
     storage:set_string("fishes", tostring(__fish))
 end)
+sbo_api.quests.on_craft["sbo_fish:fish"] = "Void Fish"
+sbo_api.quests.register_to("Questline: Food",{
+        type = "quest",
+        title = "Void Fish",
+        text = [[You killed a Void Fish, they are Edible]],
+})
+
+sbo_api.quests.on_craft["sbo_fish:fish_summoner"] = "Fish Summoner"
+sbo_api.quests.register_to("Questline: Organics",{
+        type = "quest",
+        title = "Fish Summoner",
+        text = [[A Fish summoner will spawn Void fish periodically]],
+})

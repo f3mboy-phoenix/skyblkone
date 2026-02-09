@@ -4,7 +4,8 @@ minetest.register_tool("sbo_resium_tools:drill", {
     groups = {
         core_drop_multi = 25,
         resium = 1,
-        can_mine_resium = 1
+        can_mine_resium = 1,
+        can_mine_extrosim = 1
     },
     -- Tool properties
     tool_capabilities = {
@@ -44,10 +45,13 @@ minetest.register_craft {
     },
     output = "sbo_resium_tools:drill"
 }
-sbo_api.register_wiki_page({
+
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
     info = true,
     title = "Resium Drill",
-    text = [[
+    text =
+       [[
 A Drill made out of Resium can repair itself. It has 4500 uses.
 It also has 25x core drops.
 ]],
