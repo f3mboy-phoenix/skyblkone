@@ -12,7 +12,7 @@ for x = 1,11 do
 	for y = 1,4 do
 		struct.map[x][y]={}
 		for z = 1, 3 do
-			struct.map[x][y][z] = "air"
+			--struct.map[x][y][z] = "air"
 		end
 	end
 end

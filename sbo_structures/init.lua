@@ -13,7 +13,9 @@ minetest.register_on_generated(function(minp, maxp, seed)
 		for a = 1, struct.offset.x do
 			for b = 1, struct.offset.y do
 				for c = 1, struct.offset.z do
-					minetest.set_node({ x = x + a, y = y + b, z = z + c }, { name = struct.map[a][b][c] })
+					if struct.map[a][b][c] then
+						minetest.set_node({ x = x + a, y = y + b, z = z + c }, { name = struct.map[a][b][c] })
+					end
 				end
 			end
 		end
@@ -240,3 +242,102 @@ sbo_api.quests.register_to("SBO: Other infos",{
     text =
         [[Core Structure Api, Adds the floating sky lootbox]],
 })
+
+--=========================--
+--planet gen--
+core.register_on_generated(function(minp, maxp, blockseed)
+    local planets = sbz_api.planets.area:get_areas_in_area(minp, maxp, true, true, true)
+
+    if next(planets) ~= nil then -- Translates to: If the amount of planets that the player is inside of isn't zero
+            local cx = math.random(minp.x, maxp.x)
+            local cy = math.random(minp.y, maxp.y)
+			local cz = math.random(minp.z, maxp.z)
+
+			--core.chat_send_all(
+			--	"X:" .. cx .. ", Y:" .. minp.y .. ", Z:" .. cz
+			--)
+			local struct = math.random(1, 10)
+			if struct == 1 then
+				for y = maxp.y, minp.y, -1 do
+					--minetest.set_node({ x = cx, y = y, z = cz }, { name = "sbz_resources:emittrium_glass" })
+					local pos = { x = cx, y = y, z = cz }
+					local posa = { x = cx, y = y+1, z = cz }
+					
+					local node = core.get_node(pos)
+					local nodea = core.get_node(posa)
+				
+					if node.name ~= "air" and nodea.name == "air"  then --SURFACE
+						if debugr then
+							minetest.set_node(posa, { name = "sbz_resources:emittrium_glass" })
+							core.chat_send_all("Surface Structure: X:" .. cx .. ", Y:" .. y+1 .. ", Z:" .. cz)
+						end
+						struct = sbo_api.structures[math.random(1, #sbo_api.structures)]
+						for a = 1, struct.offset.x do
+							for b = 1, struct.offset.y do
+								for c = 1, struct.offset.z do
+									if struct.map[a][b][c] then
+										minetest.set_node({ x = cx + a, y = y + b, z = cz + c }, { name = struct.map[a][b][c] })
+									end
+								end
+							end
+						end
+					end
+				end
+			elseif struct == 2 then
+				local pos = { x = cx, y = cy, z = cz }
+				local node = core.get_node(pos)
+				if node.name ~= "air" then
+					if debugr then
+						minetest.set_node(pos, { name = "sbz_resources:emittrium_glass" })
+						core.chat_send_all("Ground Structure: X:" .. cx .. ", Y:" .. cy .. ", Z:" .. cz)
+					end
+					struct = sbo_api.structures[math.random(1, #sbo_api.structures)]
+					if math.random(1, 5) == 1 then
+						struct = {
+							offset = {
+								x = 7,
+								y = 7,
+								z = 7,
+							},
+							map = {}
+						}
+						local x,y,z
+						for x = 1,7 do
+							struct.map[x]={}
+							for y = 1,7 do
+								struct.map[x][y]={}
+								for z = 1, 7 do
+									struct.map[x][y][z] = "air"
+								end
+							end
+						end
+
+						for a = 1,7 do
+							for b = 1,7 do
+								struct.map[a][b][1] = "sbz_decor:factory_floor_tiling"
+								struct.map[a][b][7] = "sbz_decor:factory_floor_tiling"
+								struct.map[a][1][b] = "sbz_decor:factory_floor_tiling"
+								struct.map[a][7][b] = "sbz_decor:factory_floor_tiling"
+								struct.map[1][b][a] = "sbz_decor:factory_floor_tiling"
+								struct.map[7][b][a] = "sbz_decor:factory_floor_tiling"
+							end
+						end
+						struct.map[4][2][4] = "sbo_structures:unopened_sky_loot"
+						core.log("warning", "Dungeon")
+						--core.chat_send_all("Dungeon")
+					end
+					for a = 1, struct.offset.x do
+						for b = 1, struct.offset.y do
+							for c = 1, struct.offset.z do
+								if struct.map[a][b][c] then
+									minetest.set_node({ x = cx + a, y = cy + b, z = cz + c }, { name = struct.map[a][b][c] })
+								end
+							end
+						end
+					end
+				end
+			end
+    else
+		----
+    end
+end)
