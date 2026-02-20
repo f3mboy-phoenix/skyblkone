@@ -256,7 +256,7 @@ core.register_on_generated(function(minp, maxp, blockseed)
 			--core.chat_send_all(
 			--	"X:" .. cx .. ", Y:" .. minp.y .. ", Z:" .. cz
 			--)
-			local struct = math.random(1, 10)
+			local struct = math.random(1, 12)
 			if struct == 1 then
 				for y = maxp.y, minp.y, -1 do
 					--minetest.set_node({ x = cx, y = y, z = cz }, { name = "sbz_resources:emittrium_glass" })
@@ -336,7 +336,36 @@ core.register_on_generated(function(minp, maxp, blockseed)
 						end
 					end
 				end
+			elseif struct == 3 then
+				
+				local _, planet = next(planets)
+                local data = assert(core.deserialize(planet.data), 'Something went horribly wrong')
+                local type = data[1]
+                local type_def = sbz_api.planets.types[type]
+                if debugr then
+					core.chat_send_all("Creox attempt: X:" .. cx .. ", Y:" .. cy .. ", Z:" .. cz)
+					core.chat_send_all("Planet type: " .. type_def.name)
+				end
+                if type_def.name == "Colorium Planet" then
+					for y = maxp.y, minp.y, -1 do
+						--minetest.set_node({ x = cx, y = y, z = cz }, { name = "sbz_resources:emittrium_glass" })
+						local pos = { x = cx, y = y, z = cz }
+						local posa = { x = cx, y = y+1, z = cz }
+					
+						local node = core.get_node(pos)
+						local nodea = core.get_node(posa)
+				
+						if node.name ~= "air" and nodea.name == "air"  then --SURFACE
+							if debugr then
+								minetest.set_node(pos, { name = "sbz_resources:emittrium_glass" })
+								core.chat_send_all("Creox: X:" .. cx .. ", Y:" .. cy .. ", Z:" .. cz)
+							end
+							core.add_entity(posa, "sbo_creox:mob")
+						end
+					end
+				end
 			end
+		
     else
 		----
     end
