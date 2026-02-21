@@ -1,11 +1,11 @@
 -- this doesn't use any code from techage
 
-local jetpack_durability_s = 60 * 5           -- jetpack durability, in seconds
+local jetpack_durability_s = 60 * 5 * 5          -- jetpack durability, in seconds
 local jetpack_velocity = vector.new(0, 15, 0) -- multiplied by dtime
-local jetpack_full_charge = 20000             -- 20kcj power needed for a jetpack
+local jetpack_full_charge = 200000             -- 20kcj power needed for a jetpack
 local jetpack_durability_save_during_sneak_flight = 2
 local default_number_of_particles = 20
-local jetpack_boost = 3
+local jetpack_boost = 5
 
 local jetpack_users = {}
 local jetpack_charge_per_1_wear = (jetpack_full_charge / 65535)

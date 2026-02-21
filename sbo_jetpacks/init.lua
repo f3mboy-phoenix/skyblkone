@@ -9,7 +9,7 @@ sbo_api.quests.register_to("SBO: Other infos",{
     title = "Jetpacks",
     text =
         [[Adds:
- * Extrosim Jetpack: Fire trail
- * Resium Jetpack: Right click to select trail color, Auto Recharge
+ * Extrosim Jetpack: Fire trail faster
+ * Resium Jetpack: Right click to select trail color, Auto Recharge, faster
 ]],
 })

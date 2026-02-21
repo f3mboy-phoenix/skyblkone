@@ -220,7 +220,7 @@ core.register_entity("sbo_creox:mob", {
 --------------------------------------------------
 -- SPAWN ITEM (testing)
 --------------------------------------------------
---[[core.register_craftitem(modname .. ":spawn_creox", {
+core.register_craftitem(modname .. ":spawn_creox", {
     description = "Spawn Creox",
     inventory_image = "shock_crystal.png",
     on_place = function(itemstack, placer, pointed_thing)
@@ -231,4 +231,4 @@ core.register_entity("sbo_creox:mob", {
         return itemstack
     end,
 })
-]]
+

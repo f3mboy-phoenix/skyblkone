@@ -40,7 +40,7 @@ dofile(sbo_resium_armor.modpath.."/sbz_support.lua")
 local timer = 0
 minetest.register_globalstep(function(dtime)
     timer = timer + dtime
-    if timer >= .5 then
+    if timer >= 3 then
         for _, player in ipairs(minetest.get_connected_players()) do
             check_player(player, timer)
         end
