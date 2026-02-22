@@ -182,7 +182,7 @@ core.register_craft {
     output = "sbo_resium:movable_emitter",
     recipe = {
         { "sbo_resium:crystal", "sbo_resium:crystal", "sbo_resium:crystal", },
-        { "sbo_resium:crystal", "sbo_resium:crystal", "sbo_resium:crystal", },
+        { "sbo_resium:crystal", "sbz_planets:dwarf_orb", "sbo_resium:crystal", },
         { "sbo_resium:crystal", "sbo_resium:crystal", "sbo_resium:crystal", },
     }
 }

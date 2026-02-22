@@ -39,8 +39,8 @@ minetest.register_tool("sbo_resium_tools:drill", {
 
 minetest.register_craft {
     recipe = {
-        { "sbo_resitrex:resitrex_ingot",   "sbz_resources:robotic_arm", "sbo_resitrex:resitrex_ingot" },
-        { "sbo_resitrex:resitrex_ingot",   "sbo_extrosim_drill:drill",  "sbo_resitrex:resitrex_ingot" },
+        { "sbo_resitrex:resitrex_ingot",   "sbo_extrosim_drill:drill", "sbo_resitrex:resitrex_ingot" },
+        { "sbo_resitrex:resitrex_ingot",   "sbo_oil:oil",  "sbo_resitrex:resitrex_ingot" },
         { "sbz_resources:phlogiston_blob", "sbo_resium:circuit",        "sbz_resources:phlogiston_blob" }
     },
     output = "sbo_resium_tools:drill"

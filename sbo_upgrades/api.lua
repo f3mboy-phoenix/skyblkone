@@ -61,17 +61,19 @@ function sbo_api.upgrades.add_wear(player, pack, amount)
 end
 
 function sbo_api.upgrades.register_pack(name, pack, pack_def)
-	assert(pack == "breath" or pack == "health" or pack == "hunger" or pack == "jump" or pack == "speed" or
+	assert(pack == "breath" or pack == "health" or pack == "hunger" or pack == "jump" or pack == "speed" or pack == "curio" or
 		pack == "gravity")
 	assert(pack_def.description)
 	assert(pack_def.image)
 	assert(pack_def.strength > 0)
+	
 
 	local def = {
 		description = pack_def.description,
 		inventory_image = pack_def.image,
 		groups = pack_def.groups or {}
 	}
+
 	def.groups["upgrade_" .. pack] = pack_def.strength
 
 	minetest.register_tool(name, def)

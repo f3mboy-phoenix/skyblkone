@@ -117,3 +117,21 @@ sbz_api.recipe.register_craft {
     output = "sbo_explosives:nuclear_stick",
     items = { "sbz_chem:plutonium_block 100" }
 }
+
+sbo_api.quests.on_craft["sbo_explosives:thermite_stick"] = "Thermite Explosive Stick'"
+sbo_api.quests.register_to("Questline: Chemistry",{
+        type = "quest",
+        title = "Thermite Explosive Stick ",
+        text =
+        [[Literally a bomb stick with more power: 15 power]],
+        requires = { "Atomic"}
+})
+
+sbo_api.quests.on_craft["sbo_explosives:nuclear_stick"] = "Nuclear Explosive Stick'"
+sbo_api.quests.register_to("Questline: Chemistry",{
+        type = "quest",
+        title = "Nuclear Explosive Stick ",
+        text =
+        [[Literally a bomb stick with more power: 40 power]],
+        requires = { "Nuclear Reactor"}
+})

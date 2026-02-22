@@ -15,7 +15,7 @@ ui.register_page("ugpacks", {
 			formspec = (
 				ui.style_full.standard_inv_bg ..
 				ui.make_inv_img_grid(.5, (y + 0.6), 8, 3, true) ..
-				"no_prepend[]" ..
+				"" ..
 				"label[" .. ui.style_full.form_header_x .. "," .. ui.style_full.form_header_y .. ";" .. S("Upgrades") .. "]" ..
 				"list[current_player;ugpacks;.5," .. (y + 0.7) .. ";8,3;]" ..
 				"listring[current_player;main]" ..

@@ -1,0 +1,2 @@
+# If true, you will be teleported one node lower if you clicked on the lower side of a node. Otherwise, your “head” will be initially “stuck” in the node.
+teletool_adjust_head (Adjust head position after teleport) bool true

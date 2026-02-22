@@ -78,4 +78,10 @@ unified_inventory.register_craft({
     width = 2,
     height = 2
 })
-
+sbo_api.quests.register_to("SBO: Other infos",{
+    type = "text",
+    info = true,
+    title = "Circuits",
+    text =
+        [[Adds elefab circuit crafts]],
+})

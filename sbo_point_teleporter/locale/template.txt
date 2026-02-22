@@ -1,0 +1,16 @@
+# textdomain: teletool
+Point teleporters are short-range teleportation devices which allow the user to teleport instantly towards a block they point at.=
+Infinite point teleporters are very powerful, they can be used without limits.=
+To use this tool, point to a face of a block and punch to teleport in front of it. The target location must have a minimum amount of space for you to stand in, otherwise, teleportation will fail.=
+Infinite point teleporter=
+Punch location to teleport=
+Electronic point teleporters run on electricity and must be charged initially. Fully charged, they can be used about 50 times.=
+To recharge this tool, place it in a powered battery box.=
+Electronic point teleporter=
+Must be charged in a battery box=
+Magical point teleporters are fueled by mana and require @1 mana per teleportation.=
+First make sure you have at least @1 mana.=
+Magical point teleporter=
+Mana cost: @1=
+What an awesome device!=
+Craft an electronic point teleporter.=

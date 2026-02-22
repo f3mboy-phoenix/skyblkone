@@ -1,11 +1,4 @@
-core.register_craft {
-    output = "sbz_resources:movable_emitter",
-    recipe = {
-        { "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", },
-        { "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", },
-        { "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", "sbz_resources:raw_emittrium", },
-    }
-}
+
 core.register_craft {
     output = "sbz_resources:charged_particle 9",
     type = "shapeless",

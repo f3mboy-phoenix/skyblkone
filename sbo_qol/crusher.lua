@@ -60,7 +60,12 @@ sbz_api.recipe.register_craft {
 
 sbz_api.recipe.register_craft {
     type = "crushing",
-    output = "unifieddyes:colorium_powder",
+    output = "unifieddyes:colorium_powder 9",
     items = { "unifieddyes:colorium" }
+}
+sbz_api.recipe.register_craft {
+    type = "crushing",
+    output = "sbz_resources:raw_emittrium 9",
+    items = { "sbz_resources:emittrium_block" }
 }
 

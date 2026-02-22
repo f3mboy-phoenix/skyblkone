@@ -5,6 +5,7 @@ sbo_api.upgrades.breath_items = {}
 sbo_api.upgrades.speed_items = {}
 sbo_api.upgrades.jump_items = {}
 sbo_api.upgrades.gravity_items = {}
+sbo_api.upgrades.curio_items = {}
 sbo_api.upgrades.translator = minetest.get_translator("sbo_upgrades")
 
 local modpath = minetest.get_modpath("sbo_upgrades")
@@ -30,9 +31,14 @@ minetest.after(0, function()
 	local speed_items = {}
 	local jump_items = {}
 	local gravity_items = {}
+	local curio_items = {}
 
 	for name, def in pairs(items) do
 		local groups = def.groups or {}
+		if groups.upgrade_curio
+			and groups.upgrade_curio ~= 0 then
+			curio_items[name] = groups.upgrade_curio
+		end
 		if groups.upgrade_health
 			and groups.upgrade_health ~= 0 then
 			health_items[name] = groups.upgrade_health
@@ -64,6 +70,7 @@ minetest.after(0, function()
 	sbo_api.upgrades.speed_items = speed_items
 	sbo_api.upgrades.jump_items = jump_items
 	sbo_api.upgrades.gravity_items = gravity_items
+	sbo_api.upgrades.curio_items = curio_items
 end)
 
 -- Hacky: Set the hp_max and breath_max value first
@@ -123,6 +130,9 @@ minetest.register_allow_player_inventory_action(function(player, action, inv, da
 		return 1
 	end
 	if sbo_api.upgrades.gravity_items[stack:get_name()] then
+		return 1
+	end
+	if sbo_api.upgrades.curio_items[stack:get_name()] then
 		return 1
 	end
 
