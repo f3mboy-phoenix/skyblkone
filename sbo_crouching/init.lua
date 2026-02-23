@@ -4,7 +4,7 @@ core.register_globalstep(function(dtime)
 
         if controls.sneak then
             player:set_properties({
-                eye_height = 1.2,
+                eye_height = 1.35,
                 visual_size = {x = 1, y = 0.85},
                 collisionbox = { -0.3, 0.0, -0.3, 0.3, 1.4, 0.3 }
             })
