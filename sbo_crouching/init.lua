@@ -5,7 +5,7 @@ core.register_globalstep(function(dtime)
         if controls.sneak then
             player:set_properties({
                 eye_height = 1.35,
-                visual_size = { x = 1, y = 0.85 },
+                visual_size = { x = 1, y = 1.0 },
                 collisionbox = { -0.3, 0.0, -0.3, 0.3, 1.4, 0.3 }
             })
             player:set_bone_position("Body", { x = 0, y = 6.3, z = 0 }, { x = -10, y = 180, z = 0 })
