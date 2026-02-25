@@ -970,7 +970,7 @@ minetest.register_craft({
     output = "sbo_tinkers:reforger",
     recipe = {
         { "sbo_tinkers:blank_template",},
-        {     'sbz_resources:emittrium_block',, },
+        {     'sbz_resources:emittrium_block', },
     }
 })
 --patterns
@@ -979,7 +979,7 @@ minetest.register_craftitem("sbo_tinkers:blank_template", {
 	inventory_image = "pattern.png^[multiply:#6F6F6F",
 	stack_max=64
 })
-minetest.register_craft({1
+minetest.register_craft({
     output = "sbo_tinkers:blank_template 4",
     recipe = {
         { "sbz_resources:pebble", "sbz_resources:stone", },
