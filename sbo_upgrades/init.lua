@@ -151,7 +151,21 @@ end)
 sbo_api.quests.register_to("SBO: Other infos",{
 	type = "text",
 	info = true,
-	title = "Upgrades",
+	title = "Curio",
 	text =
-	[[This mod adds upgrade packs for modifires such as speed, health, gravity, jump, and hunger. ]]
+	[[This mod adds upgrade packs for modifires such as speed, health, gravity, jump, and hunger. Also the curio interface in your inventory.
+By default the packs and the questbook can go in Curio slots, but other sbo mods add more things that can be placed in there]]
 })
+
+local item = minetest.registered_items["sbz_progression:questbook"]
+
+if item then
+    local groups = table.copy(item.groups or {})
+    groups.upgrade_curio = 1  -- add to group
+
+    minetest.override_item("sbz_progression:questbook", {
+        groups = groups
+    })
+else
+    minetest.log("warning", "[your_mod_name] sbz_progression:questbook not found!")
+end

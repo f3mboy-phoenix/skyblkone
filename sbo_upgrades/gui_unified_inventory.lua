@@ -4,7 +4,7 @@ local ui = unified_inventory
 ui.register_button("ugpacks", {
 	type = "image",
 	image = "heart.png",
-	tooltip = S("Upgrades")
+	tooltip = S("Curio")
 })
 
 ui.register_page("ugpacks", {
@@ -16,7 +16,7 @@ ui.register_page("ugpacks", {
 				ui.style_full.standard_inv_bg ..
 				ui.make_inv_img_grid(.5, (y + 0.6), 8, 3, true) ..
 				"" ..
-				"label[" .. ui.style_full.form_header_x .. "," .. ui.style_full.form_header_y .. ";" .. S("Upgrades") .. "]" ..
+				"label[" .. ui.style_full.form_header_x .. "," .. ui.style_full.form_header_y .. ";" .. S("Curio") .. "]" ..
 				"list[current_player;ugpacks;.5," .. (y + 0.7) .. ";8,3;]" ..
 				"listring[current_player;main]" ..
 				"listring[current_player;ugpacks]"

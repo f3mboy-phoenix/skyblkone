@@ -5,3 +5,4 @@ The Laptop mod was ported and included in this modpack ass well. recipes were ch
 Upgrade packs was ported
 Baskets Mod was ported
 HBHunger was added to the pack
+Inventory Pouches and teletool was ported

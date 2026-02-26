@@ -217,18 +217,3 @@ core.register_entity("sbo_creox:mob", {
 		end,
 })
 
---------------------------------------------------
--- SPAWN ITEM (testing)
---------------------------------------------------
-core.register_craftitem(modname .. ":spawn_creox", {
-    description = "Spawn Creox",
-    inventory_image = "shock_crystal.png",
-    on_place = function(itemstack, placer, pointed_thing)
-        if pointed_thing.type ~= "node" then
-            return itemstack
-        end
-        core.add_entity(pointed_thing.above, modname .. ":mob")
-        return itemstack
-    end,
-})
-

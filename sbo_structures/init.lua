@@ -51,13 +51,13 @@ end
 function sbo_api.register_loot(struct, teir, name, max_amount)
 	if sbo_api.loottables[struct] and sbo_api.loottables[struct][teir] and type(name) == "string" and type(max_amount) == "number" then
 		table.insert(sbo_api.loottables[struct][teir], { name, max_amount })
-		unified_inventory.register_craft {
+		--[[unified_inventory.register_craft {
 			type = "z_"..struct .. teir,
 			output = name,
 			items = { sbo_api.loottables[struct].nodename },
 			width = 1,
 			height = 1,
-		}
+		}]]
 	end
 end
 
@@ -68,6 +68,7 @@ function sbo_api.register_loottype(name, nodename, nicename)
 		god = {},
 		nodename = nodename
 	}
+--[[	core.after(0, function()
 	unified_inventory.register_craft_type("z_"..name .. "common", {
 		description = nicename .. " loot. Common",
 		icon = "storinator_side.png^[colorize:green:100",
@@ -89,6 +90,7 @@ function sbo_api.register_loottype(name, nodename, nicename)
 		height = 1,
 		uses_crafting_grid = false,
 	})
+	end)]]
 end
 
 sbo_api.loottables = {}

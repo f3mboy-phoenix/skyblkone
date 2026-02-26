@@ -45,8 +45,10 @@ core.register_node("sbo_nexus:storage", {
 	},
 	sunlight_propagates = true,
 	paramtype = "light",
+	after_dig_node = pipeworks.after_dig,
+    after_place_node = pipeworks.after_place,
 	walkable = true,
-	on_punch = sbo_api.get_lootbox_on_punch("nexus", "sbo_nexus:storage_open")
+	on_construct = sbo_api.get_lootbox_on_punch("nexus", "sbo_nexus:storage_open")
 })
 
 core.register_node("sbo_nexus:storage_open", {
@@ -57,6 +59,24 @@ core.register_node("sbo_nexus:storage_open", {
 	groups = { matter = 1 },
 	drop = "sbo_nexus:storage_open",
 	sounds = sbz_api.sounds.matter(),
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        if digger and digger:is_player() and oldmetadata then
+            local inv = oldmetadata.inventory
+            if inv and inv.main then
+                for _, itemstack in ipairs(inv.main) do
+                    if not itemstack:is_empty() then
+                        -- try to add to player's inventory first
+                        local leftover = digger:get_inventory():add_item("main", itemstack)
+                        -- if player inventory full, drop in world
+                        if not leftover:is_empty() then
+                            minetest.add_item(pos, leftover)
+                        end
+                    end
+                end
+            end
+        end
+    end,
+    after_place_node = pipeworks.after_place,
 	on_construct = function(pos)
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()

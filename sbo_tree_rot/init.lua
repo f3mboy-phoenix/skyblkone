@@ -13,7 +13,7 @@ if sbz_api.register_quest_to then
         title = "Warning Tree Rot is Enabled",
         text = [[The mod sbo_tree_rot is enabled...
 Use this mod to get rid of tree trunks and leaves.
-They don't drop items, they are just destroyed.
+They don't drop items, they are just voided.
 Basicaly a rarely used helper mod for when you make a big tree and dont want to chop it all yourself...😃
 ]]
     })
