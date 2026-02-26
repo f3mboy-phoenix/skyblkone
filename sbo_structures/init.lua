@@ -191,7 +191,7 @@ minetest.register_node("sbo_structures:unopened_sky_loot", {
 	sunlight_propagates = true,
 	paramtype = "light",
 	walkable = true,
-	on_punch = function(pos)
+	on_construct = function(pos)
 		minetest.set_node(pos, { name = "sbz_resources:storinator" })
 		local meta = minetest.get_meta(pos)
 		local inv = meta:get_inventory()
@@ -211,6 +211,23 @@ minetest.register_node("sbo_structures:unopened_sky_loot", {
 			end
 		end
 	end,
+	after_dig_node = function(pos, oldnode, oldmetadata, digger)
+        if digger and digger:is_player() and oldmetadata then
+            local inv = oldmetadata.inventory
+            if inv and inv.main then
+                for _, itemstack in ipairs(inv.main) do
+                    if not itemstack:is_empty() then
+                        -- try to add to player's inventory first
+                        local leftover = digger:get_inventory():add_item("main", itemstack)
+                        -- if player inventory full, drop in world
+                        if not leftover:is_empty() then
+                            minetest.add_item(pos, leftover)
+                        end
+                    end
+                end
+            end
+        end
+    end,
 })
 sbo_api.boxnumber = 0
 
