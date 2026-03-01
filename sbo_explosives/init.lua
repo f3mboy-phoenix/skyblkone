@@ -59,7 +59,7 @@ core.register_craftitem("sbo_explosives:thermite_stick", {
 sbz_api.recipe.register_craft {
     type = "compressing",
     output = "sbo_explosives:thermite_stick",
-    items = { "sbo_atomic:phosphorus 100" }
+    items = { "sbz_bio:pyrograss 100" }
 }
 -----
 core.register_entity("sbo_explosives:nuclear_stick_entity", {
@@ -115,16 +115,16 @@ core.register_craftitem("sbo_explosives:nuclear_stick", {
 sbz_api.recipe.register_craft {
     type = "compressing",
     output = "sbo_explosives:nuclear_stick",
-    items = { "sbz_chem:plutonium_block 100" }
+    items = { "sbz_chem:plutonium_block 35" }
 }
 
 sbo_api.quests.on_craft["sbo_explosives:thermite_stick"] = "Thermite Explosive Stick'"
-sbo_api.quests.register_to("Questline: Chemistry",{
+sbo_api.quests.register_to("Questline: Organics",{
         type = "quest",
         title = "Thermite Explosive Stick ",
         text =
         [[Literally a bomb stick with more power: 15 power]],
-        requires = { "Atomic"}
+        requires = { "Stemfruit"}
 })
 
 sbo_api.quests.on_craft["sbo_explosives:nuclear_stick"] = "Nuclear Explosive Stick'"
@@ -135,3 +135,7 @@ sbo_api.quests.register_to("Questline: Chemistry",{
         [[Literally a bomb stick with more power: 40 power]],
         requires = { "Nuclear Reactor"}
 })
+
+local modpath = minetest.get_modpath("sbo_explosives")
+
+dofile(modpath .. "/nuke_init.lua")

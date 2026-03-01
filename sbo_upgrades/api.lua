@@ -85,7 +85,7 @@ function sbo_api.upgrades.update_player(player)
 	local inv = player:get_inventory()
 	local health = minetest.PLAYER_MAX_HP_DEFAULT
 	local breath = minetest.PLAYER_MAX_BREATH_DEFAULT
-	local hunger = (hbhunger or {}).DEF_SAT_MAX
+	local hunger = (hbhunger or {DEF_SAT_MAX = 0}).DEF_SAT_MAX or 0
 	local speed = 1
 	local gravity = 1
 	local jump = 1
@@ -135,7 +135,7 @@ function sbo_api.upgrades.update_player(player)
 	sbo_api.upgrades._speedid = player_monoids.speed:add_change(player, speed, 'upgrades:speed')
 	sbo_api.upgrades._jumpid = player_monoids.jump:add_change(player, jump, 'upgrades:jump')
 	--sbz_api.displayDialogLine(player:get_player_name(), "Run Update Hud")
-	if hbhunger then
+	if hbhunger and hbhunger.DEF_SAT_MAX then
 		hbhunger.update_hud(player)
 	end
 end

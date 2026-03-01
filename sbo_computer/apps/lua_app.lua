@@ -1,4 +1,4 @@
-   local _printresults = ""
+local _printresults = ""
 local oldprint=print
 function print(...)
         local tbl={...}
@@ -17,8 +17,8 @@ sbo_computer.register_app("luavm", {
 	formspec_func = function(app, mtos)
                 
 		local formspec = "background[0,0.4;14.95,2.4;"..mtos.theme.contrast_background.."]"..
-                                --mtos.theme:get_label('0,0.5', "Results:")..
-                                "textarea[0.25,0.5;15,2.4;results;;"..minetest.formspec_escape("Result:\n".._printresults).."]"..
+                --mtos.theme:get_label('0,0.5', "Results:")..
+                "textarea[0.25,0.5;15,2.4;results;;"..minetest.formspec_escape("Result:\n".._printresults).."]"..
 				"background[0,3.05;14.95,3.44;"..mtos.theme.contrast_background.."]"..
 				"textarea[0.25,3;15,4;body;;"..minetest.formspec_escape("").."]"..
 				mtos.theme:get_button("0,8;2,1", "major", "run", "Run Code")
@@ -26,8 +26,8 @@ sbo_computer.register_app("luavm", {
 		return formspec
 	end,
 	receive_fields_func = function(app, mtos, sender, fields)
-                laptopsender=sender
-                if mtos.sysram.current_player ~= mtos.sysram.last_player then
+        laptopsender=sender
+        if mtos.sysram.current_player ~= mtos.sysram.last_player then
 			mtos:set_app() -- wrong player. Back to launcher
 			return
 		end

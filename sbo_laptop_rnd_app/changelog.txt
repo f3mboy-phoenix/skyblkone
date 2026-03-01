@@ -1,0 +1,16 @@
+v1.1.0:
+	unified_inventory:
+		+Added support for unified_inventory.
+		Now, in survival mode, research and duplication pages are available.
+		Look for the gear icon for the research page, and the 3 blocks icon for the duplication page.
+
+	translations:
+		+Added support for translations
+		+Added French translation
+		(Both courtesy of louisroyer)
+
+	fixed:
+		-Duplication menu's paging not working correctly if nothing has been researched (courtesy of louisroyer)
+		-compatability issue where other mods wouldn't be able to use minetest.register_allow_player_inventory_action
+		-removed "init trash" message when a player first joins
+

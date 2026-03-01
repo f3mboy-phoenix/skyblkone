@@ -1,6 +1,5 @@
 local S = minetest.get_translator("sbo_hbar")
-
-if minetest.settings:get_bool("enable_dammage") then
+if minetest.settings:get_bool("enable_damage") then
 hbhunger = {}
 hbhunger.food = {}
 
@@ -28,7 +27,6 @@ hbhunger.SAT_MAX = 30 -- maximum satiation points
 hbhunger.SAT_INIT = 20 -- initial satiation points
 hbhunger.SAT_HEAL = 15 -- required satiation points to start healing
 hbhunger.DEF_SAT_MAX = 30 -- maximum satiation points
-
 --load custom settings
 local set = io.open(minetest.get_modpath("sbo_hbar").."/hbhunger.conf", "r")
 if set then
@@ -62,6 +60,7 @@ function hbhunger.update_hud(player)
 		else
 			hb.unhide_hudbar(player, 'satiation')
 		end
+		hb.unhide_hudbar(player, 'satiation')
 		hb.change_hudbar(player, "satiation", h, hbhunger.SAT_MAX)
 	else
 		hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)
@@ -196,6 +195,7 @@ minetest.register_chatcommand("satiation", {
 	end,
 })
 else
+
 hbhunger = {}
 hbhunger.item_eat = function() return function() end end
 hbhunger.register_food = function () end

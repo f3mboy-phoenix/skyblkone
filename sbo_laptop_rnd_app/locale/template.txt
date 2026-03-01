@@ -1,0 +1,21 @@
+# textdomain: rnd
+
+
+### duplication.lua ###
+
+Duplicate=
+Open the duplication menu.=
+Page=
+
+### duplication.lua ###
+### research.lua ###
+
+Creative Mode players can't use this.=
+
+### research.lua ###
+
+Open the research menu.=
+Research=
+
+Warning: You are in creative mode. Research and Duplication is disabled in favor of the default creative inventory.=
+
