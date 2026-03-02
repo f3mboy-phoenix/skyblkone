@@ -1,7 +1,7 @@
 
 local shell_mat = "sbz_resources:matter_plate"
 local case_mat =  "sbz_power:battery"
-local extra_mat = "sbz_bio:neutron_emitter_off"
+local extra_mat = "sbo_adv_neu_emt:neutron_emitter_off"
 
 minetest.register_craft({
 	output = "sbo_mutator:gun",
