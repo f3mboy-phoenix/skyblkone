@@ -23,7 +23,7 @@ sbz_api.register_generator('sbo_eff_star_col:gen', {
     action = function(pos, node, meta)
         return 30
     end,
-    info_extra = "Bio-Elecrticaly Powered"
+    info_extra = "Bio-Electricaly Powered"
 })
 
 minetest.register_craft {

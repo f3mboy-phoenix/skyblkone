@@ -60,7 +60,6 @@ function hbhunger.update_hud(player)
 		else
 			hb.unhide_hudbar(player, 'satiation')
 		end
-		hb.unhide_hudbar(player, 'satiation')
 		hb.change_hudbar(player, "satiation", h, hbhunger.SAT_MAX)
 	else
 		hb.change_hudbar(player, "satiation", nil, hbhunger.SAT_MAX)

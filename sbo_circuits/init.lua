@@ -12,7 +12,7 @@ unified_inventory.register_craft({
     type = "ele_fab",
     output = "sbz_resources:retaining_circuit 2",
     items = {
-        "sbz_resources:core_dust",
+        "sbz_resources:charged_particle",
         "sbz_resources:simple_circuit",
         "sbz_resources:antimatter_dust",
     },

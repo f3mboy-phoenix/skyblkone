@@ -12,7 +12,7 @@ unified_inventory.register_craft {
     type = "centrifugeing",
     chance = 10, -- 10%
     items = {
-        "sbz_planets:red_sand_nofall"
+        "sbz_resources:red_sand_nofall"
     }
 }
 
@@ -37,7 +37,7 @@ unified_inventory.register_craft {
     type = "centrifugeing",
     chance = 10, -- 10%
     items = {
-        "sbz_planets:sand_nofall"
+        "sbz_resources:sand_nofall"
     }
 }
 
@@ -54,7 +54,7 @@ unified_inventory.register_craft {
     type = "centrifugeing",
     chance = 1, -- 1%
     items = {
-        "sbz_planets:dark_sand_nofall"
+        "sbz_resources:dark_sand_nofall"
     }
 }
 

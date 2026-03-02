@@ -48,7 +48,7 @@ minetest.register_node("sbo_rein_cable:power_pipe", {
 minetest.register_craft({
     type = "shapeless",
     output = "sbo_rein_cable:power_pipe",
-    recipe = { "sbz_power:power_pipe", "sbo_emittrium_plate:emittrium_plate" }
+    recipe = { "sbz_power:power_pipe", "sbz_resources:matter_plate" }
 })
 
 minetest.register_node("sbo_rein_cable:airtight_power_cable", {

@@ -226,22 +226,14 @@ end
 local storage = minetest.get_mod_storage()
 local time_since = storage:get_float("time_since_last_spawn")
 
-local function meteorite_globalstep(dtime)
+minetest.register_globalstep(function(dtime)
     time_since = time_since + dtime
     if time_since > 120 then
         time_since = 0
         if math.random() < 0.25 then spawn_meteorite() end
-        --        for _, obj in ipairs(minetest.object_refs) do
-        --            if obj and obj:get_luaentity() and obj:get_luaentity().name == "sbz_meteorites:gravitational_attractor_entity" and math.random() < 0.2 then
-        --                spawns = spawns + obj:get_luaentity().type
-        --            end
-        --        end
-        -- the above is a horrible idea that should never had entered production
     end
     storage:set_float("time_since_last_spawn", time_since)
-end
-
-minetest.register_globalstep(meteorite_globalstep)
+end)
 
 minetest.register_abm({
     nodenames = { "sbo_asteroid:stoney_matter" },

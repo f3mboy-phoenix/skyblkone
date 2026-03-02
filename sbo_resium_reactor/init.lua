@@ -2,7 +2,7 @@
 -- Rewrite if you must
 
 local POWER_GEN = 1000000
-local offset = vector.new(3, 3, 3)
+local offset = vector.new(7, 7, 7)
 
 local function try_linking(pos, meta)
     local nodes = minetest.find_nodes_in_area(vector.subtract(pos, offset), vector.add(pos, offset),
@@ -168,14 +168,18 @@ local function make_infoscreen_off_formspec(meta)
     if err ~= "" then
         err = "label[0.2,2.5;Error: " .. err .. "]"
     end
-    local size = 3
-    if err == "" then size = 2 end
+    local size = 4
+    local w = 8
+    if err == "" then
+		size = 2
+		w = 6
+    end
     return string.format([[
     formspec_version[7]
-    size[6,%s]
-    button[0,0;6,2;turn_on;Turn on the reactor]
+    size[%s,%s]
+    button[0,0;%s,2;turn_on;Turn on the reactor]
     %s
-]], size, err)
+]], w, size, w, err)
 end
 
 minetest.register_node("sbo_resium_reactor:reactor_infoscreen", {
@@ -398,11 +402,12 @@ local function core_tick(pos)
         coolant = nil,
         n_shells = 0,
     }
-    local iter_start_pos = vector.subtract(pos, { x = 1, y = 1, z = 1 })
-    for x = iter_start_pos.x, iter_start_pos.x + 2 do
-        for y = iter_start_pos.y, iter_start_pos.y + 2 do
-            for z = iter_start_pos.z, iter_start_pos.z + 2 do
+    local iter_start_pos = vector.subtract(pos, { x = 3, y = 3, z = 3 })
+    for x = iter_start_pos.x, iter_start_pos.x + 6 do
+        for y = iter_start_pos.y, iter_start_pos.y + 6 do
+            for z = iter_start_pos.z, iter_start_pos.z + 6 do
                 local vec = vector.new(x, y, z)
+                
                 local node = sbz_api.get_node_force(vec).name
                 if node == "sbo_resium_reactor:reactor_power_port" then
                     if nodes.power == nil then
@@ -437,8 +442,8 @@ local function core_tick(pos)
             end
         end
     end
-    if nodes.n_shells ~= 27 then
-        err = "Not enough shells/"
+    if nodes.n_shells ~= 343 then
+        err = "Not enough shells/glass:\n  Present: " .. tostring(nodes.n_shells).."\n  Required: 343"
         sbz_api.turn_off(pos)
     end
 

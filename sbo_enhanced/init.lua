@@ -7,10 +7,10 @@ minetest.register_node("sbo_enhanced:stone", {
 
 sbz_api.register_stateful_machine("sbo_enhanced:enhancer", {
     description = "Stone Enhancer",
-    info_extra = "Makes shiny, potentially radioactive pebbles.",
+    info_extra = "Makes shiny, potentially radioactive Stones.",
     tiles = {
-        "pebble_enhancer_top.png",
-        "pebble_enhancer_side.png"
+        "stone_enhancer_top.png",
+        "stone_enhancer_side.png"
     },
     groups = { matter = 1, weak_radioactive = 80 },
 
@@ -56,8 +56,8 @@ listring[current_player;main]listring[context;input]listring[current_player;main
     output_inv = "output",
 }, {
     tiles = {
-        { name = "pebble_enhancer_top_on.png", animation = { type = "vertical_frames", length = 0.5 } },
-        "pebble_enhancer_side.png"
+        { name = "stone_enhancer_top_on.png", animation = { type = "vertical_frames", length = 0.5 } },
+        "stone_enhancer_side.png"
     },
     light_source = 14,
 })
@@ -71,6 +71,12 @@ minetest.register_craft({
         { "sbz_resources:matter_blob", "sbo_resium:circuit", "sbz_resources:matter_blob" },
         { "sbz_chem:thorium_crystal",  "sbz_chem:thorium_crystal",         "sbz_chem:thorium_crystal", }
     }
+})
+
+minetest.register_craft({
+    type = "shapeless",
+    output = "sbz_chem:enhanced_pebble 9",
+    recipe = { "sbo_enhanced:stone", }
 })
 
 unified_inventory.register_craft({

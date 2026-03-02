@@ -4,7 +4,7 @@ sbo_api.fish.storage = storage
 local __fish = tonumber(storage:get_string("fishes")) or 0
 
 minetest.register_craftitem("sbo_fish:fish", {
-    description = "Voidfish",
+    description = "Voidfish" .. minetest.colorize("#777", "\n\nRestores 1.5 hunger"),
     on_use = hbhunger.item_eat(1.5),
     inventory_image = "fish.png", -- replace or draw your own
 })
