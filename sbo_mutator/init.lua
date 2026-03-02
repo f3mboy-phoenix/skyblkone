@@ -52,7 +52,7 @@ local function mutate(stack, player, pointed)
 		minetest.chat_send_player(name,tostring(newnode.name))
 		core.swap_node(nodepos, newnode)
 		minetest.chat_send_player(name,tostring(stack:get_wear()))
-        stack:add_wear(5000)
+        stack:add_wear(16250)
     end
 	return stack
 end
