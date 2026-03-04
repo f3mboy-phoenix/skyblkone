@@ -2,7 +2,7 @@ minetest.register_tool("sbo_resium_tools:drill", {
     description = "Resium Drill",
     inventory_image = "resium_tool.png",
     groups = {
-        core_drop_multi = 25,
+        core_drop_multi = 24,
         resium = 1,
         can_mine_resium = 1,
         can_mine_extrosim = 1
