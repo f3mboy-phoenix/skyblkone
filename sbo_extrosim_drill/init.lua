@@ -32,7 +32,7 @@ minetest.register_tool("sbo_extrosim_drill:drill", {
         ("%s uses"):format(drill_max_wear),
         "\"Place\" it on a battery to re-charge it."
     },
-    groups = { core_drop_multi = 20, disable_repair = 1, power_tool = 1, can_mine_extrosim = 1, can_mine_resium = 1 },
+    groups = { core_drop_multi = 16, disable_repair = 1, power_tool = 1, can_mine_extrosim = 1, can_mine_resium = 1 },
     -- Tool properties
     tool_capabilities = tool_caps,
     after_use = function(stack, user, node, digparams)

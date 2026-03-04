@@ -3,7 +3,7 @@ minetest.register_tool("sbo_comp_ani:matter_annihilator", {
     description = "Super Matter Annihilator",
     inventory_image = "compmatter_annihilator.png",
 
-    groups = { core_drop_multi = 9 },
+    groups = { core_drop_multi = 3 },
     -- Tool properties
     tool_capabilities = {
         full_punch_interval = 0.1,

@@ -2,7 +2,7 @@ minetest.register_tool("sbo_diamond_plated_drill:drill", {
     description = "Diamond Plated Resium Drill",
     inventory_image = "dresium_tool.png",
     groups = {
-        core_drop_multi = 50,
+        core_drop_multi = 48,
         resium = 1,
         can_mine_resium = 1
     },
