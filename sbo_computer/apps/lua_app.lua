@@ -20,7 +20,7 @@ sbo_computer.register_app("luavm", {
                 --mtos.theme:get_label('0,0.5', "Results:")..
                 "textarea[0.25,0.5;15,2.4;results;;"..minetest.formspec_escape("Result:\n".._printresults).."]"..
 				"background[0,3.05;14.95,3.44;"..mtos.theme.contrast_background.."]"..
-				"textarea[0.25,3;15,4;body;;"..minetest.formspec_escape("").."]"..
+				"textarea[0.25,3;15,4;body;;"..minetest.formspec_escape(_code or "").."]"..
 				mtos.theme:get_button("0,8;2,1", "major", "run", "Run Code")
                 _printresults=""
 		return formspec
@@ -35,11 +35,14 @@ sbo_computer.register_app("luavm", {
                         if core.check_player_privs(mtos.sysram.current_player,{ ["server"] = true }) then
                                 _printresults=""
                                 local _,err = loadstring(fields.body)
+                                _code = fields.body
                                 if _ and not err then
+										MTOS = mtos
                                         _,err = pcall(_)
+                                        MTOS = nil
                                 end
                                 if err then
-                                        _printresults=err
+                                        _printresults=_printresults .. "\n\nERROR:\n" .. err
                                 end
                         else
                                 _printresults="You Dont Have Privs"

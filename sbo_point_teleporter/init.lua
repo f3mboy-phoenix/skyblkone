@@ -129,10 +129,10 @@ minetest.register_craft({
 	}
 })
 
-sbo_api.quests.on_craft["sbo_point_teleporter:porter"] = "Point Teleporters'"
+sbo_api.quests.on_craft["sbo_point_teleporter:porter"] = "Point Teleporters"
 sbo_api.quests.register_to("Questline: Chemistry",{
         type = "quest",
-        title = "Point Teleporters'",
+        title = "Point Teleporters",
         text =
         [[  Point teleporters are short-range teleportation devices which allow the user to teleport instantly towards a block they point at.
 can be placed in curio slots]],

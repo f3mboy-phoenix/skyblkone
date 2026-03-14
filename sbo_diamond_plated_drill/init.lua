@@ -4,7 +4,8 @@ minetest.register_tool("sbo_diamond_plated_drill:drill", {
     groups = {
         core_drop_multi = 48,
         resium = 1,
-        can_mine_resium = 1
+        can_mine_resium = 1,
+        can_mine_extrosim = 1,
     },
     -- Tool properties
     tool_capabilities = {

@@ -49,10 +49,14 @@ local function mutate(stack, player, pointed)
 		else
 			newnode.name = should_turn_into .. stage
 		end
-		minetest.chat_send_player(name,tostring(newnode.name))
 		core.swap_node(nodepos, newnode)
-		minetest.chat_send_player(name,tostring(stack:get_wear()))
-        stack:add_wear(16250)
+		
+		if stack:get_wear() >= 48751 then
+			stack:set_wear(65000)
+		else
+			stack:add_wear(16250)
+		end
+		
     end
 	return stack
 end

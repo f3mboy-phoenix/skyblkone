@@ -1,0 +1,5 @@
+Mirror of Returning = Spiegel der Rückkehr
+Rightclick to set the mirror's teleport location. Leftclick to immediately teleport back to the mirror's teleport location. = Rechtsklicken, um die Teleportationsposition des Spiegels zu setzen. Linksklicken, um eine sofortige Teleportation zur Teleportationsposition des Spiegels vorzunehmen.
+Setting the teleport location costs @1 mana, teleporting costs @2 mana. = Das Setzen der Teleportationsposition kostet @1 Mana. Das Teleportieren kostet @2 Mana.
+This item allows to teleport its user back to a previously set location. = Dieser Gegenstand ermöglicht es seinem Benutzer, sich zu einer zuvor gesetzen Position zurück zu teleportieren.
+This item allows to teleport the user back to a previously set location, at the cost of mana. = Dieser Gegenstand ermöglicht es dem Benutzer, sich auf Kosten von Mana zu einer zuvor gesetzten Position zurück zu teleportieren.

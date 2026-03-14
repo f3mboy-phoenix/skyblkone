@@ -173,21 +173,6 @@ local function preserve_metadata(pos, oldnode, oldmetadata, drops)
 	for _, stack in pairs(drops) do
 		if stack:get_name() == item_name then
 			stack:get_meta():set_string("laptop_metadata", minetest.serialize(save))
-			if have_technic or have_generator then
-				local hwdef = sbo_computer.node_config[oldnode.name]
-				if hwdef.battery_capacity then
-					stack:set_metadata(minetest.serialize({charge=tonumber(oldmetadata.battery or "0")}))
-					-- calculate wear manually for support power_generators without technic
-					local wear = 65534*(oldmetadata.battery or 0)/hwdef.battery_capacity
-					if wear<1 then
-						wear = 1
-					end
-					if wear>65534 then
-						wear = 65534
-					end
-					stack:set_wear(65534-wear)
-				end
-			end
 		end
 	end
 end
@@ -199,9 +184,6 @@ local function laptop_run(pos, node, mtos)
 	-- support both technic and power_generators, demand should be always same, supply should be active only one
 	local supply = meta:get_int("LV_EU_input") + meta:get_int("generator_input")
 
-	if have_generator and (supply>0) then
-		meta:set_int("generator_input", 0)
-	end
 
 	-- powered off, nothing to do
 	if (demand==0) then

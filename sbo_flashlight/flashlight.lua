@@ -118,7 +118,7 @@ aom_util.register_on_wield({
         local dir = player:get_look_dir()
         -- add light nodes in this dir
         local maxdist = 30
-        for i=0, 15 do
+        for i=0, 30 do
             local v = vector.add(eye_pos, vector.multiply(dir, i))
             local node = minetest.get_node(v)
             if minetest.get_item_group(node.name, "full_solid") > 0 then
@@ -133,7 +133,7 @@ aom_util.register_on_wield({
             if flashnode.name == "air" then
                 minetest.set_node(p, {name="sbo_flashlight:light_node_14"})
                 minetest.get_node_timer(p):set(1, 0.7)
-            elseif flashnode.name == "sbo_flashlight:light_node_9" then
+            elseif flashnode.name == "sbo_flashlight:light_node_14" then
                 minetest.get_node_timer(p):set(1, 0.7)
             end
         end

@@ -5,7 +5,7 @@ minetest.register_tool("sbo_resium_tools:drill", {
         core_drop_multi = 24,
         resium = 1,
         can_mine_resium = 1,
-        can_mine_extrosim = 1
+        can_mine_extrosim = 1,
     },
     -- Tool properties
     tool_capabilities = {

@@ -274,7 +274,7 @@ sbz_api.recipe.register_craft {
     items = { 'sbo_nexus:alloy537_powder', 'sbo_life:essence' },
     type = 'atomic',
 }
-
+quests[#quests+1]={ type = "text", title = "Questline: Atomic", text = "Colorium Based Questline" }
 sbo_api.quests.on_craft["sbo_atomic:reconstructor"] = "Atomic Reconstructor"
 sbo_api.quests.register_to("Questline: Atomic",{
     type = "quest",

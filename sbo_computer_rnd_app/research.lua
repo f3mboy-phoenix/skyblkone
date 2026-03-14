@@ -86,7 +86,7 @@ minetest.register_on_mods_loaded(function()
 				--Nothing happens here because everything already happened in the function. This is only here so the default doesn't apply.
 			else
 				--By default, a full stack of items is needed to unlock duplication.
-				rnd.research.goals[item] = def.stack_max * 256
+				rnd.research.goals[item] = def.stack_max * 10
 			end
 		end
 	end

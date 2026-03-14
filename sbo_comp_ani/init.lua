@@ -25,7 +25,7 @@ minetest.register_craft({
     output = "sbo_comp_ani:matter_annihilator",
     recipe = {
         { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" },
-        { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" },
+        { "sbz_resources:matter_annihilator", "sbz_resources:emittrium_circuit", "sbz_resources:matter_annihilator" },
         { "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator", "sbz_resources:matter_annihilator" }
     }
 })
@@ -34,5 +34,5 @@ sbo_api.quests.on_craft["sbo_comp_ani:matter_annihilator"] = "Super Annihilator"
 sbo_api.quests.register_to("Questline: Secrets",{
         type = "secret",
         title = "Super Annihilator",
-        text = [[Super annihilators give 9x core drops and are made from 9 Matter annihilators]],
+        text = [[Super Annihilators give 3x core drops and are made from 8 Matter Annihilators and an Emittrium Circuit]],
 })

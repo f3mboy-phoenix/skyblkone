@@ -88,9 +88,11 @@ for _, file in ipairs(app_list) do
 end
 
 dofile(app_path..'browser_app.lua')
+local app_path = minetest.get_modpath('sbo_computer')..'/apps/sites/'
+local app_list = minetest.get_dir_list(app_path, false)
 for _, file in ipairs(app_list) do
-    if file:sub(-8) == '_app.lua' and file ~= 'browser_app.lua' 
-then
-        dofile(app_path..file)
-    end
+	if file:sub(-4) == '.lua' then
+		dofile(app_path..file)
+	end
 end
+
