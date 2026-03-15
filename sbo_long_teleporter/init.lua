@@ -95,7 +95,6 @@ minetest.register_tool("sbo_long_teleporter:porter_active", {
 	inventory_image = "sbo_long_teleporter_active.png",
 	wield_image = "sbo_long_teleporter_active.png",
 	tool_capabilities = {},
-	groups = {upgrade_curio = 1},
 	range = 2,
 	on_use = function(itemstack, user, pointed_thing)
 		local dest_string = itemstack:get_metadata()
@@ -142,7 +141,7 @@ minetest.register_tool("sbo_long_teleporter:porter_active", {
 	end,
 	on_place = returnmirror.set_position_active,
 	on_secondary_use = returnmirror.set_position_active,
-	groups = { not_in_creative_inventory = 1 },
+	groups = { not_in_creative_inventory = 1, upgrade_curio = 1 },
 })
 
 minetest.register_alias("sbo_long_teleporter:porter", "sbo_long_teleporter:porter_inactive")

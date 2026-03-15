@@ -19,7 +19,7 @@ sbz_api.register_stateful_machine("sbo_adv_neu_emt:neutron_emitter", {
 }, {
     light_source = 14,
     tiles = { { name = "adv_neutron_emitter_on.png", animation = { type = "vertical_frames" } } },
-    groups = { matter = 1, radioactive = 1 }
+    groups = { matter = 1, radioactive = 4 }
 })
 
 core.register_craft {

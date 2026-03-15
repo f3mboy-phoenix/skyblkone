@@ -1,5 +1,5 @@
 minetest.register_craftitem("sbo_oil:oil", {
-    description = "Oil" .. minetest.colorize("#777", "\n\nRemoves 5 hunger"),
+    description = "Oil" .. minetest.colorize("#777", "\nRemoves 5 hunger"),
     inventory_image = "oil.png",
     on_use = hbhunger.item_eat(-5),
     stack_max = 256,

@@ -52,7 +52,7 @@ function sbo_api.quests.register_to(line,quest)
     end
     return false
 end
-sbz_api.register_quest({ type = "text", title = "SBO: Other infos", text = "Some mods may not make quests so info is put here for their uses.\nThey will use their modname as the title. " })
+table.insert(quests, 1, { type = "text", title = "SBO: Other infos", text = "Some mods may not make quests so info is put here for their uses.\nThey will use their modname as the title. " })
 sbo_api.quests.register_to("SBO: Other infos",{
     type = "text",
     info = true,
