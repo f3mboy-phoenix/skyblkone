@@ -15,13 +15,13 @@ minetest.register_tool("sbo_diamond_plated_drill:drill", {
         groupcaps = {
             matter = {
                 times = { [1] = 1.0 / 2, [2] = 0.25 / 2, [3] = 0.05 / 2 },
-                uses = 500 * 3 * 3 * 3,
+                uses = 0,
                 leveldiff = 2,
                 maxlevel = 2
             },
             antimatter = {
                 times = { [1] = 1.0 / 2, [2] = 0.25 / 2, [3] = 0.05 / 2 },
-                uses = 500 * 3 * 3 * 3,
+                uses = 0,
                 leveldiff = 2,
                 maxlevel = 2
             },
@@ -48,5 +48,5 @@ sbo_api.quests.register_to("SBO: Other infos",{
     title = "Diamond Drill",
     info = true,
     text =
-        [[Adds Diamond Plated Resium drill, more duribility and 50x core drops]],
+        [[Adds Diamond Plated Resium drill, infinite duribility and 48x core drops]],
 })

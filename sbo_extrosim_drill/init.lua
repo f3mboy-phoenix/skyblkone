@@ -66,6 +66,6 @@ sbo_api.quests.in_inven["sbo_emmitrex_drill:drill"] = "Extrex Drill"
 sbo_api.quests.register_to("Questline: Resium",{
     type = "quest",
     title = "Extrex Drill",
-    text = [[An Extrex Drill is required to mine Resium, also has a better battey efficency and 20x core drops]],
+    text = [[An Extrex Drill is required to mine Resium, also has a better battey efficency and 16x core drops]],
     requires = { "Extrex", }
 })
