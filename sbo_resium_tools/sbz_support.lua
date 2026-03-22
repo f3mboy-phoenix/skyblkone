@@ -53,6 +53,6 @@ sbo_api.quests.register_to("SBO: Other infos",{
     text =
        [[
 A Drill made out of Resium can repair itself. It has 4500 uses.
-It also has 25x core drops.
+It also has 24x core drops.
 ]],
 })

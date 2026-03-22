@@ -167,5 +167,5 @@ if item then
         groups = groups
     })
 else
-    minetest.log("warning", "[your_mod_name] sbz_progression:questbook not found!")
+    minetest.log("warning", "[sbo_curio] sbz_progression:questbook not found!")
 end

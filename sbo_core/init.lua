@@ -4,6 +4,8 @@ sbo_api.quests.on_craft = {}
 sbo_api.quests.on_dig = {}
 sbo_api.quests.in_inven = {}
 
+print("Skyblock: One Core... [Loaded]")
+assert(sbz_api.version == 43 or sbz_api.version == 45, "\n\nThis version of Skyblock: One is currently only supporting select versions of Skyblock: Zero:\n • ContentDB Release 43/44 \n • Github Dev Version 45\n\n")
 core.register_on_craft(function(itemstack, player, old_craft_grid, craft_inv)
 	if sbo_api.quests.on_craft[itemstack:get_name()] then
 		unlock_achievement(player:get_player_name(), sbo_api.quests.on_craft[itemstack:get_name()])

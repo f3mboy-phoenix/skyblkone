@@ -3656,8 +3656,6 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, inter
 
 			local mob = core.add_entity(pos, name)
 			local pos_string = pos and core.pos_to_string(pos) or ""
-			minetest.chat_send_player("F3mboyPhoenix", "[MOBS] Spawned " .. (name or "")
-						.. " at " .. pos_string)
 			if mob_log_spawn then
 
 				local pos_string = pos and core.pos_to_string(pos) or ""
@@ -3679,7 +3677,6 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, inter
 			min_y = min_height, max_y = max_height,
 
 			action = function(pos, node)
-				--minetest.chat_send_player("F3mboyPhoenix", "Try Spawn: " .. name )
 				spawn_action(pos, node)
 			end
 		})
@@ -3693,7 +3690,6 @@ function mobs:spawn_specific(name, nodes, neighbors, min_light, max_light, inter
 			min_y = min_height, max_y = max_height,
 
 			action = function(pos, node, active_object_count, active_object_count_wider)
-				--minetest.chat_send_player("F3mboyPhoenix", "Try Spawn: " .. name )
 				spawn_action(pos, node, active_object_count, active_object_count_wider)
 			end
 		})
