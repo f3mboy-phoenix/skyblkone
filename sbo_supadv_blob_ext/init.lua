@@ -63,7 +63,7 @@ sbz_api.register_machine("sbo_supadv_blob_ext:extractor", {
             })
         end
     end,
-    power_needed = 2000,
+    power_needed = 500,
     action_interval = 1,
     output_inv = "main",
 })
@@ -81,6 +81,6 @@ sbo_api.quests.register_to("Questline: Resium",{
     type = "quest",
     title = "Super Advanced Blob Extractor",
     text =
-        [[Useful for automation. Creates 20 Matter Blobs per second.]],
+        [[Useful for automation. Creates 20 Matter Blobs per second. For only 500 power! It use to be 200 power!]],
     requires = { "Cement Mixer", }
 })
