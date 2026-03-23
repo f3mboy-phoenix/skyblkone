@@ -69,11 +69,11 @@ sbz_api.register_machine("sbo_extractors:adv_antiblob_ext", {
 })
 
 minetest.register_craft({
-    output = "sbo_extractors:adv_antiblob_ext",
+    output = "sbo_extractors:adv_blob_ext",
     recipe = {
-        { "sbz_resources:antimatter_blob", "sbz_resources:antimatter_blob",         "sbz_resources:antimatter_blob" },
-        { "sbz_resources:antimatter_blob", "sbo_extractors:adv_anti_ext", "sbz_resources:antimatter_blob" },
-        { "sbz_resources:antimatter_blob", "sbo_resium:circuit",                "sbz_resources:antimatter_blob" }
+        { "sbz_resources:matter_blob", "sbz_resources:matter_blob",         "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbo_extractors:sup_ext", "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbo_resium:circuit",                "sbz_resources:matter_blob" }
     }
 })
 

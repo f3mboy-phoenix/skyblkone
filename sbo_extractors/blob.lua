@@ -68,15 +68,6 @@ sbz_api.register_machine("sbo_extractors:adv_blob_ext", {
     output_inv = "main",
 })
 
-minetest.register_craft({
-    output = "sbo_extractors:adv_blob_ext",
-    recipe = {
-        { "sbz_resources:matter_blob", "sbz_resources:matter_blob",         "sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob", "sbz_power:simple_matter_extractor", "sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob", "sbo_resium:circuit",                "sbz_resources:matter_blob" }
-    }
-})
-
 sbo_api.quests.on_craft["sbo_extractors:adv_blob_ext"] = "Advanced Blob Extractor"
 sbo_api.quests.register_to("Questline: Resium",{
     type = "quest",
