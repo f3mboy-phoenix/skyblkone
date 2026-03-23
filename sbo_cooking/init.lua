@@ -26,9 +26,9 @@ minetest.register_craft({
     --type = "shapeless",
     output = "sbo_cooking:snack",
     recipe = {
-        { 'sbz_resources:matter_dust', 'sbz_resources:matter_dust',      'sbz_resources:matter_dust' },
+        { '', 'sbz_resources:matter_dust',      '' },
         { 'sbz_resources:matter_dust', 'sbz_resources:charged_particle', 'sbz_resources:matter_dust' },
-        { 'sbz_resources:matter_dust', 'sbz_resources:matter_dust',      'sbz_resources:matter_dust' },
+        { '', 'sbz_resources:matter_dust',      '' },
     }
 })
 
