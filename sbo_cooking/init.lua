@@ -83,7 +83,7 @@ minetest.register_craft({
     type = "shapeless",
     output = "sbo_cooking:photon",
     recipe = {
-        'sbz_resources:strange_dust',
+        '',
         'sbo_photon:photon',
         'sbo_photon:photon',
         'sbo_photon:photon',
@@ -128,7 +128,7 @@ minetest.register_craft({
         'sbo_extrosim:raw_extrosim',
         'sbo_extrosim:raw_extrosim',
         'sbo_extrosim:raw_extrosim',
-        'sbz_resources:strange_dust'
+        'sbo_extrosim:raw_extrosim',
     }
 })
 
