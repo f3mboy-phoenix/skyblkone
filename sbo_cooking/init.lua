@@ -26,25 +26,25 @@ minetest.register_craft({
     --type = "shapeless",
     output = "sbo_cooking:snack",
     recipe = {
-        { 'sbz_resources:matter_dust', 'sbz_resources:matter_dust',      'sbz_resources:matter_dust' },
+        { '', 'sbz_resources:matter_dust',      '' },
         { 'sbz_resources:matter_dust', 'sbz_resources:charged_particle', 'sbz_resources:matter_dust' },
-        { 'sbz_resources:matter_dust', 'sbz_resources:matter_dust',      'sbz_resources:matter_dust' },
+        { '', 'sbz_resources:matter_dust',      '' },
     }
 })
 
 minetest.register_craftitem("sbo_cooking:emeal", {
-    description = "Fusion Meal" .. minetest.colorize("#777", "\nRestores 1.5 hunger"),
-    on_use = hbhunger.item_eat(1.5),
+    description = "Fusion Meal" .. minetest.colorize("#777", "\nRestores 2 hunger"),
+    on_use = hbhunger.item_eat(2),
     inventory_image = "emeal.png", -- replace or draw your own
     groups = { ui_food = 1 },
 })
-hbhunger.register_food("sbo_cooking:emeal", 1.5)
+hbhunger.register_food("sbo_cooking:emeal", 2)
 minetest.register_craft({
     --type = "shapeless",
     output = "sbo_cooking:emeal",
     recipe = {
         { 'sbz_resources:core_dust',   'sbz_resources:matter_dust',      'sbz_resources:core_dust' },
-        { 'sbz_resources:matter_dust', 'sbz_resources:charged_particle', 'sbz_resources:matter_dust' },
+        { 'sbz_resources:matter_dust', 'sbz_resources:antimatter_dust', 'sbz_resources:matter_dust' },
         { 'sbz_resources:matter_dust', 'sbz_resources:charged_particle', 'sbz_resources:matter_dust' },
     }
 })
@@ -83,7 +83,7 @@ minetest.register_craft({
     type = "shapeless",
     output = "sbo_cooking:photon",
     recipe = {
-        'sbz_resources:strange_dust',
+        '',
         'sbo_photon:photon',
         'sbo_photon:photon',
         'sbo_photon:photon',
@@ -128,7 +128,7 @@ minetest.register_craft({
         'sbo_extrosim:raw_extrosim',
         'sbo_extrosim:raw_extrosim',
         'sbo_extrosim:raw_extrosim',
-        'sbz_resources:strange_dust'
+        'sbo_extrosim:raw_extrosim',
     }
 })
 
