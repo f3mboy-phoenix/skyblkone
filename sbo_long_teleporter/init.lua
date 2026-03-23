@@ -151,7 +151,7 @@ minetest.register_craft({
 	recipe = {
 		{"", "sbz_resources:phlogiston_blob", ""},
 		{"sbz_resources:matter_plate", "sbz_resources:wormhole", "sbz_resources:matter_plate"},
-		{"sbz_resources:matter_plate", "sbo_creox_bat:battery", "sbz_resources:matter_plate"}
+		{"sbz_resources:matter_plate", "sbo_batterys:creox_battery", "sbz_resources:matter_plate"}
 	}
 })
 

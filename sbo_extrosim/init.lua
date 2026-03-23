@@ -226,3 +226,136 @@ Emitters have a 1/10 chance of producing Raw Extrosim, and a 9/10 chance of just
 ]],
         requires = { "Annihilator" }
 })
+
+minetest.register_craftitem("sbo_extrosim:circuit", {
+    description = "Extrosim Circuit",
+    inventory_image = "extrosim_circuit.png",
+    stack_max = 256,
+})
+minetest.register_craft({
+    type = "shapeless",
+    output = "sbo_extrosim:circuit",
+    recipe = { "sbz_resources:charged_particle", "sbz_resources:retaining_circuit", "sbo_extrosim:raw_extrosim", "sbz_resources:antimatter_plate" }
+})
+
+sbo_api.quests.on_craft["sbo_extrosim:circuit"] = "Extrosim Circuit"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Extrosim Circuit",
+        text = "A circuit made from Extrosim",
+        requires = { "Obtain Extrosim" }
+})
+core.register_alias("sbo_extrosim_circuit:extrosim_circuit", "sbo_extrosim:circuit")
+
+minetest.register_node("sbo_extrosim:glass", {
+    description = "Extrosim Glass",
+    drawtype = "glasslike_framed_optional",
+    tiles = { "extrosim_glass.png", "extrosim_glass_shine.png" },
+    use_texture_alpha = "clip",
+    paramtype = "light",
+    sunlight_propagates = true,
+    groups = { matter = 1, transparent = 1 },
+    sounds = sbz_api.sounds.glass(),
+})
+
+minetest.register_craft({
+    output = "sbo_extrosim:glass 16",
+    recipe = {
+        { "sbo_extrosim:raw_extrosim",     "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" },
+        { "sbz_resources:antimatter_dust", "",                              "sbz_resources:antimatter_dust" },
+        { "sbo_extrosim:raw_extrosim",     "sbz_resources:antimatter_dust", "sbo_extrosim:raw_extrosim" }
+    }
+})
+
+color = "#C88D60"
+stairs.register("sbo_extrosim:glass", {
+	tiles = {
+		"block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+    },
+    tex = {
+        stair_front = "block_stair_front.png^[colorize:" .. color .. ":200",
+        stair_side =  "block_stair_side.png^[colorize:" .. color .. ":200",
+        stair_cross = "block_stair_cross.png^[colorize:" .. color .. ":200",
+    }
+})
+sbo_api.quests.on_craft["sbo_extrosim:glass"] = "Extrosim Glass"
+sbo_api.quests.register_to("Questline: Extrosim",{
+        type = "quest",
+        title = "Extrosim Glass",
+        text = [[
+Just another kind of glass.
+They are made with:
+    4 Extrosim crystals
+    4 Antimatter dust]],
+        requires = { "Obtain Extrosim" }
+})
+core.register_alias("sbo_extrosim_glass:extrosim_glass", "sbo_extrosim:glass")
+
+core.register_node(
+    'sbo_extrosim:block',
+    unifieddyes.def {
+        description = 'Extrosim Block',
+        sounds = sbz_api.sounds.matter(),
+        info_extra = 'You should punch it, and place some close to each other.',
+        paramtype2 = 'color',
+        groups = { matter = 1 },
+        tiles = { 'extrosim_block.png' },
+
+        -- Imagine if someone punches it 30 times/the same globalstep.
+        -- Now imagine me caring.
+        on_punch = function(pos, node, puncher, _)
+            if not puncher:is_player() then return end
+            core.sound_play(
+                {
+                    name = 'gen_emittrium_block_sprang',
+                    gain = math.random(40, 60) / 100, -- range: 0.5 – 0.8
+                    pitch = math.random(95, 100) / 100, -- range: 0.9 – 1.0
+                },
+                {
+                    pos = pos, max_hear_distance = 16
+                }
+            )
+            local dir = puncher:get_pos() - pos
+
+            -- Okay, so the punching strength is multiplied by how many emittrium blocks are nearby
+            -- Could do some stupid search, but I don't want to.
+            -- So instead..
+            local strength = 2 + (sbz_api.count_nodes_within_radius(pos, 'sbo_extrosim:block', 1) * 3)
+            core.add_particlespawner {
+                amount = strength * 8,
+                time = 0.01,
+                texture = { name = 'star.png^[colorize:orange', alpha = 2, scale_tween = { 1.5, 0 }, blend = 'add' },
+                exptime = 2,
+                glow = 14,
+                pos = pos,
+                radius = 0.5,
+                vel = vector.multiply(dir, strength / 2),
+                attract = {
+                    kind = 'point',
+                    strength = -5,
+                    origin = pos,
+                },
+            }
+            puncher:add_velocity(vector.multiply(dir, strength))
+        end,
+    }
+)
+
+do -- Emittrium Block recipe scope
+    local Extrosim_Block = 'sbo_extrosim:block'
+    local RE = 'sbo_extrosim:raw_extrosim'
+    core.register_craft({
+        type = 'shaped',
+        output = Extrosim_Block,
+        recipe = {
+            { RE, RE, RE },
+            { RE, RE, RE },
+            { RE, RE, RE },
+        },
+    })
+end

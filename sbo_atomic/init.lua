@@ -127,9 +127,9 @@ listring[current_player;main]listring[context;input]listring[current_player;main
 minetest.register_craft {
     output = "sbo_atomic:reconstructor",
     recipe = {
-        { "sbo_extrex:extrex_block",           "sbo_colorium_plate:colorium_plate", "sbo_extrex:extrex_block" },
-        { "sbo_shock_circuit:shock_processor", "sbo_resium_reactor:reactor_glass",  "sbo_shock_circuit:shock_processor" },
-        { "sbz_power:simple_charged_field",    "sbo_colorium_plate:colorium_plate", "sbz_power:simple_charged_field" }
+        { "sbo_extrex:extrex_block",        "sbo_colorium:plate",               "sbo_extrex:extrex_block" },
+        { "sbo_circuits:shock_processor",   "sbo_resium_reactor:reactor_glass", "sbo_circuits:shock_processor" },
+        { "sbz_power:simple_charged_field", "sbo_colorium:plate",               "sbz_power:simple_charged_field" }
     }
 }
 
@@ -274,7 +274,17 @@ sbz_api.recipe.register_craft {
     items = { 'sbo_nexus:alloy537_powder', 'sbo_life:essence' },
     type = 'atomic',
 }
-quests[#quests+1]={ type = "text", title = "Questline: Atomic", text = "Colorium Based Questline" }
+sbz_api.recipe.register_craft {
+    output = 'sbz_chem:water_fluid_cell',
+    items = { 'sbo_atomic:hydrogen 2', 'sbo_atomic:oxygen', "sbz_chem:empty_fluid_cell" },
+    type = 'atomic',
+}
+sbz_api.recipe.register_craft {
+    output = 'sbz_resources:the_core',
+    items = { 'sbo_atomic:nitrogen 35', 'sbo_atomic:fluorine 47', "sbo_atomic:phosphorus 56", "sbo_atomic:sulfur 24" },
+    type = 'atomic',
+}
+quests[#quests+1]={ type = "text", title = "Questline: Atomic", text = "Atomic Based Questline" }
 sbo_api.quests.on_craft["sbo_atomic:reconstructor"] = "Atomic Reconstructor"
 sbo_api.quests.register_to("Questline: Atomic",{
     type = "quest",

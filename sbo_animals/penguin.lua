@@ -71,5 +71,5 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:penguin", S("Penguin"), "mobs_penguin_inv.png")
+mobs:register_egg("sbo_animals:penguin", S("Vexinite"), "mobs_penguin_inv.png")
 mobs:alias_mob("sbo_mobs:penguin", "sbo_animals:penguin")

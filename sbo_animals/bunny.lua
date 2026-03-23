@@ -139,7 +139,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:bunny", S("Bunny"), "mobs_bunny_inv.png", 0)
+mobs:register_egg("sbo_animals:bunny", S("Hexenith"), "mobs_bunny_inv.png", 0)
 
 -- compatibility (only used for older mobs compatibility)
 
@@ -148,7 +148,7 @@ mobs:alias_mob("sbo_mobs:bunny", "sbo_animals:bunny")
 -- raw rabbit
 
 core.register_craftitem("sbo_animals:rabbit_raw", {
-	description = S("Raw Rabbit") .. minetest.colorize("#777", "\nRestores 3 hunger"),
+	description = S("Raw Hexenith") .. minetest.colorize("#777", "\nRestores 3 hunger"),
 	inventory_image = "mobs_rabbit_raw.png",
 	on_use = hbhunger.item_eat(3),
 	groups = {food_meat_raw = 1, food_rabbit_raw = 1}
@@ -161,7 +161,7 @@ unified_inventory.add_category_item('food', "sbo_animals:rabbit_raw")
 -- cooked rabbit
 
 core.register_craftitem("sbo_animals:rabbit_cooked", {
-	description = S("Cooked Rabbit") .. minetest.colorize("#777", "\nRestores 5 hunger"),
+	description = S("Cooked Hexenith") .. minetest.colorize("#777", "\nRestores 5 hunger"),
 	inventory_image = "mobs_rabbit_cooked.png",
 	on_use = hbhunger.item_eat(5),
 	groups = {food_meat = 1, food_rabbit = 1}
@@ -181,7 +181,7 @@ core.register_craft({
 -- rabbit hide and recipes
 
 core.register_craftitem("sbo_animals:rabbit_hide", {
-	description = S("Rabbit Hide"),
+	description = S("Hexenith Hide"),
 	inventory_image = "mobs_rabbit_hide.png",
 	groups = {flammable = 2, pelt = 1}
 })

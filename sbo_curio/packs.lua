@@ -90,7 +90,7 @@ sbo_api.upgrades.register_pack("sbo_upgrades:hunger", "hunger", {
 })
 
 local mc = "sbo_extrosim:raw_extrosim"
-local gb = "sbo_resium_glass:resium_glass"
+local gb = "sbo_resium:glass"
 local ci = "sbo_modded_elem:platinum_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:hunger",
@@ -145,7 +145,7 @@ sbo_api.upgrades.register_pack("sbo_upgrades:gravity", "gravity", {
 })
 
 local mc = "sbz_meteorites:neutronium"
-local gb = "sbo_resium_glass:resium_glass"
+local gb = "sbo_resium:glass"
 local ci = "sbo_modded_elem:platinum_ingot"
 minetest.register_craft({
 	output = "sbo_upgrades:gravity",

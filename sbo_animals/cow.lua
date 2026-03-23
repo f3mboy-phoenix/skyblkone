@@ -146,7 +146,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:cow", S("Cow"), "mobs_cow_inv.png")
+mobs:register_egg("sbo_animals:cow", S("Astrozenni"), "mobs_cow_inv.png")
 
 -- old mobs mod compatibility
 

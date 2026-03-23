@@ -304,9 +304,9 @@ minetest.register_node("sbo_portible:storinator_craftitem", { -- Empty Storinato
 
 minetest.register_craft({
     recipe = {
-        { "", "sbo_colorium_plate:colorium_plate", "" },
-        { "sbo_colorium_plate:colorium_plate", "sbz_resources:storinator", "sbo_colorium_plate:colorium_plate" },
-        { "", "sbo_colorium_plate:colorium_plate", "" },
+        { "", "sbo_colorium:plate", "" },
+        { "sbo_colorium:plate", "sbz_resources:storinator", "sbo_colorium:plate" },
+        { "", "sbo_colorium:plate", "" },
     },
     output = "sbo_portible:storinator_craftitem"
 })

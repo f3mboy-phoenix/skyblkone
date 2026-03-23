@@ -78,5 +78,5 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:panda", S("Panda"), "mobs_panda_inv.png")
+mobs:register_egg("sbo_animals:panda", S("Fleablo"), "mobs_panda_inv.png")
 mobs:alias_mob("sbo_mobs:panda", "sbo_animals:panda")

@@ -163,7 +163,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:kitten", S("Kitten"), "mobs_kitten_inv.png", 0)
+mobs:register_egg("sbo_animals:kitten", S("Athrosoto"), "mobs_kitten_inv.png", 0)
 
 -- compatibility with old mobs mod
 

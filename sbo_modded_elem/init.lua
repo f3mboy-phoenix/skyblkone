@@ -1,10 +1,10 @@
 -- disabled tech
-sbz_api.register_element("zinc", "#7F7F7F", "Zinc %s (Zn)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
-sbz_api.register_element("platinum", "#E5E4E2", "Platinum %s (Pt)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
-sbz_api.register_element("mercury", "#B5B5B5", "Mercury %s (Hg)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
-sbz_api.register_element("magnesium", "#DADADA", "Magnesium %s (Mg)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
-sbz_api.register_element("calcium", "#F5F5DC", "Calcium %s (Ca)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
-sbz_api.register_element("sodium", "#F4F4F4", "Sodium %s (Na)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("zinc", "#ACD0AC", "Zinc %s (Zn)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("platinum", "#664646", "Platinum %s (Pt)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("mercury", "#5D8775", "Mercury %s (Hg)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("magnesium", "#FF1111", "Magnesium %s (Mg)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("calcium", "#C8FFC8", "Calcium %s (Ca)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
+sbz_api.register_element("sodium", "#A1DCFF", "Sodium %s (Na)", { disabled = false, fluid = 1 }, "sbo_modded_elem:")
 
 local craft = "centrifuging"
 if sbz_api.recipe.registered_craft_types.centrifugeing then

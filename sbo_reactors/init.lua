@@ -9,3 +9,9 @@ unified_inventory.add_category_item('reactors', "sbz_power:reactor_core_off")
 unified_inventory.add_category_item('reactors', "sbz_power:reactor_infoscreen")
 unified_inventory.add_category_item('reactors', "sbz_power:reactor_power_port")
 unified_inventory.add_category_item('reactors', "sbz_power:reactor_coolant_port")
+
+local modpath = minetest.get_modpath("sbo_reactors")
+
+dofile(modpath .. "/extrosim.lua")
+dofile(modpath .. "/resim.lua")
+dofile(modpath .. "/amy.lua")

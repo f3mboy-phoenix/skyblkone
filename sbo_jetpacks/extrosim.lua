@@ -138,9 +138,9 @@ end)
 minetest.register_craft {
     output = "sbo_jetpacks:jetpack",
     recipe = {
-        { "sbo_extrosim_circuit:extrosim_circuit", "sbz_power:battery",         "sbo_extrosim_circuit:extrosim_circuit" },
-        { "sbz_resources:angels_wing",       "sbz_meteorites:neutronium", "sbz_resources:angels_wing" },
-        { "sbo_extrosim_circuit:extrosim_circuit", "",                          "sbo_extrosim_circuit:extrosim_circuit" }
+        { "sbo_extrosim:circuit",      "sbz_power:battery",         "sbo_extrosim:circuit" },
+        { "sbz_resources:angels_wing", "sbz_meteorites:neutronium", "sbz_resources:angels_wing" },
+        { "sbo_extrosim:circuit",      "",                          "sbo_extrosim:circuit" }
     }
 }
 

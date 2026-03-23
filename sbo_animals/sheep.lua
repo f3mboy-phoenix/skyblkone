@@ -298,7 +298,7 @@ for _, col in ipairs(all_colours) do
 	})
 
 	-- spawn egg
-	mobs:register_egg("sbo_animals:sheep", S("Sheep"), "mobs_sheep_inv.png")
+	mobs:register_egg("sbo_animals:sheep", S("Unopian"), "mobs_sheep_inv.png")
 
 	-- compatibility
 	mobs:alias_mob("sbo_mobs:sheep" , "sbo_animals:sheep")
@@ -405,7 +405,7 @@ end
 -- raw mutton
 
 core.register_craftitem("sbo_animals:mutton_raw", {
-	description = S("Raw Mutton") .. minetest.colorize("#777", "\nRestores 2 hunger"),
+	description = S("Raw Unopian") .. minetest.colorize("#777", "\nRestores 2 hunger"),
 	inventory_image = "mobs_mutton_raw.png",
 	on_use = hbhunger.item_eat(2),
 	groups = {food_meat_raw = 1, food_mutton_raw = 1}
@@ -418,7 +418,7 @@ unified_inventory.add_category_item('food', "sbo_animals:mutton_raw")
 -- cooked mutton and recipe
 
 core.register_craftitem("sbo_animals:mutton_cooked", {
-	description = S("Cooked Mutton") .. minetest.colorize("#777", "\nRestores 6 hunger"),
+	description = S("Cooked Unopian") .. minetest.colorize("#777", "\nRestores 6 hunger"),
 	inventory_image = "mobs_mutton_cooked.png",
 	on_use = hbhunger.item_eat(6),
 	groups = {food_meat = 1, food_mutton = 1}

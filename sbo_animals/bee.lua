@@ -60,7 +60,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:bee", S("Bee"), "mobs_bee_inv.png")
+mobs:register_egg("sbo_animals:bee", S("Trexare"), "mobs_bee_inv.png")
 
 -- compatibility (only required if moving from old mobs to mobs_redo)
 
@@ -69,7 +69,7 @@ mobs:alias_mob("sbo_mobs:bee", "sbo_animals:bee")
 -- honey
 
 core.register_craftitem("sbo_animals:honey", {
-	description = S("Honey") .. minetest.colorize("#777", "\nRestores 4 hunger"),
+	description = S("Combs") .. minetest.colorize("#777", "\nRestores 4 hunger"),
 	inventory_image = "mobs_honey_inv.png",
 	on_use = hbhunger.item_eat(4),
 	groups = {food_honey = 1, food_sugar = 1}
@@ -82,7 +82,7 @@ unified_inventory.add_category_item('food', "sbo_animals:honey")
 -- beehive (1 in 4 chance of spawning bee when placed)
 
 core.register_node("sbo_animals:beehive", {
-	description = S("Beehive"),
+	description = S("Trexare Cluster"),
 	drawtype = "plantlike",
 	tiles = {"mobs_beehive.png"},
 	inventory_image = "mobs_beehive.png",
@@ -189,10 +189,10 @@ core.register_abm({
 
 	action = function(pos, node)
 
-		-- bee's only make honey during the day
-		local tod = (core.get_timeofday() or 0) * 24000
+		-- bee's only make honey during the day but Trexare make it all the time
+		--local tod = (core.get_timeofday() or 0) * 24000
 
-		if tod < 5500 or tod > 18500 then return end
+		--if tod < 5500 or tod > 18500 then return end
 
 		local meta = core.get_meta(pos) ; if not meta then return end
 		local inv = meta:get_inventory()

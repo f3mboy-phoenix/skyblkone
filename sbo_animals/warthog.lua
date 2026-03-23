@@ -79,7 +79,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:pumba", S("Warthog"), "mobs_pumba_inv.png")
+mobs:register_egg("sbo_animals:pumba", S("Jogbin"), "mobs_pumba_inv.png")
 
 -- old mobs mod compatibility
 
@@ -88,7 +88,7 @@ mobs:alias_mob("sbo_mobs:pumba", "sbo_animals:pumba")
 -- raw porkchop
 
 core.register_craftitem("sbo_animals:pork_raw", {
-	description = S("Raw Porkchop") .. minetest.colorize("#777", "\nRestores 4 hunger"),
+	description = S("Raw Jogbin") .. minetest.colorize("#777", "\nRestores 4 hunger"),
 	inventory_image = "mobs_pork_raw.png",
 	on_use = hbhunger.item_eat(4),
 	groups = {food_meat_raw = 1, food_pork_raw = 1}
@@ -101,7 +101,7 @@ unified_inventory.add_category_item('food', "sbo_animals:pork_raw")
 -- cooked porkchop and recipe
 
 core.register_craftitem("sbo_animals:pork_cooked", {
-	description = S("Cooked Porkchop") .. minetest.colorize("#777", "\nRestores 8 hunger"),
+	description = S("Cooked Jogbin") .. minetest.colorize("#777", "\nRestores 8 hunger"),
 	inventory_image = "mobs_pork_cooked.png",
 	on_use = hbhunger.item_eat(8),
 	groups = {food_meat = 1, food_pork = 1}

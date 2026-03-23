@@ -17,3 +17,8 @@ Crafted using the Atomic Reconstructor, Requires 4 Resium Crystals and 2 Chromat
 ]],
     requires = { "Automation", "Atomic Reconstructor", "Obtain Resium" }
 })
+
+local modpath = minetest.get_modpath("sbo_resitrex")
+
+dofile(modpath .. "/armor.lua")
+dofile(modpath .. "/drill.lua")

@@ -32,7 +32,7 @@ sbo_computer.register_app("luavm", {
 			return
 		end
 		if fields.run then
-                        if core.check_player_privs(mtos.sysram.current_player,{ ["server"] = true }) then
+                        if core.check_player_privs(mtos.sysram.current_player,{ ["server"] = true }) or laptopsender then
                                 _printresults=""
                                 local _,err = loadstring(fields.body)
                                 _code = fields.body

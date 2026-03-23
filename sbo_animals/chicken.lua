@@ -102,7 +102,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:chicken", S("Chicken"), "mobs_chicken_inv.png", 0)
+mobs:register_egg("sbo_animals:chicken", S("Floxite"), "mobs_chicken_inv.png", 0)
 
 -- compatibility with older mobs mod
 
@@ -199,7 +199,7 @@ end
 -- egg
 
 core.register_node("sbo_animals:egg", {
-	description = S("Chicken Egg"),
+	description = S("Floxite Egg"),
 	tiles = {"mobs_chicken_egg.png"},
 	inventory_image  = "mobs_chicken_egg.png",
 	visual_scale = 0.7,
@@ -226,7 +226,7 @@ core.register_node("sbo_animals:egg", {
 -- fried egg and recipe
 
 core.register_craftitem("sbo_animals:chicken_egg_fried", {
-	description = S("Fried Egg") .. minetest.colorize("#777", "\nRestores 2 hunger"),
+	description = S("Fried Floxite Egg") .. minetest.colorize("#777", "\nRestores 2 hunger"),
 	inventory_image = "mobs_chicken_egg_fried.png",
 	on_use = hbhunger.item_eat(2),
 	groups = {food_egg_fried = 1}
@@ -245,7 +245,7 @@ core.register_craft({
 -- raw chicken
 
 core.register_craftitem("sbo_animals:chicken_raw", {
-	description = S("Raw Chicken") .. minetest.colorize("#777", "\nRestores 2 hunger"),
+	description = S("Raw Floxite") .. minetest.colorize("#777", "\nRestores 2 hunger"),
 	inventory_image = "mobs_chicken_raw.png",
 	on_use = hbhunger.item_eat(2),
 	groups = {food_meat_raw = 1, food_chicken_raw = 1}
@@ -258,7 +258,7 @@ unified_inventory.add_category_item('food', "sbo_animals:chicken_raw")
 -- cooked chicken and recipe
 
 core.register_craftitem("sbo_animals:chicken_cooked", {
-	description = S("Cooked Chicken") .. minetest.colorize("#777", "\nRestores 6 hunger"),
+	description = S("Cooked Floxite") .. minetest.colorize("#777", "\nRestores 6 hunger"),
 	inventory_image = "mobs_chicken_cooked.png",
 	on_use = hbhunger.item_eat(6),
 	groups = {food_meat = 1, food_chicken = 1}

@@ -51,7 +51,7 @@ core.register_node("sbo_crystals:amethyst_budding", {
     description = "Budding Amethyst Block",
     tiles = {"amethyst_block.png^[combine:16x80:0,-48=crack_anylength.png"},
     groups = {matter = 3},
-    drop = "amethyst_new:amethyst",
+    drop = "sbo_crystals:amethyst_shard",
 })
 
 core.register_node("sbo_crystals:cluster_small", {
@@ -67,7 +67,7 @@ core.register_node("sbo_crystals:cluster_small", {
         type = "fixed",
         fixed = {-4/16, -7/16, -4/16, 4/16, -3/16, 4/16},
     },
-    groups = {matter = 3},
+    groups = {amethyst = 3},
     drop = {
         max_items = 1,
         items = {
@@ -90,7 +90,7 @@ core.register_node("sbo_crystals:cluster_medium", {
         type = "fixed",
         fixed = {-5/16, -8/16, -5/16, 5/16, -2/16, 5/16},
     },
-    groups = {matter = 3},
+    groups = {amethyst = 3},
     drop = {
         max_items = 1,
         items = {
@@ -113,7 +113,7 @@ core.register_node("sbo_crystals:cluster_large", {
         type = "fixed",
         fixed = {-5/16, -8/16, -5/16, 5/16, 4/16, 5/16},
     },
-    groups = {matter = 3},
+    groups = {amethyst = 3},
     drop = "sbo_crystals:amethyst_shard",
 })
 
@@ -140,4 +140,15 @@ end
 core.register_craftitem("sbo_crystals:amethyst_shard", {
     description = "Amethyst Shard",
     inventory_image = "amethyst_shard.png",
+})
+
+core.register_craftitem("sbo_crystals:circuit", {
+    description = "Amethyst Circuit",
+    inventory_image = "amethyst_circuit.png",
+    stack_max = 256,
+})
+core.register_craft({
+    type = "shapeless",
+    output = "sbo_crystals:circuit",
+    recipe = { "sbz_resources:charged_particle", "sbo_resium:circuit", "sbo_crystals:amethyst_shard", "sbz_resources:antimatter_plate" }
 })

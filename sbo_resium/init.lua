@@ -214,3 +214,120 @@ sbo_api.quests.register_to("Questline: Resium",{
         text = "Yet another circuit...",
         requires = { "Obtain Resium" }
 })
+
+if not stairs. register then
+	stairs.register = function()end
+end
+
+minetest.register_node("sbo_resium:glass", {
+    description = "Resium Glass",
+    drawtype = "glasslike_framed_optional",
+    tiles = { "resium_glass.png", "resium_glass_shine.png" },
+    use_texture_alpha = "clip",
+    paramtype = "light",
+    sunlight_propagates = true,
+    groups = { matter = 1, transparent = 1 },
+    sounds = sbz_api.sounds.glass(),
+})
+
+minetest.register_craft({
+    output = "sbo_resium:glass 16",
+    recipe = {
+        { "sbo_resium:crystal",            "sbz_resources:antimatter_dust", "sbo_resium:crystal" },
+        { "sbz_resources:antimatter_dust", "",                              "sbz_resources:antimatter_dust" },
+        { "sbo_resium:crystal",            "sbz_resources:antimatter_dust", "sbo_resium:crystal" }
+    }
+})
+sbo_api.quests.on_craft["sbo_resium:glass"] = "Resium Glass"
+sbo_api.quests.register_to("Questline: Resium",{
+        type = "quest",
+        title = "Resium Glass",
+        text = [[
+Just another kind of glass.
+They are made with:
+    4 Resium crystals
+    4 Antimatter dust]],
+        requires = { "Obtain Resium" }
+})
+
+color = "#63BD63"
+stairs.register("sbo_resium:glass", {
+	tiles = {
+		"block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+        "block_frame.png^[colorize:" .. color .. ":200",
+    },
+    tex = {
+        stair_front = "block_stair_front.png^[colorize:" .. color .. ":200",
+        stair_side =  "block_stair_side.png^[colorize:" .. color .. ":200",
+        stair_cross = "block_stair_cross.png^[colorize:" .. color .. ":200",
+    }
+})
+core.register_alias("sbo_resium_glass:resium_glass", "sbo_resium:glass")
+
+core.register_node(
+    'sbo_resium:block',
+    unifieddyes.def {
+        description = 'Resium Block',
+        sounds = sbz_api.sounds.matter(),
+        info_extra = 'You should punch it, and place some close to each other.',
+        paramtype2 = 'color',
+        groups = { matter = 1 },
+        tiles = { 'resium_block.png' },
+
+        -- Imagine if someone punches it 30 times/the same globalstep.
+        -- Now imagine me caring.
+        on_punch = function(pos, node, puncher, _)
+            if not puncher:is_player() then return end
+            core.sound_play(
+                {
+                    name = 'gen_emittrium_block_sprang',
+                    gain = math.random(40, 60) / 100, -- range: 0.5 – 0.8
+                    pitch = math.random(95, 100) / 100, -- range: 0.9 – 1.0
+                },
+                {
+                    pos = pos, max_hear_distance = 16
+                }
+            )
+            local dir = puncher:get_pos() - pos
+
+            -- Okay, so the punching strength is multiplied by how many emittrium blocks are nearby
+            -- Could do some stupid search, but I don't want to.
+            -- So instead..
+            local strength = 2 + (sbz_api.count_nodes_within_radius(pos, 'sbo_resium:block', 1) * 5)
+            core.add_particlespawner {
+                amount = strength * 8,
+                time = 0.01,
+                texture = { name = 'star.png^[colorize:lime', alpha = 2, scale_tween = { 1.5, 0 }, blend = 'add' },
+                exptime = 2,
+                glow = 14,
+                pos = pos,
+                radius = 0.5,
+                vel = vector.multiply(dir, strength / 2),
+                attract = {
+                    kind = 'point',
+                    strength = -5,
+                    origin = pos,
+                },
+            }
+            puncher:add_velocity(vector.multiply(dir, strength))
+        end,
+    }
+)
+
+do -- Emittrium Block recipe scope
+    local Extrosim_Block = 'sbo_resium:block'
+    local RE = 'sbo_resium:crystal'
+    core.register_craft({
+        type = 'shaped',
+        output = Extrosim_Block,
+        recipe = {
+            { RE, RE, RE },
+            { RE, RE, RE },
+            { RE, RE, RE },
+        },
+    })
+end

@@ -395,7 +395,7 @@ minetest.register_craft {
     output = 'sbo_adv_injector:injector 4',
     recipe = {
         { 'sbz_resources:matter_blob', 'sbz_resources:matter_blob', 'sbz_resources:matter_blob' },
-        { 'sbz_resources:robotic_arm', 'sbo_extrosim_circuit:extrosim_circuit', 'pipeworks:tube_1' },
+        { 'sbz_resources:robotic_arm', 'sbo_extrosim:circuit', 'pipeworks:tube_1' },
         { 'sbz_resources:matter_blob', 'sbz_resources:matter_blob', 'sbz_resources:matter_blob' },
     },
 }

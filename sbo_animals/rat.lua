@@ -85,7 +85,7 @@ end
 
 -- spawn egg
 
-mobs:register_egg("sbo_animals:rat", S("Rat"), "mobs_rat_inv.png")
+mobs:register_egg("sbo_animals:rat", S("Plesoic"), "mobs_rat_inv.png")
 
 -- compatibility with older mobs mod
 
@@ -94,7 +94,7 @@ mobs:alias_mob("sbo_mobs:rat", "sbo_animals:rat")
 -- cooked rat, yummy!
 
 core.register_craftitem("sbo_animals:rat_cooked", {
-	description = S("Cooked Rat") .. minetest.colorize("#777", "\nRestores 3 hunger"),
+	description = S("Cooked Plesoic") .. minetest.colorize("#777", "\nRestores 3 hunger"),
 	inventory_image = "mobs_cooked_rat.png",
 	on_use = hbhunger.item_eat(3),
 	groups = {food_rat = 1}

@@ -55,43 +55,43 @@ sbo_api.quests.register_to("SBO: Other infos",{
         [[
         
 # ANIMAL MOBS
-### Bee
-Tends to buzz around stemfruit and gives honey when killed, you can also right-click a bee to pick it up and place in inventory. 3x bee's in a row can craft a beehive.
+### Trexare
+Tends to buzz around stemfruit and gives honey when killed, you can also right-click a Trexare to pick it up and place in inventory. 3x Trexare's in a row can craft a Trexare Cluster.
 
 ---
-### Bunny
-Bunnies appear on Colorium Planets and can be tamed with 4 stemfruit. Can also be picked up and placed in inventory and gives 1 raw rabbit and 1 rabbit hide when killed.
+### Hexenith
+Hexeniths appear on Colorium Planets and can be tamed with 4 stemfruit. Can also be picked up and placed in inventory and gives 1 raw Hexenith and 1 Hexenith hide when killed.
 
 ---
-### Chicken
-Found in Colorium Planets and lays eggs on flat ground, Can be picked up and placed in inventory and gives 1-2 raw chicken when killed. Feed 8x stemfruit to breed.
+### Floxite
+Found in Colorium Planets and lays eggs on flat ground, Can be picked up and placed in inventory and gives 1-2 raw Floxite when killed. Feed 8x stemfruit to breed.
 
 ---
-### Cow
-Wanders around on Colorium Planets eating grass and can be right-clicked with empty fluid cell to get milk. Cows will defend themselves when hit and can be right-clicked with 8x pyrograss to tame and breed.
+### Astrozenni
+Wanders around on Colorium Planets eating grass and can be right-clicked with empty fluid cell to get milk. Astrozenni will defend themselves when hit and can be right-clicked with 8x pyrograss to tame and breed.
 
 ---
-### Kitten
-Found on Colorium Planets these cute cats walk around and can be picked up and placed in inventory as pets or right-clicked with 4x live rats or voidfish and tamed.  They can sometimes leave you little gifts of a hairball, remember to check just incase it contains an item.
+### Athrosoto
+Found on Colorium Planets these cute Athrosoto walk around and can be picked up and placed in inventory as pets or right-clicked with 4x live rats or voidfish and tamed.  They can sometimes leave you little gifts of a hairball, remember to check just incase it contains an item.
 
 ---
-### Rat
+### Plesoic
 Typically found around stone they can be picked up and cooked for eating.
 
 ---
-### Sheep
-Grass munchers that can be clipped using shears to give 1-3 Light Blocks when tamed. Feed sheep 8x pyrograss to regrow wool, tame and breed. Will drop 1-3 raw mutton when killed.
+### Unopian
+Grass munchers that can be clipped using shears to give 1-3 Light Blocks when tamed. Feed sheep 8x pyrograss to regrow Light Blocks, tame and breed. Will drop 1-3 raw Unopian when killed.
 
 ---
-### Warthog
-Warthogs unlike pigs defend themselves when hit and give 1-3 raw pork when killed, they can also be right-clicked with 8x warpshroom to tame or breed.
+### Jogbin
+Jogbin unlike pigs defend themselves when hit and give 1-3 raw Jogbin when killed, they can also be right-clicked with 8x warpshroom to tame or breed.
 
 ---
-### Penguin
+### Vexinite
 These little guys can be found in glacier biomes on top of snow and have the ability to swim if they fall into water.
 
 ---
-### Panda
+### Fleablo
 These monochrome cuties spawn on Colorium Planets and can be tamed with colorium leaves :)  Remember they have claws though.
 
 ]],

@@ -140,7 +140,7 @@ core.register_alias("sbo_mobs:magic_lasso", "sbo_mobs:lasso")
 -- shears (right click to shear animal)
 
 core.register_tool("sbo_mobs:shears", {
-	description = S("Steel Shears (right-click to shear)"),
+	description = S("Shears (right-click to shear)"),
 	inventory_image = "mobs_shears.png",
 	groups = {flammable = 2}
 })

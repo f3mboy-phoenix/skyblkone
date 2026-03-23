@@ -1,0 +1,15 @@
+local modpath = minetest.get_modpath("sbo_extractors")
+
+dofile(modpath .. "/antimatter.lua")
+dofile(modpath .. "/adv_antimatter.lua")
+dofile(modpath .. "/anti_blob.lua")
+dofile(modpath .. "/sup_adv_blob.lua")
+dofile(modpath .. "/sup_ext.lua")
+dofile(modpath .. "/blob.lua")
+dofile(modpath .. "/simp_core.lua")
+dofile(modpath .. "/adv_core.lua")
+dofile(modpath .. "/field.lua")
+dofile(modpath .. "/pebble.lua")
+dofile(modpath .. "/metal.lua")
+dofile(modpath .. "/simp_charge.lua")
+

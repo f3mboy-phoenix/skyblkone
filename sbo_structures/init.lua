@@ -153,8 +153,8 @@ end
 if minetest.get_modpath("laptop") then
 	sbo_api.register_loot("sky_loot", "rare", "laptop:fan", 3)
 end
-if minetest.get_modpath("sbo_control_board") then
-	sbo_api.register_loot("sky_loot", "god", "sbo_control_board:control_board", 3)
+if minetest.get_modpath("sbo_circuits") then
+	sbo_api.register_loot("sky_loot", "god", "sbo_circuits:control_board", 3)
 end
 if minetest.get_modpath("sbo_colorium_plate") then
 	sbo_api.register_loot("sky_loot", "rare", "sbo_colorium_plate:colorium_plate", 3)

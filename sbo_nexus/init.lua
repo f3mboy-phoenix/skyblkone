@@ -200,9 +200,9 @@ end
 if minetest.get_modpath("laptop") then
 	sbo_api.register_loot("nexus", "rare", "laptop:HDD", 5)
 end
-if minetest.get_modpath("sbo_shock_circuit") then
-	sbo_api.register_loot("nexus", "god", "sbo_shock_circuit:shock_processor", 3)
-	sbo_api.register_loot("nexus", "god", "sbo_shock_circuit:shock_circuit", 5)
+if minetest.get_modpath("sbo_circuits") then
+	sbo_api.register_loot("nexus", "god", "sbo_circuits:shock_processor", 3)
+	sbo_api.register_loot("nexus", "god", "sbo_circuits:shock_circuit", 5)
 end
 if minetest.get_modpath("sbo_resium") then
 	sbo_api.register_loot("nexus", "god", "sbo_resium:circuit", 3)
@@ -210,8 +210,8 @@ end
 if minetest.get_modpath("sbo_extrosim_circuit") then
 	sbo_api.register_loot("nexus", "rare", "sbo_extrosim_circuit:extrosim_circuit", 3)
 end
-if minetest.get_modpath("sbo_control_board") then
-	sbo_api.register_loot("nexus", "god", "sbo_control_board:control_board", 3)
+if minetest.get_modpath("sbo_circuits") then
+	sbo_api.register_loot("nexus", "god", "sbo_circuits:control_board", 3)
 end
 
 quests[#quests+1]={ type = "text", title = "Questline: Creox", text = "Creox Based Questline" }

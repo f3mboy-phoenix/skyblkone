@@ -8,7 +8,7 @@ core.register_craft({
 })
 
 core.register_craft({
-    output = "amethyst_new:calcite_block 9",
+    output = "sbo_crystals:calcite_block 9",
     recipe = {
         {"sbo_crystals:calcite", "sbo_crystals:calcite", "sbo_crystals:calcite"},
         {"sbo_crystals:calcite", "sbo_crystals:calcite", "sbo_crystals:calcite"},
@@ -25,7 +25,7 @@ core.register_craft({
 })
 
 core.register_craft({
-    output = "amethyst_new:calcite_brick 4",
+    output = "sbo_crystals:calcite_brick 4",
     recipe = {
         {"sbo_crystals:calcite", "sbo_crystals:calcite"},
         {"sbo_crystals:calcite", "sbo_crystals:calcite"},

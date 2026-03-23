@@ -1,5 +1,6 @@
 local modpath = core.get_modpath("sbo_crystals")
 
+dofile(modpath.."/geodes.lua")
 dofile(modpath.."/nodes.lua")
 dofile(modpath.."/crafting.lua")
 dofile(modpath.."/budding.lua")

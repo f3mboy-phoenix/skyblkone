@@ -141,7 +141,7 @@ minetest.register_craftitem("sbo_cooking:eflakes", {
 hbhunger.register_food("sbo_cooking:eflakes", 8)
 minetest.register_craft({
     type = "shapeless",
-    output = "sbo_cooking:flakes",
+    output = "sbo_cooking:eflakes",
     recipe = {
         'sbz_resources:raw_emittrium',
         'sbz_resources:raw_emittrium',

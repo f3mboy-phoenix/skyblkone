@@ -207,7 +207,7 @@ minetest.register_craft {
     recipe = {
         { 'sbo_chromatic_metal:cuticr_ingot', 'sbo_life:essence',                'sbo_chromatic_metal:cuticr_ingot' },
         { 'sbz_resources:matter_blob',        'sbo_rein_cable:power_pipe',       'sbz_resources:matter_blob' },
-        { 'sbo_life:essence',                 'sbo_control_board:control_board', 'sbo_life:essence' },
+        { 'sbo_life:essence',                 'sbo_circuits:control_board', 'sbo_life:essence' },
     },
 }
 
