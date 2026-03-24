@@ -63,7 +63,7 @@ sbz_api.register_machine("sbo_extractors:adv_field_ext", {
             })
         end
     end,
-    power_needed = 50,
+    power_needed = 25,
     action_interval = 1,
     output_inv = "main",
 })
