@@ -68,7 +68,7 @@ end
 minetest.register_node("sbo_extrosim:extrosim", {
     description = "Extrosim",
     tiles = { "extrosim.png" },
-    groups = { unbreakable = 1, transparent = 1 },
+    groups = { unbreakable = 1, transparent = 1, can_mine_extrosim = 1 },
     drop = "",
     sunlight_propagates = true,
     paramtype = "light",
@@ -247,6 +247,16 @@ sbo_api.quests.register_to("Questline: Extrosim",{
 })
 core.register_alias("sbo_extrosim_circuit:extrosim_circuit", "sbo_extrosim:circuit")
 
+local default_glass_sounds = {}
+local default_matter_sounds = {}
+if core.get_modpath("sbz_audio") then
+	default_glass_sounds = sbz_audio.glass()
+	default_matter_sounds = sbz_audio.matter()
+else
+	default_glass_sounds = sbz_api.sounds.glass()
+	default_matter_sounds = sbz_api.sounds.matter()
+end
+
 minetest.register_node("sbo_extrosim:glass", {
     description = "Extrosim Glass",
     drawtype = "glasslike_framed_optional",
@@ -255,7 +265,7 @@ minetest.register_node("sbo_extrosim:glass", {
     paramtype = "light",
     sunlight_propagates = true,
     groups = { matter = 1, transparent = 1 },
-    sounds = sbz_api.sounds.glass(),
+    sounds = default_glass_sounds,
 })
 
 minetest.register_craft({
@@ -300,7 +310,7 @@ core.register_node(
     'sbo_extrosim:block',
     unifieddyes.def {
         description = 'Extrosim Block',
-        sounds = sbz_api.sounds.matter(),
+        sounds = default_matter_sounds,
         info_extra = 'You should punch it, and place some close to each other.',
         paramtype2 = 'color',
         groups = { matter = 1 },

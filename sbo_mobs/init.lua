@@ -30,3 +30,13 @@ dofile(path .. "/crafts.lua") -- items and crafts
 dofile(path .. "/spawner.lua") -- mob spawner
 
 print("[MOD] Mobs Redo loaded")
+unified_inventory.register_category('mobs', {
+	symbol = "sbo_mobs:nametag",
+	label = "Mobs"
+})
+unified_inventory.add_category_item('mobs', "sbo_mobs:nametag")
+unified_inventory.add_category_item('mobs', "sbo_mobs:leather")
+unified_inventory.add_category_item('mobs', "sbo_mobs:lasso")
+unified_inventory.add_category_item('mobs', "sbo_mobs:shears")
+unified_inventory.add_category_item('mobs', "sbo_mobs:saddle")
+unified_inventory.add_category_item('mobs', "sbo_mobs:spawner")

@@ -5,6 +5,7 @@ dofile(modpath .. "/centrifuge.lua")
 dofile(modpath .. "/chem.lua")
 dofile(modpath .. "/recipes.lua")
 dofile(modpath .. "/comp.lua")
+dofile(modpath .. "/ui.lua")
 sbo_api.quests.register_to("SBO: Other infos",{
     type = "text",
     info = true,

@@ -14,7 +14,7 @@ end
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:zinc_powder ",
     type = craft,
-    chance = 5,
+    chance = 30,
     items = {
         "sbz_resources:sand"
     }
@@ -22,7 +22,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:platinum_powder ",
     type = craft,
-    chance = 5,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }
@@ -30,7 +30,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:mercury_powder ",
     type = craft,
-    chance = 5,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }
@@ -38,7 +38,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:magnesium_powder ",
     type = craft,
-    chance = 5,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }
@@ -46,7 +46,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:calcium_powder ",
     type = craft,
-    chance = 5,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }
@@ -54,7 +54,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_modded_elem:sodium_powder ",
     type = craft,
-    chance = 5,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }

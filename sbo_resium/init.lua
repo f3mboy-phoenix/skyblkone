@@ -52,7 +52,7 @@ end
 minetest.register_node("sbo_resium:resium", {
     description = "Resium Crystal",
     tiles = { "resium.png" },
-    groups = { unbreakable = 1, transparent = 1 },
+    groups = { unbreakable = 1, transparent = 1, can_mine_resium =1, can_mine_extrosim = 1 },
     drop = "",
     sunlight_propagates = true,
     paramtype = "light",
@@ -219,6 +219,16 @@ if not stairs. register then
 	stairs.register = function()end
 end
 
+local default_glass_sounds = {}
+local default_matter_sounds = {}
+if core.get_modpath("sbz_audio") then
+	default_glass_sounds = sbz_audio.glass()
+	default_matter_sounds = sbz_audio.matter()
+else
+	default_glass_sounds = sbz_api.sounds.glass()
+	default_matter_sounds = sbz_api.sounds.matter()
+end
+
 minetest.register_node("sbo_resium:glass", {
     description = "Resium Glass",
     drawtype = "glasslike_framed_optional",
@@ -227,7 +237,7 @@ minetest.register_node("sbo_resium:glass", {
     paramtype = "light",
     sunlight_propagates = true,
     groups = { matter = 1, transparent = 1 },
-    sounds = sbz_api.sounds.glass(),
+    sounds = default_glass_sounds,
 })
 
 minetest.register_craft({
@@ -272,7 +282,7 @@ core.register_node(
     'sbo_resium:block',
     unifieddyes.def {
         description = 'Resium Block',
-        sounds = sbz_api.sounds.matter(),
+        sounds = default_matter_sounds,
         info_extra = 'You should punch it, and place some close to each other.',
         paramtype2 = 'color',
         groups = { matter = 1 },

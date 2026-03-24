@@ -50,6 +50,12 @@ core.register_node("sbo_nexus:storage", {
 	walkable = true,
 	on_construct = sbo_api.get_lootbox_on_punch("nexus", "sbo_nexus:storage_open")
 })
+local default_matter_sounds = {}
+if core.get_modpath("sbz_audio") then
+	default_matter_sounds = sbz_audio.matter()
+else
+	default_matter_sounds = sbz_api.sounds.matter()
+end
 
 core.register_node("sbo_nexus:storage_open", {
 	description = 'Nexus Storage',
@@ -58,7 +64,7 @@ core.register_node("sbo_nexus:storage_open", {
 	light_source = 10,
 	groups = { matter = 1 },
 	drop = "sbo_nexus:storage_open",
-	sounds = sbz_api.sounds.matter(),
+	sounds = default_matter_sounds,
 	after_dig_node = function(pos, oldnode, oldmetadata, digger)
         if digger and digger:is_player() and oldmetadata then
             local inv = oldmetadata.inventory
@@ -106,7 +112,7 @@ minetest.register_node('sbo_nexus:core', {
 	light_source = 10,
 	groups = { matter = 1 },
 	drop = "sbo_nexus:creox_fab_cube",
-	sounds = sbz_api.sounds.matter(),
+	sounds = default_matter_sounds,
 })
 
 sbo_api.register_loottype("nexus", "sbo_nexus:storage_open", "Nexus")

@@ -34,3 +34,4 @@ sbo_api.quests.register_to("Questline: Chemistry",{
 	Can be placed in Upgrades Page like a Curio Slot]],
         requires = { "Wormhole"}
 })
+unified_inventory.add_category_item('tools', "sbo_wormhole_storage:item")

@@ -37,3 +37,4 @@ end
 
 core.register_node("sbo_crystals:lantern", on_def)
 core.register_node("sbo_crystals:lantern_off", off_def)
+unified_inventory.add_category_item('deco', "sbo_crystals:lantern")

@@ -169,3 +169,4 @@ if item then
 else
     minetest.log("warning", "[sbo_curio] sbz_progression:questbook not found!")
 end
+dofile(modpath .. "/runes.lua")

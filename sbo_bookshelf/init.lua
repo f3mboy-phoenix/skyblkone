@@ -8,6 +8,7 @@ minetest.register_node("sbo_bookshelf:bookshelf", {
     groups = { matter = 1, },
     walkable = true,
 })
+unified_inventory.add_category_item('deco', "sbo_bookshelf:bookshelf")
 minetest.register_craft({
     output = "sbo_bookshelf:bookshelf",
     recipe = {

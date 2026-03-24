@@ -12,7 +12,7 @@ sbz_api.register_stateful_generator("sbo_adv_chg_gen:advanced_charge_generator",
 formspec_version[7]
 size[8.2,9]
 style_type[list;spacing=.2;size=.8]
-item_image[3.4,1.9;1,1;sbz_resources:core_dust]
+item_image[3.4,1.9;1,1;sbz_resources:charged_particle]
 list[context;main;3.5,2;1,1;]
 list[current_player;main;0.2,5;8,4;]
 listring[]
@@ -40,7 +40,7 @@ listring[]
     action = function(pos, node, meta)
         local inv = meta:get_inventory()
         -- check if fuel is there
-        if not inv:contains_item("main", "sbz_resources:core_dust") then
+        if not inv:contains_item("main", "sbz_resources:charged_particle") then
             minetest.add_particlespawner({
                 amount = 10,
                 time = 1,

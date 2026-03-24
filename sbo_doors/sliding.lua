@@ -229,7 +229,7 @@ for i, door in ipairs(doors) do
 	add_door(unpack(door))
 end
 
-sbo_api.quests.on_craft["sbo_lavalamp:lavalamp"] = "Door"
+sbo_api.quests.on_craft["sbo_doors:door2a"] = "Door"
 sbo_api.quests.register_to("Questline: Decorator",{
     type = "quest",
     title = "Door",
@@ -237,3 +237,4 @@ sbo_api.quests.register_to("Questline: Decorator",{
         [[ Just a door. Right-Click to open]],
     requires = { "A Bigger Platform", }
 })
+unified_inventory.add_category_item('deco', "sbo_doors:door2a")
