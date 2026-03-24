@@ -1,3 +1,11 @@
+-- Prepare for api change in sbz
+local default_glass_sounds = {}
+if core.get_modpath('sbz_audio') then
+    default_glass_sounds = sbz_audio.glass()
+else
+    default_glass_sounds = sbz_api.sounds.glass()
+end
+
 minetest.register_node("sbo_dark_glass:dark_glass", {
     description = "Dark Glass",
     drawtype = "glasslike_framed_optional",
@@ -6,7 +14,7 @@ minetest.register_node("sbo_dark_glass:dark_glass", {
     paramtype = "light",
     sunlight_propagates = true,
     groups = { matter = 1, transparent = 1 },
-    sounds = sbz_api.sounds.glass(),
+    sounds = default_glass_sounds,
 })
 
 minetest.register_craft({

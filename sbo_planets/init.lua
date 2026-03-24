@@ -1,8 +1,16 @@
+-- Prepare for api change in sbz
+local default_matter_sounds = {}
+if core.get_modpath('sbz_audio') then
+    default_matter_sounds = sbz_audio.matter()
+else
+    default_matter_sounds = sbz_api.sounds.matter()
+end
+
 core.register_node('sbo_planets:purple_stone1', {
     description = 'Purple Stone',
     tiles = { { name = 'purple_stone1.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:purple_stone1'
 sbz_api.recipe.register_craft {
@@ -15,7 +23,7 @@ core.register_node('sbo_planets:purple_stone2', {
     description = 'Purple Stone',
     tiles = { { name = 'purple_stone2.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:purple_stone2'
 sbz_api.recipe.register_craft {
@@ -28,7 +36,7 @@ core.register_node('sbo_planets:purple_stone3', {
     description = 'Purple Stone',
     tiles = { { name = 'purple_stone3.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:purple_stone3'
 sbz_api.recipe.register_craft {
@@ -41,7 +49,7 @@ core.register_node('sbo_planets:pink_stone1', {
     description = 'Pink Stone',
     tiles = { { name = 'pink_stone1.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:pink_stone1'
 sbz_api.recipe.register_craft {
@@ -54,7 +62,7 @@ core.register_node('sbo_planets:pink_stone2', {
     description = 'Pink Stone',
     tiles = { { name = 'pink_stone2.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:pink_stone2'
 sbz_api.recipe.register_craft {
@@ -67,7 +75,7 @@ core.register_node('sbo_planets:pink_stone3', {
     description = 'Pink Stone',
     tiles = { { name = 'pink_stone3.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:pink_stone3'
 sbz_api.recipe.register_craft {
@@ -80,7 +88,7 @@ core.register_node('sbo_planets:blue_stone1', {
     description = 'Blue Stone',
     tiles = { { name = 'blue_stone1.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:blue_stone1'
 sbz_api.recipe.register_craft {
@@ -93,7 +101,7 @@ core.register_node('sbo_planets:blue_stone2', {
     description = 'Blue Stone',
     tiles = { { name = 'blue_stone2.png' } },
     groups = { matter = 1, charged = 1, explody = 10 },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 stairs.register 'sbo_planets:blue_stone2'
 sbz_api.recipe.register_craft {

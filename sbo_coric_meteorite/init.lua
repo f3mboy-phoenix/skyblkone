@@ -182,6 +182,13 @@ minetest.register_entity("sbo_coric_meteorite:coric", {
         self.time_since = 0
     end
 })
+-- Prepare for api change in sbz
+local default_matter_sounds = {}
+if core.get_modpath('sbz_audio') then
+    default_matter_sounds = sbz_audio.matter()
+else
+    default_matter_sounds = sbz_api.sounds.matter()
+end
 
 minetest.register_node("sbo_coric_meteorite:coric_matter", {
     description = "Meteoric Core",
@@ -203,7 +210,7 @@ minetest.register_node("sbo_coric_meteorite:coric_matter", {
             { rarity = 2, items = { "sbz_resources:core_dust" } }
         }
     },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 
 local function spawn_meteorite(pos)
