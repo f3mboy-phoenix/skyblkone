@@ -96,3 +96,21 @@ These monochrome cuties spawn on Colorium Planets and can be tamed with colorium
 
 ]],
 })
+
+unified_inventory.add_category_item('mobs', "sbo_animals:bee")
+unified_inventory.add_category_item('mobs', "sbo_animals:beehive")
+unified_inventory.add_category_item('mobs', "sbo_animals:bunny")
+unified_inventory.add_category_item('mobs', "sbo_animals:cheeseblock")
+unified_inventory.add_category_item('mobs', "sbo_animals:chicken")
+unified_inventory.add_category_item('mobs', "sbo_animals:chicken_feather")
+unified_inventory.add_category_item('mobs', "sbo_animals:cow")
+unified_inventory.add_category_item('mobs', "sbo_animals:egg")
+unified_inventory.add_category_item('mobs', "sbo_animals:hairball")
+unified_inventory.add_category_item('mobs', "sbo_animals:honey_block")
+unified_inventory.add_category_item('mobs', "sbo_animals:kitten")
+unified_inventory.add_category_item('mobs', "sbo_animals:panda")
+unified_inventory.add_category_item('mobs', "sbo_animals:penguin")
+unified_inventory.add_category_item('mobs', "sbo_animals:pumba")
+unified_inventory.add_category_item('mobs', "sbo_animals:rabbit_hide")
+unified_inventory.add_category_item('mobs', "sbo_animals:rat")
+unified_inventory.add_category_item('mobs', "sbo_animals:sheep")

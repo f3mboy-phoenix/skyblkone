@@ -86,3 +86,5 @@ sbo_api.quests.register_to("Questline: Emittrium",{
         [[Power Cables that are blast resistive. Airtight is avaliable as well!]],
     requires = { "Power Cables", }
 })
+unified_inventory.add_category_item('power', "sbo_rein_cable:power_pipe")
+unified_inventory.add_category_item('power', "sbo_rein_cable:airtight_power_cable")

@@ -9,7 +9,7 @@ end
 sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",
     type = craft,
-    chance = 100,
+    chance = 50,
     items = {
         "sbz_resources:sand"
     }
@@ -18,7 +18,7 @@ sbz_api.recipe.register_craft {
 sbz_api.recipe.register_craft {
     output = "sbo_chromium:chromium_powder",
     type = craft,
-    chance =50,
+    chance =25,
     items = {
         "sbz_resources:white_sand"
     }

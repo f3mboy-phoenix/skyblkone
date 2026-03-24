@@ -294,3 +294,18 @@ sbo_api.quests.register_to("Questline: Atomic",{
 not really much use for them yet but maybe in the future]],
     requires = { "Colorium Plate", "Shock Circuit", }
 })
+
+unified_inventory.add_category_item('chem', "sbo_atomic:carbon")
+unified_inventory.add_category_item('chem', "sbo_atomic:chlorine")
+unified_inventory.add_category_item('chem', "sbo_atomic:fluorine")
+unified_inventory.add_category_item('chem', "sbo_atomic:gallium")
+unified_inventory.add_category_item('chem', "sbo_atomic:helium")
+unified_inventory.add_category_item('chem', "sbo_atomic:hydrogen")
+unified_inventory.add_category_item('chem', "sbo_atomic:indium")
+unified_inventory.add_category_item('chem', "sbo_atomic:iodine")
+unified_inventory.add_category_item('chem', "sbo_atomic:neon")
+unified_inventory.add_category_item('chem', "sbo_atomic:nitrogen")
+unified_inventory.add_category_item('chem', "sbo_atomic:oxygen")
+unified_inventory.add_category_item('chem', "sbo_atomic:phosphorus")
+unified_inventory.add_category_item('chem', "sbo_atomic:sulfur")
+unified_inventory.add_category_item('chem', "sbo_atomic:technetium")

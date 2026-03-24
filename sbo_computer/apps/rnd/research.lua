@@ -120,11 +120,12 @@ minetest.register_on_joinplayer(function(player)
 				end
 			end
 		end
+		player:get_inventory():set_size("research", 10)
 	else
 		rnd.storage.put(b.."hasData", true)
 
 		--Create a research inventory for that player.
-		player:get_inventory():set_size("research", 8)
+		player:get_inventory():set_size("research", 10)
 
 		--For sorting purposes, creation of the duplication inventory is moved to duplication.lua.
 		rnd.duplication.init(player)
@@ -208,7 +209,7 @@ function rnd.research.research_formspec(app, mtos)
 		"label["..tostring(4 - 0.05 * item.name:len())..",0.75;"..item.name.."]"..
 		"label["..tostring(3.9 - 0.05 * progString:len())..",1;"..progString.."]"..
 		"button[3,1.5;2,1;research;"..F(S("Research")).."]"..
-		"list[current_player;research;0,2.5;8,1;]"..
+		"list[current_player;research;0,2.5;10,1;]"..
 		"listring[]"
 end
 

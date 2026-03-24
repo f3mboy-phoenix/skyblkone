@@ -87,6 +87,7 @@ minetest.register_craft({
 	},
 	replacements = {{"sbz_chem:water_fluid_cell", "sbz_chem:empty_fluid_cell"}}
 })
+unified_inventory.add_category_item('deco', "sbo_lavalamp:lavalamp")
 
 sbo_api.quests.on_craft["sbo_lavalamp:lavalamp"] = "Lava Lamp"
 sbo_api.quests.register_to("Questline: Decorator",{

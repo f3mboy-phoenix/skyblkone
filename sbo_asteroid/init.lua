@@ -185,6 +185,13 @@ minetest.register_entity("sbo_asteroid:asteroid", {
     end
 })
 
+local default_matter_sounds = {}
+if core.get_modpath("sbz_audio") then
+	default_matter_sounds = sbz_audio.matter()
+else
+	default_matter_sounds = sbz_api.sounds.matter()
+end
+
 minetest.register_node("sbo_asteroid:stoney_matter", {
     description = "Asteroidic Stone",
     tiles = { "stone.png^meteoric_overlay.png" },
@@ -205,7 +212,7 @@ minetest.register_node("sbo_asteroid:stoney_matter", {
             { rarity = 2, items = { "sbz_resources:pebble" } }
         }
     },
-    sounds = sbz_api.sounds.matter(),
+    sounds = default_matter_sounds,
 })
 
 local function spawn_meteorite(pos)

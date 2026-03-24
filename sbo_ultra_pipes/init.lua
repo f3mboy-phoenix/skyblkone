@@ -134,3 +134,9 @@ sbo_api.quests.register_to("SBO: Other infos",{
     title = "Ultra Pipes",
     text = [[This mod adds more varients of pipes]]
 })
+
+unified_inventory.add_category_item('pipeworks', "sbo_ultra_pipes:mlp_tube_1")
+unified_inventory.add_category_item('pipeworks', "sbo_ultra_pipes:rlp_tube_1")
+unified_inventory.add_category_item('pipeworks', "sbo_ultra_pipes:tube_100_1")
+unified_inventory.add_category_item('pipeworks', "sbo_ultra_pipes:uhp_tube_1")
+unified_inventory.add_category_item('pipeworks', "sbo_ultra_pipes:ulp_tube_1")

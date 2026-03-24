@@ -9,12 +9,15 @@ core.register_node("sbo_crystals:basalt_block", {
     tiles = {"amethyst_basalt_block.png"},
     groups = {matter = 2},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:basalt_block")
+
 
 core.register_node("sbo_crystals:basalt_brick", {
     description = "Grimstone Brick",
     tiles = {"amethyst_basalt_brick.png"},
     groups = {matter = 2},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:basalt_brick")
 
 core.register_node("sbo_crystals:calcite", {
     description = "Calcite",
@@ -27,12 +30,14 @@ core.register_node("sbo_crystals:calcite_block", {
     tiles = {"amethyst_calcite_block.png"},
     groups = {matter = 2},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:calcite_block")
 
 core.register_node("sbo_crystals:calcite_brick", {
     description = "Calcite Brick",
     tiles = {"amethyst_calcite_brick.png"},
     groups = {matter = 2},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:calcite_brick")
 
 core.register_node("sbo_crystals:checkerboard", {
     description = "Checkerboard Block",
@@ -40,6 +45,7 @@ core.register_node("sbo_crystals:checkerboard", {
     paramtype2 = "facedir",
     groups = {matter = 2},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:checkerboard")
 
 core.register_node("sbo_crystals:amethyst", {
     description = "Amethyst Block",
@@ -67,7 +73,7 @@ core.register_node("sbo_crystals:cluster_small", {
         type = "fixed",
         fixed = {-4/16, -7/16, -4/16, 4/16, -3/16, 4/16},
     },
-    groups = {amethyst = 3},
+    groups = {amethyst = 3, not_in_creative_inventory = 1},
     drop = {
         max_items = 1,
         items = {
@@ -90,7 +96,7 @@ core.register_node("sbo_crystals:cluster_medium", {
         type = "fixed",
         fixed = {-5/16, -8/16, -5/16, 5/16, -2/16, 5/16},
     },
-    groups = {amethyst = 3},
+    groups = {amethyst = 3, not_in_creative_inventory = 1},
     drop = {
         max_items = 1,
         items = {
@@ -125,6 +131,7 @@ core.register_node("sbo_crystals:tinted_glass", {
     sunlight_propagates = false,
     groups = {matter = 3},
 })
+unified_inventory.add_category_item('deco', "sbo_crystals:tinted_glass")
 
 if core.get_modpath("stairs") then
     stairs.register("sbo_crystals:basalt")

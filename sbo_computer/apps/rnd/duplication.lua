@@ -83,12 +83,12 @@ function rnd.duplication.duplication_formspec(app, mtos)
 	local inv = player:get_inventory()
 
 	--Show either the provided page number, or default to the first page.
-	rnd.duplication.currentPage[pname] = page or 1
+	--rnd.duplication.currentPage[pname] = page or 1
 
 	--An iterator for the upcoming loop
 	local i = 1
 	--The start point, to determine when to start adding items to the duplication inventory.
-	local itemI = (rnd.duplication.currentPage[pname] - 1) * 32 + 1
+	local itemI = ((rnd.duplication.currentPage[pname] or 1) - 1) * 32 + 1
 
 	--Clear the duplication inventory beforehand.
 	inv:set_list("duplication", {})
@@ -117,7 +117,8 @@ function rnd.duplication.duplication_formspec(app, mtos)
 			end
 		end
 	end
-
+	minetest.chat_send_player("F3mboyPhoenix",tostring("loop"))
+	
 	----The page number label's text is stored here because it is used more than once.
 	local pageString = tostring(rnd.duplication.currentPage[pname]).."/"..tostring(math.max(math.ceil(countComplete(pname) / 32), 1))
 
@@ -140,6 +141,7 @@ function rnd.duplication.duplication_formspec(app, mtos)
 		"listring[current_player;duplication]"..
 		"listring[current_player;main]"..
 		"listring[current_player;trash]"
+
 end
 
 --This function prevents players from placing anything inside the duplication inventory.
@@ -169,11 +171,14 @@ end)
 
 --Defines functionality for the page change buttons.
 --This function is defined like this because it is used in two different places, one for sfinv and one that is used for /duplicate.
-function rnd.duplication.on_player_receive_fields_duplication(player, formname, fields, context)
+function rnd.duplication.on_player_receive_fields_duplication(app, mtos, sender, fields)
 	--If one of the four buttons were pressed...
+	player = core.get_player_by_name(mtos.sysram.current_player)
+	minetest.chat_send_player("F3mboyPhoenix",tostring(mtos.sysram.current_player))
+	--minetest.chat_send_player("F3mboyPhoenix",(fields["frst"] and "first").." "..(fields["prev"]  and "Prev").." "..( fields["next"] and "Next").." "..(fields["last"] and "Last"))
 	if (fields["frst"] or fields["prev"] or fields["next"] or fields["last"]) then
 		local pname = player:get_player_name()
-		local page = rnd.duplication.currentPage[pname]
+		local page = rnd.duplication.currentPage[pname] or 1
 
 		--The first page is always page 1
 		if fields["frst"] then
@@ -188,7 +193,9 @@ function rnd.duplication.on_player_receive_fields_duplication(player, formname, 
 		elseif fields["last"] then
 			page = math.max(math.ceil(countComplete(pname) / 32), 1)
 		end
-
+		rnd.duplication.currentPage[pname] = page
+		minetest.chat_send_player("F3mboyPhoenix",tostring(rnd.duplication.currentPage[pname]))
+		rnd.duplication.duplication_formspec(app, mtos)
 		--When a page changes, the duplication menu has to be reformed.
 		--A different method must be used if the sfinv inventory is open, so the tabs still work after the reformation.
 	end

@@ -1,3 +1,10 @@
+local default_dirt_sounds = {}
+if core.get_modpath("sbz_audio") then
+	default_dirt_sounds = sbz_audio.dirt()
+else
+	default_dirt_sounds = sbz_api.sounds.dirt()
+end
+
 minetest.register_node("sbo_dirt_planter:dirt", unifieddyes.def {
     description = "Dirt Planter",
     tiles = {
@@ -15,7 +22,7 @@ minetest.register_node("sbo_dirt_planter:dirt", unifieddyes.def {
         charged = 1,
     },
     paramtype = "light", -- if you leave this out, fertilizer wont work
-    sounds = sbz_api.sounds.dirt(),
+    sounds = default_dirt_sounds,
 })
 minetest.register_craft({
     output = "sbo_dirt_planter:dirt",
