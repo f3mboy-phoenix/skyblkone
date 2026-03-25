@@ -62,7 +62,7 @@ sbz_api.register_machine("sbo_extractors:simp_charge_ext", {
             })
         end
     end,
-    power_needed = 5,
+    power_needed = 1,
     action_interval = 1,
     output_inv = "main",
 })
