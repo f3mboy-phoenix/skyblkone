@@ -1,0 +1,16 @@
+# textdomain: teletool
+Point teleporters are short-range teleportation devices which allow the user to teleport instantly towards a block they point at.=Zeigeteleporter sind Teleportationsgeräte für kurze Entfernungen, welche es ihren Benutzern ermöglichen, sich sofort zu einem Block, auf dem sie zeigen, zu teleportieren.
+Infinite point teleporters are very powerful, they can be used without limits.=Unendliche Zeigeteleporter sind sehr mächtig, sie können unbegrenzt verwendet werden.
+To use this tool, point to a face of a block and punch to teleport in front of it. The target location must have a minimum amount of space for you to stand in, otherwise, teleportation will fail.=Um dieses Werkzeug zu benutzen, zeigen Sie auf eine Seite eines Blockes, und schlagen Sie, um sich direkt davor zu teleportieren. Der Zielort muss genügend Platz haben, damit Sie darin stehen können, ansonsten wird die Teleportation fehlschlagen.
+Infinite point teleporter=Unendlicher Zeigeteleporter
+Punch location to teleport=Ziel hauen, um zu teleportieren
+Electronic point teleporters run on electricity and must be charged initially. Fully charged, they can be used about 50 times.=Elektronische Zeigeteleporter werden von Elektrizität angetrieben und müssen zuerst aufgeladen werden. Voll aufgeladen können sie ca. 50 mal benutzt werden.
+To recharge this tool, place it in a powered battery box.=Um dieses Werkzeug wiederaufzuladen, platzieren Sie es in einer mit Strom versorgten Batteriebox.
+Electronic point teleporter=Elektronischer Zeigeteleporter
+Must be charged in a battery box=Muss in einer Batteriebox aufgeladen werden
+Magical point teleporters are fueled by mana and require @1 mana per teleportation.=Magische Zeigeteleporter werden von Mana angetrieben und erfordern @1 Mana pro Teleportation.
+First make sure you have at least @1 mana.=Stellen Sie zunächst sicher, dass Sie mindestens @1 Mana haben.
+Magical point teleporter=Magischer Zeigeteleporter
+Mana cost: @1=Manakosten: @1
+What an awesome device!=Was für ein tolles Gerät!
+Craft an electronic point teleporter.=Fertigen Sie einen elektronischen Zeigeteleporter.

@@ -53,7 +53,7 @@ sbz_api.register_machine("sbo_extractors:adv_blob_ext", {
                 minacc = { x = 0, y = 0, z = 0 },
                 maxacc = { x = 0, y = 0, z = 0 },
                 minexptime = 5,
-                maxexptime = 10,simple_matter_extractor
+                maxexptime = 10,
                 minsize = 0.5,
                 maxsize = 1.0,
                 collisiondetection = false,

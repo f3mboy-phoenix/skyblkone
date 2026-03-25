@@ -82,7 +82,7 @@ minetest.register_craft {
         { "sbo_extrex:extrex_ingot",               "sbo_emmitrex:drill",              "sbo_extrex:extrex_ingot" },
         { "sbo_colorium:reinforced_colorium", "sbo_extrosim:circuit", "sbo_colorium:reinforced_colorium" }
     },
-    output = "sbo_extrosim_drill:drill"
+    output = "sbo_extrex:drill"
 }
 sbo_api.quests.in_inven["sbo_extrex:drill"] = "Extrex Drill"
 sbo_api.quests.register_to("Questline: Resium",{

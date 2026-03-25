@@ -1,0 +1,3 @@
+# textdomain: lavalamp
+Lava Lamp/Light=
+Lava Lamp/Light (off)=
