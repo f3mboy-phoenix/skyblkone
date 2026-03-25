@@ -53,7 +53,7 @@ sbz_api.register_machine("sbo_extractors:adv_blob_ext", {
                 minacc = { x = 0, y = 0, z = 0 },
                 maxacc = { x = 0, y = 0, z = 0 },
                 minexptime = 5,
-                maxexptime = 10,
+                maxexptime = 10,simple_matter_extractor
                 minsize = 0.5,
                 maxsize = 1.0,
                 collisiondetection = false,
@@ -72,7 +72,7 @@ minetest.register_craft({
     output = "sbo_extractors:adv_blob_ext",
     recipe = {
         { "sbz_resources:matter_blob", "sbz_resources:matter_blob",         "sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob", "sbz_power:simple_matter_extractor", "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbo_extractors:sup_ext", "sbz_resources:matter_blob" },
         { "sbz_resources:matter_blob", "sbo_resium:circuit",                "sbz_resources:matter_blob" }
     }
 })

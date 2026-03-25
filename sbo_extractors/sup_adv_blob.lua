@@ -72,7 +72,7 @@ minetest.register_craft({
     output = "sbo_extractors:adv_antiblob_ext",
     recipe = {
         { "sbz_resources:matter_blob", "sbz_resources:matter_blob",  "sbz_resources:matter_blob" },
-        { "sbz_resources:matter_blob", "sbo_extractors:adv_peb_ext", "sbz_resources:matter_blob" },
+        { "sbz_resources:matter_blob", "sbo_extractors:adv_blob_ext", "sbz_resources:matter_blob" },
         { "sbz_resources:matter_blob", "sbo_resium:circuit",         "sbz_resources:matter_blob" }
     }
 })

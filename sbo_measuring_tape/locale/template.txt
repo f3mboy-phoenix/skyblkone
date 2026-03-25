@@ -1,7 +1,0 @@
-# textdomain: tape_measure
-
-Tape Measure=
-Tape Measure Waypoint=
-Start position set to @1=
-End position set to @1=
-Distance: @1 | Size: @2=

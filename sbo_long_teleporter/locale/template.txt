@@ -1,5 +1,0 @@
-Mirror of Returning =
-Rightclick to set the mirror's teleport location. Leftclick to immediately teleport back to the mirror's teleport location. =
-Setting the teleport location costs @1 mana, teleporting costs @2 mana. =
-This item allows to teleport its user back to a previously set location. =
-This item allows to teleport the user back to a previously set location, at the cost of mana. =

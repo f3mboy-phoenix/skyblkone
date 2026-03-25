@@ -1,13 +1,14 @@
--- Simple Charge Extractor Node
-sbz_api.register_machine("sbo_extractors:simp_charge_ext", {
-    description = "Simple Charge Extractor",
-    tiles = { "simple_charge_extractor.png" },
+-- Simple Core Extractor Node
+sbz_api.register_machine("sbo_extractors:simp_inst_ext", {
+    description =
+    "Simple Instintanium Extractor",
+    tiles = { "simple_inst_extractor.png" },
     groups = { matter = 1, sbz_machine = 1, pipe_connects = 1 },
     sunlight_propagates = true,
     walkable = true,
     on_rightclick = function(pos, node, player, pointed_thing)
         local player_name = player:get_player_name()
-        minetest.show_formspec(player_name, "sbz_power:simple_charge_extractor_formspec",
+        minetest.show_formspec(player_name, "sbz_power:advanced_inst_extractor_formspec",
             "formspec_version[7]" ..
             "size[8.2,9]" ..
             "style_type[list;spacing=.2;size=.8]" ..
@@ -35,7 +36,7 @@ sbz_api.register_machine("sbo_extractors:simp_charge_ext", {
     end,
     action = function(pos, node, meta)
         local inv = meta:get_inventory()
-        local itemstack = ItemStack("sbz_resources:charged_particle")
+        local itemstack = ItemStack("sbz_instatube:instantinium")
         itemstack:set_count(1)
 
 
@@ -57,32 +58,31 @@ sbz_api.register_machine("sbo_extractors:simp_charge_ext", {
                 maxsize = 1.0,
                 collisiondetection = false,
                 vertical = false,
-                texture = "charged_particle.png",
+                texture = "instantinium.png",
                 glow = 10
             })
         end
     end,
     power_needed = 5,
-    action_interval = 1,
+    action_interval = 5,
     output_inv = "main",
 })
 
 minetest.register_craft({
-    output = "sbo_extractors:simp_charge_ext",
+    output = "sbo_extractors:simp_inst_ext",
     recipe = {
-        { "sbz_resources:charged_particle", "sbz_resources:matter_blob",             "sbz_resources:charged_particle" },
-        { "sbz_resources:matter_blob",      "sbz_resources:antimatter_annihilator",  "sbz_resources:matter_blob" },
-        { "sbz_resources:charged_particle", "sbo_extrosim:circuit", "sbz_resources:charged_particle" }
+        { "sbz_instatube:instantinium", "sbz_resources:matter_blob",             "sbz_instatube:instantinium" },
+        { "sbz_resources:matter_blob",          "sbz_resources:matter_annihilator",      "sbz_resources:matter_blob" },
+        { "sbz_instatube:instantinium", "sbo_extrosim:circuit", "sbz_instatube:instantinium" }
     }
 })
-sbo_api.quests.on_craft["sbo_extractors:simp_charge_ext"] = "Charge Extractors"
+sbo_api.quests.on_craft["sbo_extractors:simp_core_ext"] = "Core Extractors"
 sbo_api.quests.register_to("Questline: Extrosim",{
         type = "quest",
-        title = "Charge Extractors",
-        text = [[Here's what you'll need for a Simple Charge Extractor:
+        title = "Core Extractors",
+        text = [[Here's what you'll need for a Simple Core Extractor:
 
-One Antimatter Annihilator, three matter blobs, an Extrosim circuit, and four charged particles.
+One Matter Annihilator, three matter blobs, an extrosim circuit, and four instantinium.
 ]],
-        requires = { "Annihilator", "Charged Field","Obtain Extrosim"}
+        requires = { "Annihilator",  "Extrosim Circuit" }
     })
-core.register_alias("sbo_simp_charge_ext:simple_charge_extractor", "sbo_extractors:simp_charge_ext")

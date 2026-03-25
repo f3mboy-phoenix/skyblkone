@@ -6,6 +6,10 @@ local creative_is_enabled_for =
 	rawget(_G, "creative") and creative.is_enabled_for or function(name)
 	return minetest.settings:get_bool("creative_mode")
 end
+local closest = function() 
+
+end
+
 
 nuke.spawn_tnt = function(pos, entname)
 	assert(table.indexof(all_tnt, entname) ~= -1, "attempting to spawn non-tnt")
@@ -68,7 +72,7 @@ local function apply_tnt_physics(tntpos, tntradius)
 	end
 end
 
-
+nuke.protect = {}
 nuke.register_tnt = function(nodename, def)
 	def.explodetime = def.explodetime or 10 -- seconds
 	if type(def.tiles) ~= "table" then
@@ -83,9 +87,10 @@ nuke.register_tnt = function(nodename, def)
 		description = def.description,
 		mesecons = {
 			effector = {
-				action_on = function(pos, node)
+				on_punch = function(pos, node, puncher)
+					if core.is_protected(pos, puncher) then return end
 					minetest.remove_node(pos)
-					nuke.spawn_tnt(pos, node.name)
+					nuke.spawn_tnt(pos, node.name, puncher)
 					minetest.check_for_falling(pos)
 				end,
 				action_off = function(pos, node) end,
@@ -93,8 +98,9 @@ nuke.register_tnt = function(nodename, def)
 			},
 		},
 		on_punch = function(pos, node, puncher)
+			if core.is_protected(pos, puncher) then return end
 			minetest.remove_node(pos)
-			nuke.spawn_tnt(pos, node.name)
+			nuke.spawn_tnt(pos, node.name, puncher)
 			minetest.check_for_falling(pos)
 		end,
 	})
@@ -169,6 +175,7 @@ local function on_explode_normal(pos, range)
 			local nodepos = {x=pos.x+x, y=pos.y+y, z=pos.z+z}
 			local n = minetest.get_node(nodepos)
 			if n.name ~= "air" and n.name ~= "ignore" then
+				if core.is_protected(nodepos, '') then return end
 				activate_if_tnt(n.name, nodepos, pos, range)
 				minetest.remove_node(nodepos)
 			end
@@ -199,8 +206,8 @@ end
 nuke.register_tnt("sbo_explosives:extrosim_tnt", {
 	description = "Extrosim TNT",
 	tiles = "extrosim_tnt",
-	on_explode = function(pos)
-		on_explode_normal(pos, 6)
+	on_explode = function(pos, player)
+		on_explode_normal(pos, 6, player)
 	end,
 })
 
@@ -217,7 +224,7 @@ minetest.register_craft({
 nuke.register_tnt("sbo_explosives:extrosim_tntx", {
 	description = "Extreme Extrosim TNT",
 	tiles = {"extrosim_tnt_top.png", "extrosim_tnt_bottom.png", "extrosim_tnt_side_x.png"},
-	on_explode = function(pos)
+	on_explode = function(pos, player)
 		on_explode_split(pos, 3, "sbo_explosives:extrosim_tnt")
 	end,
 })
@@ -236,8 +243,8 @@ minetest.register_craft({
 nuke.register_tnt("sbo_explosives:uranium_tnt", {
 	description = "Uranium TNT",
 	tiles = "uranium_tnt",
-	on_explode = function(pos)
-	on_explode_normal(pos, 12)
+	on_explode = function(pos, player)
+		on_explode_normal(pos, 12, player)
 	end,
 })
 
@@ -273,8 +280,8 @@ minetest.register_craft({
 nuke.register_tnt("sbo_explosives:instantinium_tnt", {
 	description = "Instantinium TNT",
 	tiles = "instantinium_tnt",
-	on_explode = function(pos)
-		on_explode_normal(pos, 20)
+	on_explode = function(pos, player)
+		on_explode_normal(pos, 20, player)
 	end,
 })
 
@@ -291,7 +298,7 @@ minetest.register_craft({
 nuke.register_tnt("sbo_explosives:instantinium_tntx", {
 	description = "Extreme Instantinium TNT",
 	tiles = {"instantinium_tnt_top.png", "instantinium_tnt_bottom.png", "instantinium_tnt_side_x.png"},
-	on_explode = function(pos)
+	on_explode = function(pos, player)
 		on_explode_split(pos, 4, "sbo_explosives:instantinium_tnt")
 	end,
 })

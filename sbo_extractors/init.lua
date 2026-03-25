@@ -12,4 +12,5 @@ dofile(modpath .. "/field.lua")
 dofile(modpath .. "/pebble.lua")
 dofile(modpath .. "/metal.lua")
 dofile(modpath .. "/simp_charge.lua")
+dofile(modpath .. "/simp_inst.lua")
 

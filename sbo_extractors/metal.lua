@@ -12,15 +12,15 @@ core.register_craftitem("sbo_extractors:n64_processor", {
 minetest.register_craft({
     type = "shapeless",
     output = "sbo_extractors:n64_processor",
-    recipe = { "sbz_resources:mosfet", "sbz_resources:nuclear_crafting_processor", "sbo_nexus:creox_fab_cube" }
+    recipe = { "sbz_resources:instant_crafting_processor", "sbo_nexus:creox_fab_cube" }
 })
 
 local processor_stats_map = {
     ["sbz_resources:simple_crafting_processor"] = { crafts = 1, power = 10 },
-    ["sbz_resources:quick_crafting_processor"] = { crafts = 2, power = 25 },
-    ["sbz_resources:fast_crafting_processor"] = { crafts = 4, power = 50 },
-    ["sbz_resources:accelerated_silicon_crafting_processor"] = { crafts = 8, power = 100 },
-    ["sbz_resources:nuclear_crafting_processor"] = { crafts = 16, power = 175 },
+    ["sbz_resources:fast_crafting_processor"] = { crafts = 2, power = 50 },
+    ["sbz_resources:very_fast_crafting_processor"] = { crafts = 4, power = 100 },
+    ["sbz_resources:extremely_fast_crafting_processor"] = { crafts = 8, power = 100 },
+    ["sbz_resources:instant_crafting_processor"] = { crafts = 16, power = 175 },
 	["sbo_extractors:n64_processor"] = {crafts = 64 }
 }
 for def, _ in pairs(core.registered_items) do

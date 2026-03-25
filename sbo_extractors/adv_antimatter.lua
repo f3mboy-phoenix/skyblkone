@@ -49,7 +49,7 @@ sbz_api.register_machine("sbo_extractors:adv_anti_ext", {
         end
     end,
     action_interval = 5,
-    power_needed = 15,
+    power_needed = 10,
     output_inv = "main",
 })
 
