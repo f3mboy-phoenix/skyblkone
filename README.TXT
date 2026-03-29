@@ -4,3 +4,5 @@ EVEN LATER EDIT 😆:
 
 no_particles shouldn't be enabled by default
 sbo_tree_rot should NOT be either
+
+Migrated to codeberg https://codeberg.org/F3mboyPhoenix/skyblkone.git
